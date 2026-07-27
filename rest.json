@@ -1,0 +1,225 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-23T21:28:18Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 2377236861,
+  "lat": 37.4745740,
+  "lon": -81.0675270,
+  "tags": {
+    "highway": "rest_area"
+  }
+},
+{
+  "type": "node",
+  "id": 9868485917,
+  "lat": 38.0685580,
+  "lon": -81.3813061,
+  "tags": {
+    "highway": "rest_area"
+  }
+},
+{
+  "type": "way",
+  "id": 220728676,
+  "center": {
+    "lat": 38.7572531,
+    "lon": -81.6898164
+  },
+  "tags": {
+    "area": "yes",
+    "branch": "Ripley",
+    "brand": "Love's",
+    "brand:wikidata": "Q1872496",
+    "hgv": "yes",
+    "highway": "services",
+    "name": "Love's Travel Stop",
+    "phone": "+1 304-372-5250",
+    "ref": "378",
+    "website": "https://www.loves.com/locations/wv/ripley/loves-travel-stop-ripley-378"
+  }
+},
+{
+  "type": "way",
+  "id": 220733376,
+  "center": {
+    "lat": 38.4438325,
+    "lon": -81.8305567
+  },
+  "tags": {
+    "branch": "Nitro",
+    "brand": "Pilot",
+    "brand:wikidata": "Q64128179",
+    "check_date": "2024-08-02",
+    "email": "TravelCenter.243@pilottravelcenters.com",
+    "fax": "+1 304-755-8655",
+    "hgv": "yes",
+    "highway": "services",
+    "name": "Pilot Travel Center",
+    "phone": "+1 304-755-8654",
+    "ref": "243",
+    "website": "https://locations.pilotflyingj.com/us/wv/nitro/4304-1st-ave"
+  }
+},
+{
+  "type": "way",
+  "id": 232087850,
+  "center": {
+    "lat": 37.4842067,
+    "lon": -81.0787316
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area"
+  }
+},
+{
+  "type": "way",
+  "id": 232087852,
+  "center": {
+    "lat": 37.4747821,
+    "lon": -81.0676634
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area"
+  }
+},
+{
+  "type": "way",
+  "id": 256931129,
+  "center": {
+    "lat": 37.2060585,
+    "lon": -81.1035897
+  },
+  "tags": {
+    "highway": "rest_area"
+  }
+},
+{
+  "type": "way",
+  "id": 400861586,
+  "center": {
+    "lat": 39.3900179,
+    "lon": -81.4430618
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "name": "West Virginia Welcome Center",
+    "operator": "West Virginia"
+  }
+},
+{
+  "type": "way",
+  "id": 475605925,
+  "center": {
+    "lat": 38.6202821,
+    "lon": -80.9002251
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "name": "Frametown Rest Area"
+  }
+},
+{
+  "type": "way",
+  "id": 475605926,
+  "center": {
+    "lat": 38.6191652,
+    "lon": -80.8992997
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "name": "Frametown Rest Area"
+  }
+},
+{
+  "type": "way",
+  "id": 499469462,
+  "center": {
+    "lat": 39.4516312,
+    "lon": -81.4381889
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "name": "Washington Interstate 77 NB"
+  }
+},
+{
+  "type": "way",
+  "id": 501152195,
+  "center": {
+    "lat": 39.1309435,
+    "lon": -81.5471564
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "name": "Mineral Wells Rest Area Northbound"
+  }
+},
+{
+  "type": "way",
+  "id": 501155893,
+  "center": {
+    "lat": 39.1322739,
+    "lon": -81.5489642
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "name": "Mineral Wells Rest Area Southbound"
+  }
+},
+{
+  "type": "way",
+  "id": 661054615,
+  "center": {
+    "lat": 39.2099254,
+    "lon": -81.0468402
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "services"
+  }
+},
+{
+  "type": "way",
+  "id": 1182738212,
+  "center": {
+    "lat": 39.2351588,
+    "lon": -81.7627868
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "rest_area",
+    "toilets": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1444608891,
+  "center": {
+    "lat": 38.4097995,
+    "lon": -81.4819050
+  },
+  "tags": {
+    "area": "yes",
+    "highway": "services",
+    "name": "Pinch Service Center",
+    "opening_hours": "Mo-Fr 08:30-17:00"
+  }
+}
+
+  ]
+}

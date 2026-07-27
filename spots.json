@@ -1,0 +1,956 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-23T21:33:16Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1524265268,
+  "lat": 38.3190876,
+  "lon": -81.5780805,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven"
+  }
+},
+{
+  "type": "node",
+  "id": 1524265275,
+  "lat": 38.3195043,
+  "lon": -81.5777854,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "fuel:diesel": "yes",
+    "fuel:octane_87": "yes",
+    "fuel:octane_89": "yes",
+    "fuel:octane_91": "yes",
+    "name": "Exxon",
+    "opening_hours": "Mo-Sa 06:00-23:00",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 3419956985,
+  "lat": 37.7733773,
+  "lon": -81.1613213,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 3431090475,
+  "lat": 38.3605803,
+  "lon": -81.6271079,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "node",
+  "id": 3975070139,
+  "lat": 39.2486330,
+  "lon": -81.5543796,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "name": "Kroger",
+    "website": "https://www.kroger.com/stores/grocery/wv/parkersburg/division/029/00753"
+  }
+},
+{
+  "type": "node",
+  "id": 3975113031,
+  "lat": 39.2554755,
+  "lon": -81.5535698,
+  "tags": {
+    "addr:city": "Parkersburg",
+    "addr:housenumber": "417",
+    "addr:postcode": "26101",
+    "addr:state": "WV",
+    "addr:street": "Division Street",
+    "amenity": "fuel",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "name": "Speedway",
+    "ref": "9381"
+  }
+},
+{
+  "type": "node",
+  "id": 3985237644,
+  "lat": 39.2665848,
+  "lon": -81.5347372,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "node",
+  "id": 3985241380,
+  "lat": 39.2642738,
+  "lon": -81.5385001,
+  "tags": {
+    "addr:city": "Parkersburg",
+    "addr:housenumber": "1400",
+    "addr:postcode": "26101",
+    "addr:state": "WV",
+    "addr:street": "7th Street",
+    "amenity": "fuel",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "name": "Speedway",
+    "ref": "9253",
+    "website": "https://www.speedway.com/locations/WV/Parkersburg/1400-7th-Street"
+  }
+},
+{
+  "type": "node",
+  "id": 4008430999,
+  "lat": 38.3665543,
+  "lon": -81.5813623,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "node",
+  "id": 5402435126,
+  "lat": 37.3593154,
+  "lon": -81.1129533,
+  "tags": {
+    "description": "Main trailhead to the Princeton City Park Walking Trails. The Yellow Trail starts here.",
+    "information": "route_marker",
+    "material": "wood",
+    "name": "Princeton City Walking Trails - Main Trailhead",
+    "operator": "City of Princeton",
+    "tourism": "information"
+  }
+},
+{
+  "type": "node",
+  "id": 5402435171,
+  "lat": 37.3598186,
+  "lon": -81.1158474,
+  "tags": {
+    "description": "Trail marker at the junction of the Green Trail, Yellow Trail, and Purple Trail in Princeton City Park.",
+    "information": "route_marker",
+    "material": "plastic",
+    "name": "Green Trail - Yellow Trail - Purple Trail Junction",
+    "operator": "City of Princeton",
+    "tourism": "information"
+  }
+},
+{
+  "type": "node",
+  "id": 5402435307,
+  "lat": 37.3590718,
+  "lon": -81.1155104,
+  "tags": {
+    "description": "Trail marker at the junction between the Green Trail and Orange Trail in Princeton City Park.",
+    "information": "route_marker",
+    "material": "wood",
+    "name": "Green Trail - Orange Trail Junction",
+    "operator": "City of Princeton",
+    "tourism": "information"
+  }
+},
+{
+  "type": "node",
+  "id": 5402435393,
+  "lat": 37.3610938,
+  "lon": -81.1139738,
+  "tags": {
+    "colour": "red",
+    "description": "Trail marker at the junction between the Red Trail and the Blue Trail in Princeton City Park.",
+    "information": "route_marker",
+    "material": "wood",
+    "name": "Red Trail - Blue Trail Junction",
+    "operator": "City of Princeton",
+    "tourism": "information"
+  }
+},
+{
+  "type": "node",
+  "id": 5690905085,
+  "lat": 38.3465909,
+  "lon": -81.6046509,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 6008132174,
+  "lat": 37.7848667,
+  "lon": -81.1707730,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "name": "Exxon"
+  }
+},
+{
+  "type": "node",
+  "id": 7139986369,
+  "lat": 38.3187218,
+  "lon": -81.5763827,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 7139986372,
+  "lat": 38.3271035,
+  "lon": -81.5921305,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 8185926104,
+  "lat": 37.7803780,
+  "lon": -81.1668286,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 9244923663,
+  "lat": 38.7617964,
+  "lon": -81.6925954,
+  "tags": {
+    "addr:city": "Ripley",
+    "addr:housenumber": "3451",
+    "addr:postcode": "25271",
+    "addr:state": "WV",
+    "addr:street": "Charleston Road",
+    "amenity": "fuel",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "name": "Speedway",
+    "ref": "9561"
+  }
+},
+{
+  "type": "node",
+  "id": 9977835019,
+  "lat": 37.3609014,
+  "lon": -81.1164455,
+  "tags": {
+    "colour": "purple",
+    "description": "Trailhead to the Purple Trail in Princeton City Park. The Red Trail also starts just across the road but has no dedicated marker.",
+    "information": "route_marker",
+    "material": "wood",
+    "name": "Purple Trail and Red Trail Junction",
+    "operator": "City of Princeton",
+    "tourism": "information"
+  }
+},
+{
+  "type": "node",
+  "id": 11398807257,
+  "lat": 37.7562284,
+  "lon": -81.2163207,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 11398825881,
+  "lat": 37.7752606,
+  "lon": -81.1949264,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "name": "Sheetz"
+  }
+},
+{
+  "type": "node",
+  "id": 11398825883,
+  "lat": 37.7820871,
+  "lon": -81.1906879,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 12851727640,
+  "lat": 37.7915240,
+  "lon": -81.2156379,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "check_date": "2025-05-20",
+    "name": "Exxon"
+  }
+},
+{
+  "type": "node",
+  "id": 13915044423,
+  "lat": 37.4992477,
+  "lon": -81.1016876,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "way",
+  "id": 220728675,
+  "center": {
+    "lat": 38.7580139,
+    "lon": -81.6905924
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "yes",
+    "hgv": "no"
+  }
+},
+{
+  "type": "way",
+  "id": 220728677,
+  "center": {
+    "lat": 38.7574868,
+    "lon": -81.6898421
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "hgv": "yes",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 293729467,
+  "center": {
+    "lat": 37.7949245,
+    "lon": -81.2171872
+  },
+  "tags": {
+    "addr:city": "Beckley",
+    "addr:housenumber": "2044",
+    "addr:postcode": "25801",
+    "addr:state": "WV",
+    "addr:street": "Harper Road",
+    "amenity": "fuel",
+    "brand": "Marathon",
+    "brand:wikidata": "Q458363",
+    "building": "yes",
+    "check_date": "2025-05-20",
+    "name": "Marathon"
+  }
+},
+{
+  "type": "way",
+  "id": 293729468,
+  "center": {
+    "lat": 37.7963454,
+    "lon": -81.2185755
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "roof",
+    "check_date": "2025-05-20",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 323064140,
+  "center": {
+    "lat": 37.7967341,
+    "lon": -81.2181288
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof"
+  }
+},
+{
+  "type": "way",
+  "id": 334104501,
+  "center": {
+    "lat": 38.3396532,
+    "lon": -81.6146350
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "building": "roof",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 334104504,
+  "center": {
+    "lat": 38.3391484,
+    "lon": -81.6145317
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "building": "yes",
+    "name": "Exxon",
+    "operator": "Exxon"
+  }
+},
+{
+  "type": "way",
+  "id": 334779402,
+  "center": {
+    "lat": 38.3603720,
+    "lon": -81.6394572
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "yes",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 334787116,
+  "center": {
+    "lat": 38.3600703,
+    "lon": -81.6424655
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "building": "yes",
+    "name": "Exxon"
+  }
+},
+{
+  "type": "way",
+  "id": 334787121,
+  "center": {
+    "lat": 38.3581982,
+    "lon": -81.6443118
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "building": "yes",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 334787127,
+  "center": {
+    "lat": 38.3669866,
+    "lon": -81.6512683
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "yes",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 335776778,
+  "center": {
+    "lat": 38.3435071,
+    "lon": -81.6229866
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "yes",
+    "name": "Shop & Go"
+  }
+},
+{
+  "type": "way",
+  "id": 336022973,
+  "center": {
+    "lat": 38.3619520,
+    "lon": -81.6193253
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "yes",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 336022997,
+  "center": {
+    "lat": 38.3595488,
+    "lon": -81.6270768
+  },
+  "tags": {
+    "addr:city": "Charleston",
+    "addr:housenumber": "10",
+    "addr:postcode": "25302",
+    "addr:state": "WV",
+    "addr:street": "Spring Street",
+    "amenity": "fuel",
+    "brand": "Sunoco",
+    "brand:wikidata": "Q1423218",
+    "building": "roof",
+    "check_date": "2024-09-27",
+    "name": "Sunoco",
+    "phone": "+1 304-344-0316",
+    "website": "https://www.sunoco.com/locations/store/10-spring-st-charleston-wv-0277984100"
+  }
+},
+{
+  "type": "way",
+  "id": 343578636,
+  "center": {
+    "lat": 37.7725444,
+    "lon": -81.1949272
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof"
+  }
+},
+{
+  "type": "way",
+  "id": 343578767,
+  "center": {
+    "lat": 37.7759894,
+    "lon": -81.1949296
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof"
+  }
+},
+{
+  "type": "way",
+  "id": 343974455,
+  "center": {
+    "lat": 37.8041283,
+    "lon": -81.1794183
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Sam's Club",
+    "brand:wikidata": "Q1972120",
+    "building": "roof",
+    "name": "Sam's Club",
+    "opening_hours": "Mo 06:00-18:00; Tu-Sa 06:00-22:00; Su 06:00-20:00",
+    "phone": "+1 304-252-6508",
+    "website": "https://www.samsclub.com/local/fuel-center/beckley-wv-sams-club/4860"
+  }
+},
+{
+  "type": "way",
+  "id": 343974490,
+  "center": {
+    "lat": 37.8021389,
+    "lon": -81.1830820
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "building": "roof",
+    "name": "Kroger",
+    "website": "https://www.kroger.com/stores/grocery/wv/beckley/beckley-crossing/029/00790"
+  }
+},
+{
+  "type": "way",
+  "id": 343974523,
+  "center": {
+    "lat": 37.8111936,
+    "lon": -81.1860460
+  },
+  "tags": {
+    "addr:city": "Beckley",
+    "addr:housenumber": "4223",
+    "addr:postcode": "25801",
+    "addr:state": "WV",
+    "addr:street": "Robert C Byrd Drive",
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "building": "roof",
+    "fuel:Midgrade": "yes",
+    "fuel:Premium": "yes",
+    "fuel:Regular": "yes",
+    "fuel:diesel": "yes",
+    "name": "Exxon",
+    "website": "https://www.exxon.com/en/find-station/EXXON-BECKLEY-WV-LG2480NELLJEAN-200313723"
+  }
+},
+{
+  "type": "way",
+  "id": 399339852,
+  "center": {
+    "lat": 39.2549846,
+    "lon": -81.5554637
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 399339867,
+  "center": {
+    "lat": 39.2515197,
+    "lon": -81.5546408
+  },
+  "tags": {
+    "addr:city": "Parkersburg",
+    "addr:housenumber": "720",
+    "addr:postcode": "26101",
+    "addr:state": "WV",
+    "addr:street": "Division Street",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "name": "Shell"
+  }
+},
+{
+  "type": "way",
+  "id": 399339874,
+  "center": {
+    "lat": 39.2472207,
+    "lon": -81.5599867
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Certified",
+    "brand:wikidata": "Q100148356",
+    "name": "Certified",
+    "official_name": "Certified Oil"
+  }
+},
+{
+  "type": "way",
+  "id": 477803565,
+  "center": {
+    "lat": 37.7890509,
+    "lon": -81.2036395
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "building": "yes",
+    "name": "Kroger",
+    "website": "https://www.kroger.com/stores/grocery/wv/beckley/harper-road/029/00805"
+  }
+},
+{
+  "type": "way",
+  "id": 477803602,
+  "center": {
+    "lat": 37.7919326,
+    "lon": -81.2145869
+  },
+  "tags": {
+    "addr:city": "Beckley",
+    "addr:housenumber": "2004",
+    "addr:postcode": "25801",
+    "addr:state": "WV",
+    "addr:street": "Harper Road",
+    "amenity": "fuel",
+    "brand": "Marathon",
+    "brand:wikidata": "Q458363",
+    "building": "roof",
+    "check_date": "2026-06-17",
+    "fuel:octane_87": "yes",
+    "fuel:octane_89": "yes",
+    "fuel:octane_93": "yes",
+    "layer": "1",
+    "name": "Marathon",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 571135619,
+  "center": {
+    "lat": 37.3629974,
+    "lon": -81.0453056
+  },
+  "tags": {
+    "addr:city": "Princeton",
+    "addr:housenumber": "186",
+    "addr:postcode": "24739",
+    "addr:state": "WV",
+    "addr:street": "Greasy Ridge Road",
+    "building": "yes",
+    "check_date": "2025-02-09",
+    "information": "office",
+    "name": "West Virginia Tourist Information Center",
+    "opening_hours": "06:00-18:00",
+    "payment:cash": "yes",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "tourism": "information",
+    "website": "https://wvtourism.com/welcome-centers/",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 583508928,
+  "center": {
+    "lat": 37.8024915,
+    "lon": -81.2137975
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "building": "commercial",
+    "name": "Exxon"
+  }
+},
+{
+  "type": "way",
+  "id": 829468245,
+  "center": {
+    "lat": 39.2687631,
+    "lon": -81.5219398
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "name": "Kroger",
+    "website": "https://www.kroger.com/stores/grocery/wv/parkersburg/7th-street/029/00752"
+  }
+},
+{
+  "type": "way",
+  "id": 829869506,
+  "center": {
+    "lat": 39.2666528,
+    "lon": -81.5633352
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "building": "roof",
+    "name": "Sheetz"
+  }
+},
+{
+  "type": "way",
+  "id": 833806108,
+  "center": {
+    "lat": 39.2630953,
+    "lon": -81.5443405
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "building": "roof",
+    "name": "Sheetz"
+  }
+},
+{
+  "type": "way",
+  "id": 924532943,
+  "center": {
+    "lat": 38.3589831,
+    "lon": -81.6271100
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "fuel:cng": "yes",
+    "fuel:diesel": "no",
+    "layer": "1",
+    "name": "IGS CNG Services"
+  }
+},
+{
+  "type": "way",
+  "id": 968937173,
+  "center": {
+    "lat": 38.7608434,
+    "lon": -81.6936898
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 968937174,
+  "center": {
+    "lat": 38.7609817,
+    "lon": -81.6943146
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 1021289350,
+  "center": {
+    "lat": 38.3593670,
+    "lon": -81.6419620
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "yes",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1053725813,
+  "center": {
+    "lat": 38.3679613,
+    "lon": -81.6534248
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "building": "roof",
+    "layer": "1",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 1250117746,
+  "center": {
+    "lat": 37.7533230,
+    "lon": -81.2182206
+  },
+  "tags": {
+    "addr:city": "Beckley",
+    "addr:housenumber": "1886",
+    "addr:postcode": "25801",
+    "addr:state": "WV",
+    "addr:street": "Robert C Byrd Drive",
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "fuel:Regular": "yes",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 1339368670,
+  "center": {
+    "lat": 38.3139767,
+    "lon": -81.5693465
+  },
+  "tags": {
+    "addr:city": "Charleston",
+    "addr:housenumber": "5623",
+    "addr:postcode": "25304",
+    "addr:state": "WV",
+    "addr:street": "MacCorkle Avenue Southeast",
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "fuel:diesel": "yes",
+    "fuel:octane_87": "yes",
+    "fuel:octane_89": "yes",
+    "fuel:octane_91": "yes",
+    "mobile": "+16812651277",
+    "name": "Sheetz",
+    "opening_hours": "24/7",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:nfc": "yes",
+    "payment:nfc_mobile_payments": "yes",
+    "payment:snap_ebt": "yes",
+    "self_service": "yes",
+    "website": "https://orders.sheetz.com/#/main/location/store/847",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1411342579,
+  "center": {
+    "lat": 37.8043704,
+    "lon": -81.1825739
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "name": "Sheetz",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1504685000,
+  "center": {
+    "lat": 39.2622073,
+    "lon": -81.5394840
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "layer": "1"
+  }
+}
+
+  ]
+}

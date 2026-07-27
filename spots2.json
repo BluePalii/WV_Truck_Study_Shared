@@ -1,0 +1,285 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-23T21:34:13Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1524265268,
+  "lat": 38.3190876,
+  "lon": -81.5780805,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven"
+  }
+},
+{
+  "type": "node",
+  "id": 1524265275,
+  "lat": 38.3195043,
+  "lon": -81.5777854,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "fuel:diesel": "yes",
+    "fuel:octane_87": "yes",
+    "fuel:octane_89": "yes",
+    "fuel:octane_91": "yes",
+    "name": "Exxon",
+    "opening_hours": "Mo-Sa 06:00-23:00",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "node",
+  "id": 2404154467,
+  "lat": 38.3119932,
+  "lon": -81.5656995,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "name": "Kroger",
+    "website": "https://www.kroger.com/stores/grocery/wv/charleston/kanawha-city/029/00772"
+  }
+},
+{
+  "type": "node",
+  "id": 3823590400,
+  "lat": 38.3055461,
+  "lon": -81.5637870,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Marathon",
+    "brand:wikidata": "Q458363",
+    "name": "Marathon"
+  }
+},
+{
+  "type": "node",
+  "id": 7139986369,
+  "lat": 38.3187218,
+  "lon": -81.5763827,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 12068637312,
+  "lat": 37.7685272,
+  "lon": -81.0702835,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "name": "Exxon"
+  }
+},
+{
+  "type": "way",
+  "id": 220728676,
+  "center": {
+    "lat": 38.7572531,
+    "lon": -81.6898164
+  },
+  "tags": {
+    "area": "yes",
+    "branch": "Ripley",
+    "brand": "Love's",
+    "brand:wikidata": "Q1872496",
+    "hgv": "yes",
+    "highway": "services",
+    "name": "Love's Travel Stop",
+    "phone": "+1 304-372-5250",
+    "ref": "378",
+    "website": "https://www.loves.com/locations/wv/ripley/loves-travel-stop-ripley-378"
+  }
+},
+{
+  "type": "way",
+  "id": 227343628,
+  "center": {
+    "lat": 38.3059168,
+    "lon": -81.5628850
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "roof",
+    "layer": "1",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 292409200,
+  "center": {
+    "lat": 37.3791572,
+    "lon": -81.1976021
+  },
+  "tags": {
+    "intermittent": "no",
+    "name": "Bluestone River",
+    "waterway": "river"
+  }
+},
+{
+  "type": "way",
+  "id": 321862289,
+  "center": {
+    "lat": 37.7718029,
+    "lon": -81.1214709
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "building": "roof",
+    "name": "Shell"
+  }
+},
+{
+  "type": "way",
+  "id": 502226072,
+  "center": {
+    "lat": 38.3133698,
+    "lon": -81.5362013
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 824573135,
+  "center": {
+    "lat": 37.5465481,
+    "lon": -80.9873623
+  },
+  "tags": {
+    "intermittent": "no",
+    "name": "Bluestone River",
+    "waterway": "river"
+  }
+},
+{
+  "type": "way",
+  "id": 1120942728,
+  "center": {
+    "lat": 38.1432538,
+    "lon": -81.2820931
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "yes",
+    "fuel:diesel": "yes",
+    "fuel:octane_87": "yes",
+    "fuel:octane_89": "yes",
+    "name": "Go Mart",
+    "opening_hours": "24/7",
+    "self_service": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1339368670,
+  "center": {
+    "lat": 38.3139767,
+    "lon": -81.5693465
+  },
+  "tags": {
+    "addr:city": "Charleston",
+    "addr:housenumber": "5623",
+    "addr:postcode": "25304",
+    "addr:state": "WV",
+    "addr:street": "MacCorkle Avenue Southeast",
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "fuel:diesel": "yes",
+    "fuel:octane_87": "yes",
+    "fuel:octane_89": "yes",
+    "fuel:octane_91": "yes",
+    "mobile": "+16812651277",
+    "name": "Sheetz",
+    "opening_hours": "24/7",
+    "payment:credit_cards": "yes",
+    "payment:debit_cards": "yes",
+    "payment:nfc": "yes",
+    "payment:nfc_mobile_payments": "yes",
+    "payment:snap_ebt": "yes",
+    "self_service": "yes",
+    "website": "https://orders.sheetz.com/#/main/location/store/847",
+    "wheelchair": "yes"
+  }
+},
+{
+  "type": "way",
+  "id": 1525339467,
+  "center": {
+    "lat": 37.7701640,
+    "lon": -81.0685389
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "brand:wikidata": "Q109675651",
+    "building": "roof",
+    "layer": "1",
+    "name": "Exxon"
+  }
+},
+{
+  "type": "relation",
+  "id": 14382576,
+  "center": {
+    "lat": 37.5608415,
+    "lon": -80.9841353
+  },
+  "tags": {
+    "boundary": "protected_area",
+    "name": "Bluestone National Scenic River",
+    "operator": "National Park Service",
+    "operator:short": "NPS",
+    "operator:type": "public",
+    "operator:wikidata": "Q308439",
+    "ownership": "national",
+    "protect_class": "5",
+    "protected": "perpetuity",
+    "protection_title": "National Wild and Scenic River",
+    "type": "boundary",
+    "wikidata": "Q4930582",
+    "wikipedia": "en:Bluestone National Scenic River"
+  }
+},
+{
+  "type": "relation",
+  "id": 18657625,
+  "center": {
+    "lat": 37.4453135,
+    "lon": -81.1234810
+  },
+  "tags": {
+    "name": "Bluestone River",
+    "type": "waterway",
+    "waterway": "river",
+    "wikidata": "Q886078",
+    "wikipedia": "en:Bluestone River"
+  }
+}
+
+  ]
+}

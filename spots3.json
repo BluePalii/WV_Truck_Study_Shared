@@ -1,0 +1,494 @@
+{
+  "version": 0.6,
+  "generator": "Overpass API 0.7.62.11 87bfad18",
+  "osm3s": {
+    "timestamp_osm_base": "2026-07-23T21:39:21Z",
+    "copyright": "The data included in this document is from www.openstreetmap.org. The data is made available under ODbL."
+  },
+  "elements": [
+
+{
+  "type": "node",
+  "id": 1697732439,
+  "lat": 39.1782709,
+  "lon": -81.5129101,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "7-Eleven",
+    "brand:wikidata": "Q259340",
+    "name": "7-Eleven",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "node",
+  "id": 3942995808,
+  "lat": 38.8203730,
+  "lon": -81.7253752,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP",
+    "operator": "BP"
+  }
+},
+{
+  "type": "node",
+  "id": 3975060993,
+  "lat": 39.2330308,
+  "lon": -81.5414240,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "node",
+  "id": 3975068643,
+  "lat": 39.2322541,
+  "lon": -81.5484954,
+  "tags": {
+    "addr:city": "Parkersburg",
+    "addr:housenumber": "2364",
+    "addr:postcode": "26101",
+    "addr:state": "WV",
+    "addr:street": "Gihon Road",
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "compressed_air": "no",
+    "name": "Shell"
+  }
+},
+{
+  "type": "node",
+  "id": 3975120958,
+  "lat": 39.2187459,
+  "lon": -81.5465043,
+  "tags": {
+    "addr:city": "Parkersburg",
+    "addr:housenumber": "2850",
+    "addr:postcode": "26101",
+    "addr:state": "WV",
+    "addr:street": "Pike Street",
+    "amenity": "fuel",
+    "name": "GoMart",
+    "ref": "122"
+  }
+},
+{
+  "type": "node",
+  "id": 3980729715,
+  "lat": 39.2363241,
+  "lon": -81.5283045,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 3980741498,
+  "lat": 39.2273033,
+  "lon": -81.5186970,
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "node",
+  "id": 5808305346,
+  "lat": 38.8217341,
+  "lon": -81.7241057,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Sheetz",
+    "brand:wikidata": "Q7492551",
+    "name": "Sheetz"
+  }
+},
+{
+  "type": "node",
+  "id": 9244862785,
+  "lat": 39.2180632,
+  "lon": -81.5454434,
+  "tags": {
+    "addr:city": "Parkersburg",
+    "addr:housenumber": "2893",
+    "addr:postcode": "26101",
+    "addr:state": "WV",
+    "addr:street": "Pike Street",
+    "amenity": "fuel",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "name": "Speedway",
+    "ref": "3311",
+    "website": "https://www.speedway.com/locations/WV/Parkersburg/2893-Pike-Street"
+  }
+},
+{
+  "type": "node",
+  "id": 9868485917,
+  "lat": 38.0685580,
+  "lon": -81.3813061,
+  "tags": {
+    "highway": "rest_area"
+  }
+},
+{
+  "type": "node",
+  "id": 10839967966,
+  "lat": 39.3973952,
+  "lon": -81.4486288,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Clark",
+    "brand:wikidata": "Q5127157",
+    "name": "Clark"
+  }
+},
+{
+  "type": "node",
+  "id": 12118176949,
+  "lat": 39.4044881,
+  "lon": -81.4517655,
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 107137975,
+  "center": {
+    "lat": 39.4106089,
+    "lon": -81.4315585
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Marathon",
+    "brand:wikidata": "Q458363",
+    "building": "roof",
+    "name": "Marathon"
+  }
+},
+{
+  "type": "way",
+  "id": 317315353,
+  "center": {
+    "lat": 39.3891561,
+    "lon": -81.4408579
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "way",
+  "id": 391127487,
+  "center": {
+    "lat": 38.8219482,
+    "lon": -81.7287656
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Exxon",
+    "building": "roof",
+    "layer": "1"
+  }
+},
+{
+  "type": "way",
+  "id": 391127514,
+  "center": {
+    "lat": 38.8205243,
+    "lon": -81.7220329
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "building": "roof",
+    "building:levels": "1",
+    "layer": "1",
+    "name": "Kroger"
+  }
+},
+{
+  "type": "way",
+  "id": 391127551,
+  "center": {
+    "lat": 38.8215565,
+    "lon": -81.7245698
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Marathon",
+    "brand:wikidata": "Q458363",
+    "building": "roof",
+    "building:levels": "1",
+    "layer": "1",
+    "name": "Marathon"
+  }
+},
+{
+  "type": "way",
+  "id": 398617978,
+  "center": {
+    "lat": 39.2335228,
+    "lon": -81.5413935
+  },
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "way",
+  "id": 398617979,
+  "center": {
+    "lat": 39.2328284,
+    "lon": -81.5420196
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Marathon",
+    "brand:wikidata": "Q458363",
+    "name": "Marathon"
+  }
+},
+{
+  "type": "way",
+  "id": 398617980,
+  "center": {
+    "lat": 39.2329033,
+    "lon": -81.5411900
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 399099597,
+  "center": {
+    "lat": 39.1879158,
+    "lon": -81.5270668
+  },
+  "tags": {
+    "amenity": "fuel",
+    "name": "Pifers"
+  }
+},
+{
+  "type": "way",
+  "id": 399751643,
+  "center": {
+    "lat": 39.2320388,
+    "lon": -81.5484992
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Shell",
+    "brand:wikidata": "Q110716465",
+    "compressed_air": "no",
+    "name": "Shell",
+    "opening_hours": "24/7"
+  }
+},
+{
+  "type": "way",
+  "id": 772241044,
+  "center": {
+    "lat": 39.4158589,
+    "lon": -81.4441316
+  },
+  "tags": {
+    "addr:city": "Marietta",
+    "addr:housenumber": "100",
+    "addr:postcode": "45750",
+    "addr:state": "OH",
+    "addr:street": "North 7th Street",
+    "amenity": "fuel",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "building": "roof",
+    "name": "Speedway",
+    "ref": "9236",
+    "website": "https://www.speedway.com/locations/OH/Marietta/100-North-7th-Street"
+  }
+},
+{
+  "type": "way",
+  "id": 772241062,
+  "center": {
+    "lat": 39.4144078,
+    "lon": -81.4412978
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP"
+  }
+},
+{
+  "type": "way",
+  "id": 772544864,
+  "center": {
+    "lat": 39.4187962,
+    "lon": -81.4586561
+  },
+  "tags": {
+    "addr:city": "Marietta",
+    "addr:housenumber": "433",
+    "addr:postcode": "45750",
+    "addr:state": "OH",
+    "addr:street": "2nd Street",
+    "amenity": "fuel",
+    "brand": "Speedway",
+    "brand:wikidata": "Q7575683",
+    "building": "roof",
+    "compressed_air": "yes",
+    "name": "Speedway",
+    "ref": "9237",
+    "website": "https://www.speedway.com/locations/OH/Marietta/433-2nd-Street"
+  }
+},
+{
+  "type": "way",
+  "id": 772544895,
+  "center": {
+    "lat": 39.4116448,
+    "lon": -81.4349474
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GetGo",
+    "brand:wikidata": "Q5553766",
+    "name": "GetGo"
+  }
+},
+{
+  "type": "way",
+  "id": 772544903,
+  "center": {
+    "lat": 39.4110574,
+    "lon": -81.4290340
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Kroger",
+    "brand:wikidata": "Q153417",
+    "building": "roof",
+    "name": "Kroger",
+    "website": "https://www.kroger.com/stores/grocery/oh/marietta/marietta/029/00776"
+  }
+},
+{
+  "type": "way",
+  "id": 772544913,
+  "center": {
+    "lat": 39.4054070,
+    "lon": -81.4160150
+  },
+  "tags": {
+    "addr:city": "Marietta",
+    "addr:housenumber": "820",
+    "addr:postcode": "45750",
+    "addr:state": "OH",
+    "addr:street": "Pike Street",
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "yes",
+    "compressed_air": "yes",
+    "name": "Go-Mart",
+    "opening_hours": "24/7",
+    "phone": "+1740-374-9344",
+    "website": "https://gomart.com/company/gomart-58/"
+  }
+},
+{
+  "type": "way",
+  "id": 904775148,
+  "center": {
+    "lat": 39.4118065,
+    "lon": -81.4349623
+  },
+  "tags": {
+    "amenity": "fuel"
+  }
+},
+{
+  "type": "way",
+  "id": 919605704,
+  "center": {
+    "lat": 39.4167097,
+    "lon": -81.4688704
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "BP",
+    "brand:wikidata": "Q152057",
+    "name": "BP",
+    "self_service": "yes",
+    "source": "microsoft/BuildingFootprints"
+  }
+},
+{
+  "type": "way",
+  "id": 1322978557,
+  "center": {
+    "lat": 39.2169960,
+    "lon": -81.5471713
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "Walmart",
+    "brand:wikidata": "Q62606411",
+    "name": "Walmart",
+    "website": "https://www.walmart.com/store/2823/parkersburg-wv"
+  }
+},
+{
+  "type": "way",
+  "id": 1506067552,
+  "center": {
+    "lat": 39.2207108,
+    "lon": -81.5051061
+  },
+  "tags": {
+    "amenity": "fuel",
+    "brand": "GoMart",
+    "brand:wikidata": "Q5574575",
+    "building": "roof",
+    "layer": "1",
+    "name": "GoMart"
+  }
+},
+{
+  "type": "relation",
+  "id": 6004574,
+  "center": {
+    "lat": 39.1872214,
+    "lon": -81.5272494
+  },
+  "tags": {
+    "amenity": "fuel",
+    "building": "roof",
+    "name": "GoMart",
+    "type": "multipolygon"
+  }
+}
+
+  ]
+}
