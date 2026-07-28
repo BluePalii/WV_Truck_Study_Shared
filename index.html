@@ -45,6 +45,12 @@ button:hover { filter:brightness(1.05); }
 .dd.open .dd-panel { display:block; }
 .dd-panel label { display:flex; gap:7px; align-items:flex-start; font-size:12.5px; padding:3px 0; cursor:pointer; }
 .dd-panel .dd-clear { font-size:11.5px; color:var(--accent); cursor:pointer; margin-bottom:4px; display:inline-block; }
+.dd-panel .hrow { display:flex; justify-content:space-between; align-items:baseline; gap:14px; font-size:12.5px; padding:3px 0; }
+.dd-panel .hrow a { color:var(--accent); white-space:nowrap; font-size:11.5px; }
+.fcard { position:relative; }
+.fcard .nm { padding-right:62px; }
+.fcard .hidebtn { position:absolute; top:7px; right:8px; font-size:11px; color:var(--muted); border:1px solid var(--border); border-radius:6px; padding:1px 7px; background:var(--bg); cursor:pointer; }
+.fcard .hidebtn:hover { color:var(--accent); border-color:var(--accent); }
 .estbox, .vbox { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:8px 10px; font-size:12.5px; margin:8px 0 0; }
 .estbox span { color:var(--ink2); }
 .vbox.ok { border-color:#00830066; color:#006300; }
@@ -120,7 +126,7 @@ button:hover { filter:brightness(1.05); }
   <header class="topbar">
     <div>
       <h1>WV Truck Parking Dashboard</h1>
-      <div class="sub">Semi-truck parking inventory &mdash; I-64 &middot; I-77 (Turnpike) &middot; I-79 &middot; US-19 (Corridor L) &middot; generated July 24, 2026</div>
+      <div class="sub">Semi-truck parking inventory &mdash; I-64 &middot; I-77 (Turnpike) &middot; I-79 &middot; US-19 (Corridor L) &middot; generated July 27, 2026</div>
     </div>
     <div class="actions">
       <button id="btn-csv" title="Download the currently filtered facilities as CSV">Export filtered CSV</button>
@@ -143,6 +149,7 @@ button:hover { filter:brightness(1.05); }
     <div class="dd" data-key="own" data-label="Ownership"></div>
     <div class="dd" data-key="status" data-label="Status"></div>
     <div class="dd" data-key="conf" data-label="Confidence"></div>
+    <div class="dd" id="dd-hidden" style="display:none"></div>
     <select id="f-sort"><option value="corr">Sort: corridor order</option><option value="name">Sort: name A&ndash;Z</option><option value="spaces">Sort: est. spaces (high first)</option></select>
     <button id="f-reset">Reset</button>
     <span class="spacer" id="f-count"></span>
@@ -174,6 +181,7 @@ button:hover { filter:brightness(1.05); }
   <div class="sub" style="color:var(--muted);font-size:11.5px;">
     Source: wv-truck-parking-master.csv. Map layers: OpenStreetMap (streets), Esri World Imagery (satellite).
     Click any facility for full details and site satellite imagery. Space totals are estimates; see per-facility confidence.
+    Questions or corrections? Contact Mohammad Ahmad at <a href="mailto:mohammad.ahmad@mail.wvu.edu" style="color:var(--accent)">mohammad.ahmad@mail.wvu.edu</a>.
   </div>
 </div>
 
@@ -208,6 +216,51 @@ function esc(s) {
 function trunc(s, n) { s = String(s == null ? '' : s); return s.length > n ? s.slice(0, n - 1) + '…' : s; }
 function byId(id) { return document.getElementById(id); }
 
+/* ---------- hidden facilities (viewer-side exclusions, persisted) ---------- */
+var hiddenSet = {};
+try {
+  (JSON.parse(localStorage.getItem('wvtp-hidden') || '[]')).forEach(function (n) {
+    if (DATA.some(function (r) { return r.name === n; })) { hiddenSet[n] = true; }
+  });
+} catch (e) {}
+function saveHidden() {
+  try { localStorage.setItem('wvtp-hidden', JSON.stringify(Object.keys(hiddenSet))); } catch (e) {}
+}
+function hiddenCount() { return Object.keys(hiddenSet).length; }
+function toggleHidden(id) {
+  var n = DATA[id].name;
+  if (hiddenSet[n]) { delete hiddenSet[n]; } else { hiddenSet[n] = true; }
+  saveHidden(); render();
+}
+var hiddenNamesCache = [];
+function unhideAt(i) {
+  delete hiddenSet[hiddenNamesCache[i]];
+  saveHidden(); render();
+}
+function unhideAll() { hiddenSet = {}; saveHidden(); render(); }
+function toggleHiddenDd() {
+  var dd = byId('dd-hidden');
+  var wasOpen = dd.classList.contains('open');
+  closeAllDropdowns();
+  if (!wasOpen) { dd.classList.add('open'); }
+}
+function renderHiddenDd() {
+  var dd = byId('dd-hidden');
+  hiddenNamesCache = Object.keys(hiddenSet).sort();
+  if (!hiddenNamesCache.length) {
+    dd.style.display = 'none'; dd.classList.remove('open'); dd.innerHTML = '';
+    return;
+  }
+  var h = '<button type="button" title="Facilities you have hidden from the dashboard" onclick="event.stopPropagation();toggleHiddenDd()"><span class="t">Hidden</span><span class="n">' + hiddenNamesCache.length + '</span> &#9662;</button>';
+  h += '<div class="dd-panel" onclick="event.stopPropagation()"><span class="dd-clear" onclick="unhideAll()">Unhide all</span>';
+  hiddenNamesCache.forEach(function (n, i) {
+    h += '<div class="hrow"><span>' + esc(n) + '</span><a href="#" onclick="unhideAt(' + i + ');return false;">Unhide</a></div>';
+  });
+  h += '</div>';
+  dd.innerHTML = h;
+  dd.style.display = '';
+}
+
 /* ---------- filters (multi-select checkbox dropdowns) ---------- */
 var FACETS = [
   { key: 'type', label: 'Type' },
@@ -232,7 +285,7 @@ function closeAllDropdowns() {
 }
 document.addEventListener('click', closeAllDropdowns);
 (function buildDropdowns() {
-  Array.prototype.slice.call(document.querySelectorAll('.filters .dd')).forEach(function (dd) {
+  Array.prototype.slice.call(document.querySelectorAll('.filters .dd[data-key]')).forEach(function (dd) {
     var key = dd.getAttribute('data-key'), label = dd.getAttribute('data-label');
     var seen = {};
     DATA.forEach(function (r) { seen[r[key]] = true; });
@@ -268,6 +321,7 @@ document.addEventListener('click', closeAllDropdowns);
 function filtered() {
   var q = byId('f-search').value.toLowerCase();
   return DATA.filter(function (r) {
+    if (hiddenSet[r.name]) return false;
     for (var i = 0; i < FACETS.length; i++) {
       var act = facetActive(FACETS[i].key);
       if (act.length && act.indexOf(r[FACETS[i].key]) === -1) return false;
@@ -330,7 +384,8 @@ function popupHtml(r) {
     esc(r.type) + ' &middot; ' + esc(r.own) + '<br>' +
     '<b>Spaces:</b> ' + esc(sp) + '<br>' +
     '<b>Status:</b> ' + esc(r.status) + ' &middot; ' + esc(r.conf) + '<br>' +
-    '<a href="#" onclick="openDetail(' + r.id + ');return false;">Full details + satellite</a></div>';
+    '<a href="#" onclick="openDetail(' + r.id + ');return false;">Full details + satellite</a> &middot; ' +
+    '<a href="#" onclick="toggleHidden(' + r.id + ');return false;" title="Exclude this facility from the map, list, counts and exports (undo via the Hidden control)">Hide</a></div>';
 }
 function renderMarkers(rows) {
   if (!markerLayer) return;
@@ -354,6 +409,7 @@ function renderList(rows) {
   var h = '';
   rows.forEach(function (r) {
     h += '<div class="fcard" style="border-left-color:' + ccolor(r.capClass) + '" onclick="openDetail(' + r.id + ')">' +
+      '<span class="hidebtn" onclick="event.stopPropagation();toggleHidden(' + r.id + ')" title="Hide this facility from the map, list, counts and exports (undo via the Hidden control in the filter bar)">&times; Hide</span>' +
       '<div class="nm">' + esc(r.name) + '</div>' +
       '<div class="meta">' + esc(r.corr) + ' &middot; ' + esc(trunc(r.raw['Milepost / exit'], 42)) + ' &middot; ' + esc(r.raw['County']) + ' Co.</div>' +
       '<div class="meta"><b>Spaces:</b> ' + esc(trunc(r.raw['Truck spaces'], 74)) + '</div>' +
@@ -391,7 +447,7 @@ function renderKpis(rows) {
   byId('k-spaces').textContent = '~' + sp.sum + (sp.unk ? '+' : '');
   byId('k-field').textContent = rows.filter(function (r) { return r.conf === 'Field-verified'; }).length;
   byId('k-corr').textContent = CORR_ORDER.filter(function (c) { return rows.some(function (r) { return r.corr === c; }); }).length;
-  byId('f-count').textContent = 'Showing ' + rows.length + ' of ' + DATA.length + ' locations';
+  byId('f-count').textContent = 'Showing ' + rows.length + ' of ' + DATA.length + ' locations' + (hiddenCount() ? ' (' + hiddenCount() + ' hidden)' : '');
 }
 
 /* ---------- charts ---------- */
@@ -503,13 +559,14 @@ function openDetail(id) {
   var h = '<button class="x" onclick="closeDetail()" title="Close">&times;</button>' +
     '<h2>' + esc(r.name) + '</h2>' +
     '<div class="sub">' + esc(r.corr) + ' &middot; ' + esc(r.raw['Milepost / exit']) + ' &middot; ' + esc(r.raw['County']) + ' County &middot; ' + esc(CLASS_META[r.capClass].label) + '</div>';
+  var links = '';
   if (r.lat != null) {
-    h += '<div class="links">' +
-      '<a target="_blank" rel="noopener" href="https://www.google.com/maps?q=' + r.lat + ',' + r.lon + '">Open in Google Maps</a>' +
+    links += '<a target="_blank" rel="noopener" href="https://www.google.com/maps?q=' + r.lat + ',' + r.lon + '">Open in Google Maps</a>' +
       '<a target="_blank" rel="noopener" href="https://www.google.com/maps/@' + r.lat + ',' + r.lon + ',900m/data=!3m1!1e3">Google Maps satellite</a>' +
-      (map ? '<a href="#" onclick="closeDetail();zoomTo(' + r.id + ');return false;">Show on dashboard map</a>' : '') +
-      '</div>';
+      (map ? '<a href="#" onclick="closeDetail();zoomTo(' + r.id + ');return false;">Show on dashboard map</a>' : '');
   }
+  links += '<a href="#" onclick="closeDetail();toggleHidden(' + r.id + ');return false;" title="Exclude this facility from the map, list, counts and exports (undo via the Hidden control)">Hide from dashboard</a>';
+  h += '<div class="links">' + links + '</div>';
   h += '<div class="tabbar">' +
     '<button id="tabbtn0" class="tab active" onclick="showTab(0)">Study data</button>' +
     '<button id="tabbtn1" class="tab" onclick="showTab(1)">TruckStopsAndServices.com</button>' +
@@ -543,6 +600,7 @@ function activeFilterText() {
   });
   var q = byId('f-search').value;
   if (q) { parts.push('search: "' + q + '"'); }
+  if (hiddenCount()) { parts.push(hiddenCount() + ' facilit' + (hiddenCount() === 1 ? 'y' : 'ies') + ' hidden by viewer'); }
   return parts.length ? parts.join(' | ') : 'none (full inventory)';
 }
 function buildReport() {
@@ -615,12 +673,13 @@ function render() {
   renderList(rows);
   renderMarkers(rows);
   renderCharts(rows);
+  renderHiddenDd();
 }
 byId('f-search').addEventListener('input', render);
 byId('f-sort').addEventListener('change', render);
 byId('f-reset').addEventListener('click', function () {
   FACETS.forEach(function (f) { filterState[f.key] = {}; });
-  Array.prototype.slice.call(document.querySelectorAll('.filters .dd')).forEach(function (dd) {
+  Array.prototype.slice.call(document.querySelectorAll('.filters .dd[data-key]')).forEach(function (dd) {
     Array.prototype.slice.call(dd.querySelectorAll('input')).forEach(function (cb) { cb.checked = false; });
     updateDdBadge(dd);
   });
