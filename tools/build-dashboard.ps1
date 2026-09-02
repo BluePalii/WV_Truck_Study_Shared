@@ -17,6 +17,9 @@ $rows = Import-Csv $csvPath
 # capacity table + classification helpers shared with build-summary-pdf.ps1
 . (Join-Path $PSScriptRoot 'facility-classify.ps1')
 
+# toll facility + traffic layer manifest/loader (see tools\traffic-data.ps1)
+. (Join-Path $PSScriptRoot 'traffic-data.ps1')
+
 # truckstopsandservices.com source data (see tools\fetch-tss.ps1); optional
 $tssPath = Join-Path $root 'wv-truck-parking-tss.csv'
 $tssByName = @{}
@@ -64,6 +67,13 @@ $json = ConvertTo-Json -InputObject @($list) -Depth 6 -Compress
 $colsJson = ConvertTo-Json -InputObject @($headers) -Compress
 $today = Get-Date -Format 'MMMM d, yyyy'
 
+# toll + traffic data layers (see tools\traffic-data.ps1); each layer's
+# hasData flag is computed from actual traffic-data\*.csv row counts.
+$traffic = Get-TrafficLayers -Root $root
+$trafficJson = ConvertTo-Json -InputObject $traffic.Layers -Depth 6 -Compress
+$trafficMetaJson = ConvertTo-Json -InputObject @($traffic.Meta) -Depth 4 -Compress
+$trafficLibJs = Get-Content (Join-Path $PSScriptRoot 'traffic-lib.js') -Raw
+
 $tpl = @'
 <!doctype html>
 <html lang="en"><head>
@@ -72,6 +82,9 @@ $tpl = @'
 <title>WV Truck Parking Dashboard</title>
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster@1.5.3/dist/MarkerCluster.Default.css">
+<script src="https://unpkg.com/leaflet.markercluster@1.5.3/dist/leaflet.markercluster.js"></script>
 <style>
 :root {
   --bg:#f9f9f7; --surface:#fcfcfb; --ink:#0b0b0b; --ink2:#52514e; --muted:#898781;
@@ -187,6 +200,41 @@ button:hover { filter:brightness(1.05); }
   #report .rcard::after { content:""; display:block; clear:both; }
 }
 @media (max-width: 1000px) { .main, .charts { grid-template-columns:1fr; } .kpis { grid-template-columns:repeat(2,1fr); } .map-wrap { height:420px; } .listing { height:420px; } }
+
+button:focus-visible, input:focus-visible, a:focus-visible, .chip.toggle input:focus-visible + span { outline:2px solid var(--accent); outline-offset:2px; }
+
+/* ---------- toll + traffic layers ---------- */
+.traffic-bar { display:flex; flex-wrap:wrap; align-items:center; gap:16px; padding:10px 12px; margin-bottom:12px; }
+.switch-row { display:flex; align-items:center; gap:6px; font-size:13px; cursor:pointer; }
+.switch-row input[type=checkbox] { width:16px; height:16px; }
+.switch-row.sub-toggle { font-size:12px; color:var(--ink2); }
+.toll-legend-mini { font-size:11.5px; color:var(--ink2); }
+#traffic-shell { margin-bottom:12px; }
+.traffic-controls { padding:10px 12px; margin-bottom:10px; }
+.traffic-layer-groups { display:flex; flex-wrap:wrap; gap:18px; margin-bottom:10px; }
+.traffic-group { display:flex; flex-direction:column; gap:5px; min-width:190px; }
+.traffic-group h4 { margin:0 0 2px; font-size:11px; text-transform:uppercase; letter-spacing:.4px; color:var(--muted); }
+.chip.toggle { display:inline-flex; align-items:center; gap:5px; cursor:pointer; width:fit-content; }
+.chip.toggle input { margin:0; }
+.nodata-tag { color:var(--muted); font-size:10px; margin-left:2px; }
+.traffic-selectors { display:flex; flex-wrap:wrap; gap:8px; align-items:center; border-top:1px solid var(--border); padding-top:10px; }
+.traffic-kpis { display:grid; grid-template-columns:repeat(4,1fr); gap:10px; margin-bottom:10px; }
+.traffic-kpis .kpi .v.na { font-size:14px; color:var(--muted); font-weight:600; }
+.traffic-kpis-note { color:var(--muted); font-size:11px; margin:-4px 0 10px; }
+#traffic-empty-notices .notice { border:1px solid var(--border); border-left:4px solid var(--muted); border-radius:8px; padding:7px 10px; margin-bottom:6px; font-size:12.5px; background:var(--surface); }
+#traffic-empty-notices .notice a { color:var(--accent); margin-left:6px; }
+#traffic-legend span.dim { opacity:.42; }
+.toll-badge { background:#c94b1f; color:#fff; border-radius:6px; width:22px; height:22px; display:flex; align-items:center; justify-content:center; font-weight:700; font-size:12px; border:2px solid #fff; box-shadow:0 0 0 1px rgba(0,0,0,.3); }
+.toll-badge.former { background:transparent; color:var(--ink2); border:2px dashed var(--muted); box-shadow:none; }
+.wim-badge { background:#1baf7a; border-radius:5px; width:20px; height:20px; display:flex; align-items:center; justify-content:center; border:2px solid #fff; }
+.wim-badge svg { width:13px; height:13px; }
+.count-badge { background:#eda100; width:16px; height:16px; border:2px solid #fff; border-radius:3px; }
+.count-badge.short { background:transparent; border:2px solid #eda100; }
+.sev-badge, .cite-badge { border-radius:50%; color:#fff; font-weight:700; font-size:10px; display:flex; align-items:center; justify-content:center; border:2px solid #fff; }
+.sev-badge.fatal { background:#c0392b; width:22px; height:22px; }
+.sev-badge.injury { background:#eda100; width:19px; height:19px; }
+.sev-badge.pdo { background:#4a3aa7; width:16px; height:16px; }
+.cite-badge { background:var(--accent); width:22px; height:22px; }
 </style>
 </head><body>
 <div class="app">
@@ -196,6 +244,7 @@ button:hover { filter:brightness(1.05); }
       <div class="sub">Semi-truck parking inventory &mdash; I-64 &middot; I-77 (Turnpike) &middot; I-79 &middot; US-19 (Corridor L) &middot; generated __GENDATE__</div>
     </div>
     <div class="actions">
+      <label class="switch-row" title="Also export/print toll facility and traffic-data layers (only layers currently visible and populated are included)"><input type="checkbox" id="chk-include-traffic"> <span>Include traffic data</span></label>
       <button id="btn-csv" title="Download the currently filtered facilities as CSV">Export filtered CSV</button>
       <button id="btn-report" class="primary" title="Build a printable report of the current filtered view (print to PDF from the dialog)">Generate report</button>
     </div>
@@ -220,6 +269,36 @@ button:hover { filter:brightness(1.05); }
     <select id="f-sort"><option value="corr">Sort: corridor order</option><option value="name">Sort: name A&ndash;Z</option><option value="spaces">Sort: est. spaces (high first)</option></select>
     <button id="f-reset">Reset</button>
     <span class="spacer" id="f-count"></span>
+  </div>
+
+  <div class="traffic-bar card">
+    <label class="switch-row" title="Show/hide the 6 active WV toll facilities"><input type="checkbox" id="sw-toll" checked> <span>Toll facilities</span></label>
+    <label class="switch-row sub-toggle" title="Show former toll facilities (currently: Dunbar Toll Bridge, now free) in a separate dashed style"><input type="checkbox" id="sw-toll-former"> <span>Former tolls</span></label>
+    <span class="toll-legend-mini" id="toll-legend-mini"></span>
+    <label class="switch-row" title="Master switch for all traffic-intelligence layers (AADT, count stations, weigh-in-motion, citations/enforcement, crashes, live conditions)"><input type="checkbox" id="sw-traffic"> <span>Traffic Data</span></label>
+  </div>
+
+  <div id="traffic-shell" style="display:none">
+    <div class="traffic-controls card" id="traffic-controls">
+      <div class="traffic-layer-groups" id="traffic-layer-groups"></div>
+      <div class="traffic-selectors" id="traffic-selectors">
+        <div class="dd" data-key="year" data-label="Year"></div>
+        <div class="dd" data-key="route" data-label="Route"></div>
+        <div class="dd" data-key="county" data-label="County"></div>
+        <div class="dd" data-key="dir" data-label="Direction"></div>
+        <div class="dd" data-key="vclass" data-label="Vehicle class"></div>
+        <div class="dd" data-key="pclass" data-label="Passenger/Commercial"></div>
+        <div class="dd" data-key="citype" data-label="Citation/offense type"></div>
+        <div class="dd" data-key="sev" data-label="Crash severity"></div>
+        <div class="dd" data-key="agency" data-label="Enforcement agency"></div>
+        <button id="tf-reset" title="Reset traffic filters (does not affect truck-parking filters)">Reset traffic filters</button>
+        <button id="tf-methodology" title="Rate-calculation methodology and important definitions">Methodology</button>
+      </div>
+    </div>
+    <div class="traffic-kpis card" id="traffic-kpis"></div>
+    <div class="traffic-kpis-note">Tiles read "Not available" (never 0) when the underlying layer has no data, or when a rate's numerator/denominator coverage can't be reliably matched. See Methodology.</div>
+    <div id="traffic-empty-notices"></div>
+    <div class="legend card" id="traffic-legend"></div>
   </div>
 
   <div class="legend card" id="legend"></div>
@@ -262,6 +341,11 @@ button:hover { filter:brightness(1.05); }
 var DATA = __DATA__;
 var COLS = __COLS__;
 var TSS_DATE = '__TSSDATE__';
+
+/* ---------- toll + traffic data (tools\traffic-lib.js, inlined at build time) ---------- */
+__TRAFFIC_LIB__
+var TRAFFIC = __TRAFFIC__;
+var TRAFFIC_META = __TRAFFIC_META__;
 var CLASS_META = {
   'public':    { label:'Public facility',            light:'#2a78d6', dark:'#3987e5' },
   'private':   { label:'Private truck stop',         light:'#1baf7a', dark:'#199e70' },
@@ -755,10 +839,515 @@ byId('f-reset').addEventListener('click', function () {
 });
 render();
 if (map) { fitToResults(); }
+
+/* ==================================================================
+   Toll facilities + traffic-data layers. Purely additive: nothing
+   above this point is modified. Master "Traffic Data" switch controls
+   #traffic-shell (controls/KPIs/legend/notices); the Toll switch is
+   independent and keeps working with Traffic Data off.
+   ================================================================== */
+var TRAFFIC_META_BY_ID = {};
+TRAFFIC_META.forEach(function (m) { TRAFFIC_META_BY_ID[m.id] = m; });
+function layerRows(id) { return TRAFFIC[id] || []; }
+
+function yearOf(raw) {
+  var v = raw.MeasurementYear || raw.LastCountDate || raw.ReportingPeriod || raw.Date || raw.CitationDate || raw.SourceDocumentDate;
+  if (!v) return '';
+  var m = String(v).match(/(19|20)\d{2}/);
+  return m ? m[0] : '';
+}
+Object.keys(TRAFFIC).forEach(function (layerId) {
+  TRAFFIC[layerId].forEach(function (r) {
+    var raw = r.raw;
+    r.route = raw.Route || '';
+    r.county = raw.County || '';
+    r.dir = raw.Direction || '';
+    r.vclass = raw.VehicleTypeInvolved || raw.VehicleClassesTolled || '';
+    r.pclass = raw.CMVFlag === 'Yes' ? 'Commercial' : (raw.CMVFlag === 'No' ? 'Passenger' : '');
+    r.citype = raw.OffenseCategory || '';
+    r.sev = raw.Severity || '';
+    r.agency = raw.Agency || '';
+    r.year = yearOf(raw);
+  });
+});
+
+var MEASURE_DEFINITIONS = {
+  aadt: 'AADT is an estimated average day, not an exact vehicle count for a specific date.',
+  count: 'A continuous or short-term counter observation is a real observed count for its period, not an AADT estimate.',
+  wim: 'Weigh-in-motion readings are observed passenger/truck counts for the measurement period shown, not AADT.',
+  turnpike: 'A toll transaction is a plaza crossing, not necessarily a unique vehicle. This figure is a one-time manually-transcribed snapshot, not a live feed.',
+  citations: 'An issued citation is different from a warning. A court charge is different from a conviction or final disposition. A roadside inspection violation is not automatically a traffic ticket. Grant-funded enforcement statistics are not necessarily all statewide enforcement.',
+  crashes: 'Crash counts are aggregated by severity (fatal / injury / property-damage-only) where the source data supports that distinction.',
+  live: 'Live WV511 conditions are not historical traffic statistics.'
+};
+
+/* ---------- icons ---------- */
+var TOLL_ICONS = null, WIM_ICON = null;
+function buildTrafficIcons() {
+  if (!window.L) return;
+  TOLL_ICONS = {
+    active: L.divIcon({ className: '', html: '<div class="toll-badge" title="Active toll">$</div>', iconSize: [24, 24], iconAnchor: [12, 12] }),
+    former: L.divIcon({ className: '', html: '<div class="toll-badge former" title="Former toll (now free)">H</div>', iconSize: [24, 24], iconAnchor: [12, 12] })
+  };
+  WIM_ICON = L.divIcon({
+    className: '',
+    html: '<div class="wim-badge" title="Weigh-in-motion station"><svg viewBox="0 0 24 24" fill="#fff"><path d="M3 16h2v2H3zm4 0h11a1 1 0 001-1V9a1 1 0 00-1-1h-3V6a1 1 0 00-1-1H9L5 9v6a1 1 0 001 1zm2-2V9.83L9.83 7H13v2h3v5H9z"/></svg></div>',
+    iconSize: [22, 22], iconAnchor: [11, 11]
+  });
+}
+function countIcon(stationType) {
+  var cls = 'count-badge' + (stationType === 'ShortTerm' ? ' short' : '');
+  return L.divIcon({ className: '', html: '<div class="' + cls + '" title="' + esc(stationType || 'Count station') + '"></div>', iconSize: [18, 18], iconAnchor: [9, 9] });
+}
+var SEV_META = { Fatal: { cls: 'fatal', code: 'F' }, Injury: { cls: 'injury', code: 'I' }, PDO: { cls: 'pdo', code: 'P' } };
+function sevIcon(sev) {
+  var m = SEV_META[sev] || { cls: 'pdo', code: '?' };
+  return L.divIcon({ className: '', html: '<div class="sev-badge ' + m.cls + '" title="' + esc(sev || 'Unknown severity') + '">' + m.code + '</div>', iconSize: [24, 24], iconAnchor: [12, 12] });
+}
+var CITE_CODE = { General: 'GN', DUI: 'DUI', Speeding: 'SP', SeatBelt: 'SB', Distracted: 'DD', CMVInspection: 'CI' };
+function citeIcon(cat) {
+  var code = CITE_CODE[cat] || '?';
+  return L.divIcon({ className: '', html: '<div class="cite-badge" title="' + esc(cat || 'Citation') + '">' + esc(code) + '</div>', iconSize: [24, 24], iconAnchor: [12, 12] });
+}
+function iconForRow(layerId, r) {
+  if (layerId === 'wim') return WIM_ICON;
+  if (layerId === 'count') return countIcon(r.raw.StationType);
+  if (layerId === 'crashes') return sevIcon(r.raw.Severity);
+  if (layerId === 'citations') return citeIcon(r.raw.OffenseCategory);
+  return null;
+}
+
+/* ---------- popups ---------- */
+function tollPopup(r) {
+  var raw = r.raw;
+  var isFormer = raw.LayerType === 'former';
+  return '<div style="min-width:230px"><b>' + esc(raw.Name) + '</b><br>' +
+    (isFormer ? '<span style="color:var(--ink2)">Former toll facility (now free)</span><br>' : '<b>Active toll</b><br>') +
+    esc(raw.Route) + (raw.Milepost ? ' &middot; ' + esc(raw.Milepost) : '') + '<br>' +
+    esc(raw.County) + ' County, ' + esc(raw.State) + (raw.CrossState ? ' &harr; ' + esc(raw.CrossState) : '') + '<br>' +
+    '<b>Ownership:</b> ' + esc(raw.Ownership) + ' (' + esc(raw.OwnerType) + ')<br>' +
+    (raw.VehicleClassesTolled ? '<b>Vehicle classes:</b> ' + esc(trunc(raw.VehicleClassesTolled, 90)) + '<br>' : '') +
+    (raw.PaymentMethods ? '<b>Payment:</b> ' + esc(raw.PaymentMethods) + '<br>' : '') +
+    '<b>Coordinate confidence:</b> ' + esc(trunc(raw.CoordConfidence, 90)) + '<br>' +
+    (raw.Notes ? '<div style="margin-top:4px;color:var(--ink2)">' + esc(raw.Notes) + '</div>' : '') +
+    '<div style="margin-top:4px;font-size:11px;color:var(--muted)">Source: ' + esc(trunc(raw.Sources, 100)) + ' &middot; verified ' + esc(raw.LastVerified) + '</div></div>';
+}
+function genericTrafficPopup(layerId, r) {
+  var raw = r.raw;
+  var meta = TRAFFIC_META_BY_ID[layerId];
+  var name = raw.Name || raw.StationId || raw.SegmentId || raw.CrashId || (meta ? meta.label : layerId);
+  var h = '<div style="min-width:230px"><b>' + esc(name) + '</b><br>';
+  if (raw.Route) { h += esc(raw.Route) + (raw.Direction ? ' (' + esc(raw.Direction) + ')' : '') + '<br>'; }
+  if (raw.County) { h += esc(raw.County) + ' County<br>'; }
+  if (raw.Milepost) { h += 'Milepost: ' + esc(raw.Milepost) + '<br>'; }
+  var period = raw.MeasurementPeriod || raw.MeasurementYear || raw.ReportingPeriod || raw.Date || raw.CitationDate;
+  h += '<b>Measurement period:</b> ' + esc(TrafficLib.formatSource(period)) + '<br>';
+  if ('AADT' in raw) { h += '<b>AADT:</b> ' + esc(TrafficLib.fmtCount(raw.AADT)) + (raw.TruckPct !== undefined ? ' &middot; truck %: ' + esc(TrafficLib.fmtPct(raw.TruckPct)) : '') + '<br>'; }
+  if ('TruckAADT' in raw) { h += '<b>Truck AADT:</b> ' + esc(TrafficLib.fmtCount(raw.TruckAADT)) + '<br>'; }
+  if ('PassengerCount' in raw || 'TruckCount' in raw) { h += '<b>Passenger / truck count:</b> ' + esc(TrafficLib.fmtCount(raw.PassengerCount)) + ' / ' + esc(TrafficLib.fmtCount(raw.TruckCount)) + '<br>'; }
+  if ('TransactionsTotal' in raw) { h += '<b>Toll transactions:</b> ' + esc(TrafficLib.fmtCount(raw.TransactionsTotal)) + ' (passenger ' + esc(TrafficLib.fmtCount(raw.TransactionsPassenger)) + ' / commercial ' + esc(TrafficLib.fmtCount(raw.TransactionsCommercial)) + ')<br>'; }
+  if (raw.OffenseCategory) { h += '<b>Offense category:</b> ' + esc(raw.OffenseCategory) + (raw.CitationOrWarning ? ' (' + esc(raw.CitationOrWarning) + ')' : '') + '<br>'; }
+  if (raw.CourtDisposition) { h += '<b>Disposition:</b> ' + esc(raw.CourtDisposition) + '<br>'; }
+  if (raw.Severity) { h += '<b>Severity:</b> ' + esc(raw.Severity) + '<br>'; }
+  h += '<b>Source:</b> ' + esc(TrafficLib.formatSource(raw.Source)) + '<br>';
+  h += '<b>Last updated:</b> ' + esc(TrafficLib.formatSource(raw.LastCountDate || raw.SourceDocumentDate || raw.ReportingPeriod)) + '<br>';
+  if (MEASURE_DEFINITIONS[layerId]) { h += '<div style="margin-top:5px;font-size:11px;color:var(--muted)">' + esc(MEASURE_DEFINITIONS[layerId]) + '</div>'; }
+  h += '</div>';
+  return h;
+}
+
+/* ---------- map layers ---------- */
+var tollLayer = null;
+var trafficLayerGroups = {};
+if (window.L && map) {
+  buildTrafficIcons();
+  tollLayer = L.layerGroup().addTo(map);
+}
+function ensureTrafficLayerGroup(id) {
+  if (trafficLayerGroups[id]) return trafficLayerGroups[id];
+  var g = (window.L && L.markerClusterGroup) ? L.markerClusterGroup({ disableClusteringAtZoom: 14 }) : L.layerGroup();
+  trafficLayerGroups[id] = g;
+  return g;
+}
+function renderTollLayer() {
+  if (!tollLayer) return;
+  tollLayer.clearLayers();
+  if (!byId('sw-toll').checked) return;
+  layerRows('toll').forEach(function (r) {
+    if (r.lat == null) return;
+    var isFormer = r.raw.LayerType === 'former';
+    if (isFormer && !byId('sw-toll-former').checked) return;
+    L.marker([r.lat, r.lon], { icon: isFormer ? TOLL_ICONS.former : TOLL_ICONS.active }).bindPopup(tollPopup(r)).addTo(tollLayer);
+  });
+}
+function aadtColor(v) {
+  if (v == null) return '#898781';
+  if (v > 40000) return '#c0392b';
+  if (v > 20000) return '#eda100';
+  return '#2a78d6';
+}
+function renderAadtLayer(group) {
+  group.clearLayers();
+  TrafficLib.filterRows(layerRows('aadt'), trafficFilterState).forEach(function (r) {
+    var raw = r.raw;
+    var flat = TrafficLib.toNumberOrNull(raw.FromLat), flon = TrafficLib.toNumberOrNull(raw.FromLon);
+    var tlat = TrafficLib.toNumberOrNull(raw.ToLat), tlon = TrafficLib.toNumberOrNull(raw.ToLon);
+    if (flat == null || flon == null || tlat == null || tlon == null) return;
+    var aadt = TrafficLib.toNumberOrNull(raw.AADT);
+    var weight = aadt ? Math.min(10, Math.max(2, aadt / 8000)) : 2;
+    L.polyline([[flat, flon], [tlat, tlon]], { color: aadtColor(aadt), weight: weight, opacity: 0.85 }).bindPopup(genericTrafficPopup('aadt', r)).addTo(group);
+  });
+}
+var TRAFFIC_MAP_LAYER_IDS = ['aadt', 'count', 'wim', 'citations', 'crashes'];
+function renderTrafficMapLayers() {
+  var masterOn = byId('sw-traffic').checked;
+  TRAFFIC_MAP_LAYER_IDS.forEach(function (id) {
+    var group = ensureTrafficLayerGroup(id);
+    var cb = byId('lyr-' + id);
+    var on = masterOn && !!(cb && cb.checked);
+    if (on) { if (!map.hasLayer(group)) { group.addTo(map); } } else if (map.hasLayer(group)) { map.removeLayer(group); }
+    if (!on) return;
+    if (id === 'aadt') { renderAadtLayer(group); return; }
+    group.clearLayers();
+    TrafficLib.filterRows(layerRows(id), trafficFilterState).forEach(function (r) {
+      if (r.lat == null) return;
+      var icon = iconForRow(id, r);
+      var m = icon ? L.marker([r.lat, r.lon], { icon: icon }) : L.circleMarker([r.lat, r.lon], { radius: 6, color: '#fff', weight: 2, fillColor: '#2a78d6', fillOpacity: 0.9 });
+      m.bindPopup(genericTrafficPopup(id, r));
+      group.addLayer(m);
+    });
+  });
+}
+
+/* ---------- filters (global traffic selectors) ---------- */
+var TRAFFIC_FACETS = [
+  { key: 'year', label: 'Year' }, { key: 'route', label: 'Route' }, { key: 'county', label: 'County' },
+  { key: 'dir', label: 'Direction' }, { key: 'vclass', label: 'Vehicle class' }, { key: 'pclass', label: 'Passenger/Commercial' },
+  { key: 'citype', label: 'Citation/offense type' }, { key: 'sev', label: 'Crash severity' }, { key: 'agency', label: 'Enforcement agency' }
+];
+var trafficFilterState = {};
+TRAFFIC_FACETS.forEach(function (f) { trafficFilterState[f.key] = {}; });
+function distinctTrafficValues(key) {
+  var seen = {};
+  Object.keys(TRAFFIC).forEach(function (layerId) {
+    if (layerId === 'toll') return;
+    TRAFFIC[layerId].forEach(function (r) { if (r[key]) { seen[r[key]] = true; } });
+  });
+  return Object.keys(seen).sort();
+}
+function updateTfBadge(dd) {
+  var key = dd.getAttribute('data-key');
+  var n = Object.keys(trafficFilterState[key] || {}).filter(function (v) { return trafficFilterState[key][v]; }).length;
+  var b = dd.querySelector('button .n');
+  if (b) { b.style.display = n ? '' : 'none'; b.textContent = n; }
+}
+function closeAllTrafficDropdowns() {
+  Array.prototype.slice.call(document.querySelectorAll('#traffic-selectors .dd.open')).forEach(function (d) { d.classList.remove('open'); });
+}
+document.addEventListener('click', closeAllTrafficDropdowns);
+function buildTrafficDropdowns() {
+  Array.prototype.slice.call(document.querySelectorAll('#traffic-selectors .dd[data-key]')).forEach(function (dd) {
+    var key = dd.getAttribute('data-key'), label = dd.getAttribute('data-label');
+    var vals = distinctTrafficValues(key);
+    var h = '<button type="button" title="Select one or more ' + esc(label.toLowerCase()) + ' values"><span class="t">' + esc(label) + '</span><span class="n" style="display:none">0</span> &#9662;</button>';
+    if (!vals.length) {
+      h += '<div class="dd-panel"><span style="color:var(--muted);font-size:12px">No values available yet</span></div>';
+    } else {
+      h += '<div class="dd-panel"><span class="dd-clear">Clear selection</span>';
+      vals.forEach(function (v) { h += '<label><input type="checkbox" value="' + esc(v) + '"> <span>' + esc(v) + '</span></label>'; });
+      h += '</div>';
+    }
+    dd.innerHTML = h;
+    dd.querySelector('button').addEventListener('click', function (e) {
+      e.stopPropagation();
+      var wasOpen = dd.classList.contains('open');
+      closeAllTrafficDropdowns();
+      if (!wasOpen) { dd.classList.add('open'); }
+    });
+    dd.querySelector('.dd-panel').addEventListener('click', function (e) { e.stopPropagation(); });
+    var clearEl = dd.querySelector('.dd-clear');
+    if (clearEl) {
+      clearEl.addEventListener('click', function () {
+        trafficFilterState[key] = {};
+        Array.prototype.slice.call(dd.querySelectorAll('input')).forEach(function (cb) { cb.checked = false; });
+        updateTfBadge(dd); renderTraffic();
+      });
+    }
+    Array.prototype.slice.call(dd.querySelectorAll('input[type=checkbox]')).forEach(function (cb) {
+      cb.addEventListener('change', function () {
+        trafficFilterState[key][cb.value] = cb.checked;
+        updateTfBadge(dd); renderTraffic();
+      });
+    });
+  });
+}
+byId('tf-reset').addEventListener('click', function () {
+  TRAFFIC_FACETS.forEach(function (f) { trafficFilterState[f.key] = {}; });
+  Array.prototype.slice.call(document.querySelectorAll('#traffic-selectors .dd[data-key]')).forEach(function (dd) {
+    Array.prototype.slice.call(dd.querySelectorAll('input')).forEach(function (cb) { cb.checked = false; });
+    updateTfBadge(dd);
+  });
+  renderTraffic();
+});
+byId('tf-methodology').addEventListener('click', function () {
+  var h = '<button class="x" onclick="closeDetail()" title="Close">&times;</button>' +
+    '<h2>Traffic data methodology</h2>' +
+    '<div class="sub">Definitions and rate-calculation rules used throughout the Traffic Data panel.</div>' +
+    '<table>' +
+    '<tr><td>AADT</td><td>Estimated average day, not an exact vehicle count for a specific date.</td></tr>' +
+    '<tr><td>Count-station observation</td><td>A real observed count for its measurement period; different from AADT.</td></tr>' +
+    '<tr><td>Toll transaction</td><td>A toll-plaza crossing, not necessarily a unique vehicle.</td></tr>' +
+    '<tr><td>Citation vs. warning</td><td>An issued citation is different from a warning.</td></tr>' +
+    '<tr><td>Charge vs. disposition</td><td>A court charge is different from a conviction or final disposition.</td></tr>' +
+    '<tr><td>Inspection violation</td><td>A roadside inspection violation is not automatically a traffic ticket.</td></tr>' +
+    '<tr><td>Enforcement statistics</td><td>Grant-funded enforcement statistics are not necessarily all statewide enforcement.</td></tr>' +
+    '<tr><td>Live WV511 conditions</td><td>Current conditions only, not historical traffic statistics.</td></tr>' +
+    '<tr><td>Citations per million vehicles</td><td>citations &divide; estimated vehicle exposure &times; 1,000,000. Only shown when the citation count and the vehicle-exposure figure cover the same geography and the same date range; otherwise the dashboard shows &quot;Not available&quot; rather than a misleading rate.</td></tr>' +
+    '</table>' +
+    '<div class="tssnote">Per-layer data-source and last-updated info is shown in the traffic legend and in each marker&#39;s popup.</div>';
+  byId('modal').innerHTML = h;
+  byId('modal-bg').style.display = 'flex';
+});
+
+/* ---------- layer chips ---------- */
+var LAYER_GROUP_ORDER = [
+  { title: 'Volume & Counts', ids: ['aadt', 'count', 'wim', 'turnpike'] },
+  { title: 'Enforcement & Crashes', ids: ['citations', 'crashes'] },
+  { title: 'Live Conditions', ids: ['live'] }
+];
+function buildTrafficLayerChips() {
+  var h = '';
+  LAYER_GROUP_ORDER.forEach(function (grp) {
+    h += '<div class="traffic-group"><h4>' + esc(grp.title) + '</h4>';
+    grp.ids.forEach(function (id) {
+      var m = TRAFFIC_META_BY_ID[id];
+      if (!m) return;
+      var tag = m.hasData ? '' : ' <span class="nodata-tag">(no data)</span>';
+      h += '<label class="chip toggle"><input type="checkbox" id="lyr-' + id + '"' + (m.defaultEnabled ? ' checked' : '') + '> <span>' + esc(m.label) + tag + '</span></label>';
+    });
+    h += '</div>';
+  });
+  byId('traffic-layer-groups').innerHTML = h;
+  LAYER_GROUP_ORDER.forEach(function (grp) {
+    grp.ids.forEach(function (id) {
+      var cb = byId('lyr-' + id);
+      if (cb) { cb.addEventListener('change', renderTraffic); }
+    });
+  });
+}
+
+/* ---------- KPIs, empty notices, legend ---------- */
+function renderTrafficKpis() {
+  var el = byId('traffic-kpis');
+  if (!el) return;
+  var citRows = layerRows('citations'), crashRows = layerRows('crashes'), tpRows = layerRows('turnpike'),
+    countRows = layerRows('count'), aadtRows = layerRows('aadt');
+  var totalVehicles = countRows.length ? countRows.reduce(function (s, r) { return s + (TrafficLib.toNumberOrNull(r.raw.AADT) || 0); }, 0) : null;
+  var avgAadt = aadtRows.length ? Math.round(aadtRows.reduce(function (s, r) { return s + (TrafficLib.toNumberOrNull(r.raw.AADT) || 0); }, 0) / aadtRows.length) : null;
+  var tollTxn = tpRows.length ? tpRows.reduce(function (s, r) { return s + (TrafficLib.toNumberOrNull(r.raw.TransactionsTotal) || 0); }, 0) : null;
+  var citsPerMillion = TrafficLib.citationsPerMillion(citRows.length || null, totalVehicles, null, null);
+  var tiles = [
+    { l: 'Total observed vehicles', v: totalVehicles },
+    { l: 'Avg. AADT (segments shown)', v: avgAadt },
+    { l: 'Toll transactions (snapshot)', v: tollTxn },
+    { l: 'Citations (total)', v: citRows.length || null },
+    { l: 'Crashes (total)', v: crashRows.length || null },
+    { l: 'Citations per million vehicles', v: citsPerMillion }
+  ];
+  var h = '';
+  tiles.forEach(function (t) {
+    var isNa = (t.v === null || t.v === undefined);
+    h += '<div class="kpi card"><div class="v' + (isNa ? ' na' : '') + '">' + (isNa ? 'Not available' : t.v.toLocaleString()) + '</div><div class="l">' + esc(t.l) + '</div></div>';
+  });
+  el.innerHTML = h;
+}
+function renderTrafficEmptyNotices() {
+  var el = byId('traffic-empty-notices');
+  if (!el) return;
+  var h = '';
+  TRAFFIC_META.forEach(function (m) {
+    if (m.id === 'toll') return;
+    var cb = byId('lyr-' + m.id);
+    if (cb && cb.checked && !m.hasData) {
+      h += '<div class="notice"><b>No data reported</b> for ' + esc(m.label) + ' &mdash; ' + esc(m.unavailableReason || 'no source currently available') +
+        (m.externalLink ? ' <a target="_blank" rel="noopener" href="' + esc(m.externalLink) + '">View source / external link &rarr;</a>' : '') + '</div>';
+    }
+  });
+  el.innerHTML = h;
+}
+function renderTrafficLegend() {
+  var el = byId('traffic-legend');
+  if (!el) return;
+  var h = '<b style="color:var(--ink)">Traffic legend:</b>';
+  TRAFFIC_META.forEach(function (m) {
+    if (m.id === 'toll') return;
+    h += '<span class="' + (m.hasData ? '' : 'dim') + '" title="' + esc(m.hasData ? 'Data available' : (m.unavailableReason || 'No data')) + '">' + esc(m.label) + (m.hasData ? '' : ' (no data)') + '</span>';
+  });
+  el.innerHTML = h;
+}
+function renderTollLegendMini() {
+  var el = byId('toll-legend-mini');
+  if (!el) return;
+  if (!byId('sw-toll').checked) { el.textContent = ''; return; }
+  var active = layerRows('toll').filter(function (r) { return r.raw.LayerType === 'active'; }).length;
+  var former = layerRows('toll').filter(function (r) { return r.raw.LayerType === 'former'; }).length;
+  el.textContent = active + ' active' + (byId('sw-toll-former').checked ? ' + ' + former + ' former shown' : (former ? ' (' + former + ' former hidden)' : ''));
+}
+
+/* ---------- URL query string + localStorage persistence (traffic/toll only) ---------- */
+var TF_ARRAY_KEYS = ['layers', 'route', 'county', 'dir', 'vclass', 'pclass', 'citype', 'sev', 'agency'];
+var TF_BOOL_KEYS = ['traffic', 'toll', 'tollFormer'];
+function currentTrafficUiState() {
+  var layers = [];
+  TRAFFIC_META.forEach(function (m) { if (m.id !== 'toll') { var cb = byId('lyr-' + m.id); if (cb && cb.checked) { layers.push(m.id); } } });
+  var state = { traffic: byId('sw-traffic').checked, toll: byId('sw-toll').checked, tollFormer: byId('sw-toll-former').checked, layers: layers };
+  TRAFFIC_FACETS.forEach(function (f) {
+    var active = Object.keys(trafficFilterState[f.key] || {}).filter(function (v) { return trafficFilterState[f.key][v]; });
+    if (active.length) { state[f.key] = active; }
+  });
+  return state;
+}
+function syncTrafficUrl() {
+  var qs = TrafficLib.serializeParams(currentTrafficUiState(), TF_ARRAY_KEYS, TF_BOOL_KEYS);
+  var url = location.pathname + (qs ? '?' + qs : '') + location.hash;
+  try { history.replaceState(null, '', url); } catch (e) {}
+}
+function saveTrafficState() {
+  try { localStorage.setItem('wvtp-traffic-state', JSON.stringify(currentTrafficUiState())); } catch (e) {}
+}
+function applyTrafficState(state) {
+  if (!state) return;
+  byId('sw-traffic').checked = !!state.traffic;
+  byId('sw-toll').checked = state.toll !== false;
+  byId('sw-toll-former').checked = !!state.tollFormer;
+  (state.layers || []).forEach(function (id) { var cb = byId('lyr-' + id); if (cb) { cb.checked = true; } });
+  TRAFFIC_FACETS.forEach(function (f) {
+    if (state[f.key] && state[f.key].length) {
+      var obj = {}; state[f.key].forEach(function (v) { obj[v] = true; });
+      trafficFilterState[f.key] = obj;
+    }
+  });
+}
+function loadTrafficState() {
+  var fromUrl = location.search ? TrafficLib.parseParams(location.search, TF_ARRAY_KEYS, TF_BOOL_KEYS) : null;
+  if (fromUrl && Object.keys(fromUrl).length) { return fromUrl; }
+  try {
+    var raw = localStorage.getItem('wvtp-traffic-state');
+    return raw ? JSON.parse(raw) : null;
+  } catch (e) { return null; }
+}
+
+/* ---------- master render + switches ---------- */
+function renderTraffic() {
+  if (map) { renderTrafficMapLayers(); renderTollLayer(); }
+  renderTrafficEmptyNotices();
+  renderTrafficKpis();
+  renderTrafficLegend();
+  renderTollLegendMini();
+  saveTrafficState();
+  syncTrafficUrl();
+}
+byId('sw-traffic').addEventListener('change', function () {
+  byId('traffic-shell').style.display = this.checked ? '' : 'none';
+  renderTraffic();
+});
+byId('sw-toll').addEventListener('change', renderTraffic);
+byId('sw-toll-former').addEventListener('change', renderTraffic);
+
+/* ---------- export additions (second listeners; original CSV/report listeners untouched) ---------- */
+function trafficCsvLines() {
+  var lines = [];
+  if (byId('sw-toll').checked) {
+    var tollCols = ['Name', 'LayerType', 'Route', 'Milepost', 'County', 'State', 'CrossState', 'Ownership', 'OwnerType', 'Latitude', 'Longitude', 'CoordConfidence', 'VehicleClassesTolled', 'PaymentMethods', 'Notes', 'Sources', 'LastVerified'];
+    lines.push('# Toll facilities');
+    lines.push(tollCols.map(csvCell).join(','));
+    layerRows('toll').forEach(function (r) {
+      if (r.raw.LayerType === 'former' && !byId('sw-toll-former').checked) return;
+      lines.push(tollCols.map(function (c) { return csvCell(r.raw[c]); }).join(','));
+    });
+    lines.push('');
+  }
+  if (byId('sw-traffic').checked) {
+    var tpCb = byId('lyr-turnpike');
+    if (tpCb && tpCb.checked && layerRows('turnpike').length) {
+      var tpCols = ['Plaza', 'Route', 'ReportingPeriod', 'TransactionsTotal', 'TransactionsPassenger', 'TransactionsCommercial', 'RevenueTotal', 'SourceUrl', 'SourceDocumentDate', 'Notes'];
+      lines.push('# Turnpike toll transactions (manually-transcribed snapshot, not live)');
+      lines.push(tpCols.map(csvCell).join(','));
+      layerRows('turnpike').forEach(function (r) { lines.push(tpCols.map(function (c) { return csvCell(r.raw[c]); }).join(',')); });
+      lines.push('');
+    }
+    var emptyLabels = TRAFFIC_META.filter(function (m) {
+      var cb = byId('lyr-' + m.id);
+      return m.id !== 'toll' && m.id !== 'turnpike' && cb && cb.checked && !m.hasData;
+    }).map(function (m) { return m.label; });
+    if (emptyLabels.length) { lines.push('# No data reported for: ' + emptyLabels.join('; ')); }
+  }
+  return lines;
+}
+byId('btn-csv').addEventListener('click', function () {
+  var chk = byId('chk-include-traffic');
+  if (!chk || !chk.checked) return;
+  var lines = trafficCsvLines();
+  if (!lines.length) return;
+  var blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
+  var a = document.createElement('a');
+  a.href = URL.createObjectURL(blob);
+  a.download = 'wv-traffic-filtered.csv';
+  document.body.appendChild(a); a.click(); document.body.removeChild(a);
+  URL.revokeObjectURL(a.href);
+});
+function appendTrafficReportSection() {
+  var h = '<h2>Toll facilities</h2>';
+  if (byId('sw-toll').checked) {
+    h += '<table><tr><th>Name</th><th>Type</th><th>Route</th><th>County</th><th>Ownership</th></tr>';
+    layerRows('toll').forEach(function (r) {
+      if (r.raw.LayerType === 'former' && !byId('sw-toll-former').checked) return;
+      h += '<tr><td>' + esc(r.raw.Name) + '</td><td>' + esc(r.raw.LayerType) + '</td><td>' + esc(r.raw.Route) + '</td><td>' + esc(r.raw.County) + '</td><td>' + esc(r.raw.Ownership) + '</td></tr>';
+    });
+    h += '</table>';
+  } else {
+    h += '<p>Toll layer hidden in current view.</p>';
+  }
+  h += '<h2>Traffic data</h2>';
+  if (!byId('sw-traffic').checked) {
+    h += '<p>Traffic Data layer was off in the current view.</p>';
+  } else {
+    var tp = layerRows('turnpike'), tpCb = byId('lyr-turnpike');
+    if (tp.length && tpCb && tpCb.checked) {
+      h += '<h3>Turnpike toll transactions (snapshot)</h3><table><tr><th>Reporting period</th><th>Total</th><th>Passenger</th><th>Commercial</th><th>Revenue</th></tr>';
+      tp.forEach(function (r) { h += '<tr><td>' + esc(r.raw.ReportingPeriod) + '</td><td>' + esc(r.raw.TransactionsTotal) + '</td><td>' + esc(r.raw.TransactionsPassenger) + '</td><td>' + esc(r.raw.TransactionsCommercial) + '</td><td>' + esc(r.raw.RevenueTotal) + '</td></tr>'; });
+      h += '</table>';
+    }
+    var emptyLabels = TRAFFIC_META.filter(function (m) {
+      var cb = byId('lyr-' + m.id);
+      return m.id !== 'toll' && m.id !== 'turnpike' && cb && cb.checked && !m.hasData;
+    }).map(function (m) { return m.label; });
+    if (emptyLabels.length) { h += '<p><b>No data reported for:</b> ' + esc(emptyLabels.join('; ')) + '.</p>'; }
+  }
+  byId('report').innerHTML += h;
+}
+byId('btn-report').addEventListener('click', function () {
+  var chk = byId('chk-include-traffic');
+  if (chk && chk.checked) { appendTrafficReportSection(); }
+});
+
+/* ---------- init ---------- */
+buildTrafficLayerChips();
+buildTrafficDropdowns();
+applyTrafficState(loadTrafficState());
+byId('traffic-shell').style.display = byId('sw-traffic').checked ? '' : 'none';
+Array.prototype.slice.call(document.querySelectorAll('#traffic-selectors .dd[data-key]')).forEach(function (dd) {
+  var key = dd.getAttribute('data-key');
+  Array.prototype.slice.call(dd.querySelectorAll('input[type=checkbox]')).forEach(function (cb) {
+    cb.checked = !!(trafficFilterState[key] && trafficFilterState[key][cb.value]);
+  });
+  updateTfBadge(dd);
+});
+renderTraffic();
 </script>
 </body></html>
 '@
 
-$html = $tpl.Replace('__DATA__', $json).Replace('__COLS__', $colsJson).Replace('__GENDATE__', $today).Replace('__TSSDATE__', $tssDate)
+$html = $tpl.Replace('__DATA__', $json).Replace('__COLS__', $colsJson).Replace('__GENDATE__', $today).Replace('__TSSDATE__', $tssDate).Replace('__TRAFFIC__', $trafficJson).Replace('__TRAFFIC_META__', $trafficMetaJson).Replace('__TRAFFIC_LIB__', $trafficLibJs)
 [System.IO.File]::WriteAllText($outPath, $html, [System.Text.UTF8Encoding]::new($false))
 Write-Host "Wrote $outPath ($($list.Count) facilities)"

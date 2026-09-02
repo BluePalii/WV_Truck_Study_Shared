@@ -1,0 +1,1029 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>West Virginia Truck Parking Inventory - I-64, I-77, I-79, US-19</title>
+<style>
+  :root { color-scheme: light; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; margin: 0; background:#f4f5f7; color:#1a2733; }
+  header { background:#14304a; color:#fff; padding:28px 40px; }
+  header h1 { margin:0 0 6px; font-size:26px; }
+  header p { margin:2px 0; color:#c8d6e2; max-width:1100px; }
+  nav { background:#0e2436; padding:10px 40px; }
+  nav a { color:#9fc3e0; margin-right:22px; text-decoration:none; font-weight:600; }
+  main { padding: 10px 40px 60px; max-width:1400px; margin:0 auto; }
+  h2 { border-bottom:3px solid #14304a; padding-bottom:6px; margin-top:44px; }
+  .card { display:flex; gap:18px; background:#fff; border:1px solid #dde3e9; border-radius:10px; padding:16px; margin:16px 0; box-shadow:0 1px 3px rgba(20,48,74,.08); }
+  .imgcol { flex:0 0 380px; }
+  .imgcol img { width:380px; border-radius:6px; display:block; }
+  .noimg { width:380px; height:200px; display:flex; align-items:center; justify-content:center; background:#e9edf1; color:#7a8894; border-radius:6px; font-size:13px; text-align:center; }
+  .info { flex:1; min-width:0; }
+  .info h3 { margin:0 0 4px; font-size:18px; }
+  .loc { color:#4a5b6a; font-size:13px; margin:0 0 10px; }
+  table { border-collapse:collapse; width:100%; font-size:13px; }
+  th { text-align:left; color:#4a5b6a; font-weight:600; padding:4px 10px 4px 0; white-space:nowrap; vertical-align:top; width:130px;}
+  td { padding:4px 16px 4px 0; vertical-align:top; }
+  tr { border-bottom:1px solid #eef1f4; }
+  .notes { font-size:13px; margin:10px 0 4px; }
+  .src { font-size:11.5px; color:#7a8894; }
+  .badge { font-size:11px; padding:2px 9px; border-radius:20px; vertical-align:middle; font-weight:600; }
+  .b-field { background:#d9f2e0; color:#166534; }
+  .b-off   { background:#dbeafe; color:#1e40af; }
+  .b-dir   { background:#eef1f4; color:#4a5b6a; }
+  .b-unres { background:#fde8e8; color:#b91c1c; }
+  .b-conf  { background:#fef3c7; color:#92400e; }
+  .warn { color:#b91c1c; font-weight:700; }
+  .intro { background:#fff; border:1px solid #dde3e9; border-radius:10px; padding:18px 22px; margin-top:24px; font-size:14px; }
+  .intro ul { margin:8px 0; }
+  a { color:#155e94; }
+  @media (max-width: 900px){ .card{flex-direction:column;} .imgcol, .imgcol img, .noimg {width:100%; flex:none;} }
+</style>
+</head>
+<body>
+<header>
+  <h1>West Virginia Truck Parking Inventory</h1>
+  <p>Semi-truck parking on I-64, I-77 (WV Turnpike), I-79 and US-19 (Corridor L) &mdash; 59 locations &middot; compiled July 24, 2026</p>
+  <p>Each location reviewed for the criteria truckers weigh when choosing a lot: functionality, number/size of spaces, public vs. private, cost (pay-to-reserve is secondary; no WV state facility charges for parking), construction status, restrooms, showers, 24/7 staffing, lighting, and directional access.</p>
+</header>
+<nav><a href="#I-64">I-64</a><a href="#I-77">I-77 / Turnpike</a><a href="#I-79">I-79</a><a href="#US-19">US-19</a><a href="#gaps">Gaps &amp; candidates</a></nav>
+<main>
+<div class="intro">
+  <b>How to read this document.</b> Every location card includes a current aerial/satellite image (Esri World Imagery; click to open full size) and a Google Maps link at the exact coordinates. Badges show data quality:
+  <span class="badge b-field">Field-verified</span> visited by the study team &middot;
+  <span class="badge b-off">Official / operator</span> state or operator-published &middot;
+  <span class="badge b-dir">Directory</span> trucker directories, unconfirmed &middot;
+  <span class="badge b-conf">Conflicting</span> sources disagree &middot;
+  <span class="badge b-unres">Unresolved</span> existence or location uncertain &mdash; needs field check.
+  Princeton Lowe's/Walmart informal parking is excluded by study scope.
+</div>
+<h2 id="I-64">I-64 &mdash; 15 locations</h2>
+<div class="card">
+  <div class="imgcol"><a href="satellite/i64-welcome-center-east.png" target="_blank"><img src="satellite/i64-welcome-center-east.png" alt="Satellite view of I-64 Welcome Center East" loading="lazy"></a></div>
+  <div class="info">
+    <h3>I-64 Welcome Center East <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; EB MM 10.06 &middot; Cabell County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.3923%2C-82.4224" target="_blank">38.3923, -82.4224 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Welcome center &middot; Public - state</td><th>Direction access</th><td>EB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>12</b> <span class="src">(Satellite count July 2026: 8 occupied + 4 open positions in two echelon rows on unstriped apron (all spots counted; state publishes no figure))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Info desk 8am-6pm; grounds 24/7</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Separate truck and passenger parking; vending; WiFi; picnic; overnight truck parking permitted in designated big-vehicle areas</p>
+    <p class="src">Sources: wv511.org/Facilities.aspx; wvtourism.com/company/i-64-eastbound-welcome-center</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-59-huntington.png" target="_blank"><img src="satellite/gomart-59-huntington.png" alt="Satellite view of Go-Mart #59 Huntington" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart #59 Huntington <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; Exit 15 (US 60) &middot; Cabell County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4124%2C-82.3509" target="_blank">38.4124, -82.3509 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>25 to 38 (conflicting); imagery: ~20-25 usable</b> <span class="src">(AllStays 25; FindFuelStops 38; satellite est.)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel 24/7; 6-7 lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Yes (lighted; paved)</td></tr>
+    </table>
+    <p class="notes">Paved lot at 4901 US 60; deli; ATM; trailer drop; hazmat parking listed; imagery July 2026: ~18-20 trucks/trailers in two rows; some appear to be drop-lot storage</p>
+    <p class="src">Sources: allstays.com; findfuelstops.com; truckstopsandservices.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/hurricane-rest-area.png" target="_blank"><img src="satellite/hurricane-rest-area.png" alt="Satellite view of Hurricane Rest Area East" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Hurricane Rest Area East <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; EB MM 35.14 &middot; Putnam County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4492%2C-81.9986" target="_blank">38.4492, -81.9986 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>EB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>11</b> <span class="src">(Satellite count July 2026: 8 occupied + 3 open positions on the two ramp-leg strips (free and occupied spots counted))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed; open 24/7)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Separate truck/car parking; RV dump; RVs park with trucks; overnight allowed; NOTE imagery shows WB side has the more substantial truck rows despite reviews calling EB larger; 8 trucks present at July 2026 count</p>
+    <p class="src">Sources: wv511.org; westvirginiarestareas.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/hurricane-rest-area.png" target="_blank"><img src="satellite/hurricane-rest-area.png" alt="Satellite view of Hurricane Rest Area West" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Hurricane Rest Area West <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; WB MM 35.05 &middot; Putnam County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4491%2C-82.0001" target="_blank">38.4491, -82.0001 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>WB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>14</b> <span class="src">(Satellite count July 2026: 10 occupied + 4 open positions across three echelon rows (free and occupied spots counted))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed; open 24/7)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Older building than EB side but imagery shows more substantial angled truck rows behind car lot; 10 trucks + 1 bus present at July 2026 count; picnic; limited vending</p>
+    <p class="src">Sources: wv511.org; westvirginiarestareas.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/ta-hurricane.png" target="_blank"><img src="satellite/ta-hurricane.png" alt="Satellite view of TA Hurricane #149 (Teays Valley)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>TA Hurricane #149 (Teays Valley) <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-64 &middot; Exit 39 (WV 34); MM 38.78 &middot; Putnam County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4538%2C-81.9354" target="_blank">38.4538, -81.9354 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - TA</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>76 (approx 30 reserved)</b> <span class="src">(TA official site)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free general; paid Reserve-It spots</td><th>Fuel / diesel</th><td>Diesel 9 lanes + satellite pumps; bulk DEF; 24hr</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (7 incl 1 ADA)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Yes (lighted; paved)</td></tr>
+    </table>
+    <p class="notes">4195 State Route 34; CAT scale; 5 service bays; laundry; restaurant; WVDOT 2023 profile: typically very congested</p>
+    <p class="src">Sources: ta-petro.com/location/wv/ta-hurricane; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/ta-hurricane.png" target="_blank"><img src="satellite/ta-hurricane.png" alt="Satellite view of Go-Mart #43 Teays Valley" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart #43 Teays Valley <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; Exit 39 (WV 34); MM 38.67 &middot; Putnam County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4538%2C-81.9378" target="_blank">38.4538, -81.9378 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>15 to 20</b> <span class="src">(AllStays 15; TSS 20)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel 24/7; 5 lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Yes (lighted; paved)</td></tr>
+    </table>
+    <p class="notes">4206 SR 34 across from TA; deli/grill; truckers lounge; ATM; trailer drop; small lot</p>
+    <p class="src">Sources: allstays.com; truckstopsandservices.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/pilot-243-nitro.png" target="_blank"><img src="satellite/pilot-243-nitro.png" alt="Satellite view of Pilot Travel Center #243 Nitro" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Pilot Travel Center #243 Nitro <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-64 &middot; Exit 45 (WV 25) &middot; Putnam County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4441%2C-81.8307" target="_blank">38.4441, -81.8307 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - Pilot</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>60 (17 reserved)</b> <span class="src">(Pilot official; TSS)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free general; 17 paid Prime Parking spots</td><th>Fuel / diesel</th><td>Diesel 7 lanes; bulk DEF; 24hr</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (5-6)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Yes (lighted; paved)</td></tr>
+    </table>
+    <p class="notes">4304 1st Ave Nitro; Arby's; CAT scale; laundry; reefer plug-ins; WVDOT 2023 profile: typically very congested</p>
+    <p class="src">Sources: pilotflyingj.com/stores/243; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/sandstone-visitor-center.png" target="_blank"><img src="satellite/sandstone-visitor-center.png" alt="Satellite view of Sandstone Visitor Center (NPS)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Sandstone Visitor Center (NPS) <span class="badge b-off">Official</span></h3>
+    <p class="loc">I-64 &middot; Exit 139 (WV 20) &middot; Summers County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.7833%2C-80.8978" target="_blank">37.7833, -80.8978 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Day-use visitor center &middot; Public - federal (NPS)</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 semi-designated (2+ RV/bus spots)</b> <span class="src">(NPS)</span></td><th>Status</th><td>Open (day hours only)</td></tr>
+      <tr><th>Cost / reservation</th><td>Free day-use</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (day hours only)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">NOT an overnight truck facility; included to document absence of parking on this segment</p>
+    <p class="src">Sources: nps.gov/neri/planyourvisit/sandstone.htm</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/dawson-exit-150-scan.png" target="_blank"><img src="satellite/dawson-exit-150-scan.png" alt="Satellite view of Dawson truck stop (Exit 150 - CLOSED former facility)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Dawson truck stop (Exit 150 - CLOSED former facility) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-64 &middot; Exit 150 (CR 29/4 Morris Branch Rd); old US-60 frontage NE quadrant &middot; Summers/Greenbrier County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.8542%2C-80.7199" target="_blank">37.8542, -80.7199 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Closed former fuel facility &middot; Unknown (former private)</td><th>Direction access</th><td>Unknown</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 active; former apron could hold 5-8 informally</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td><span class="warn">CLOSED - satellite shows two buildings; old pump-island slab; weathered paved apron; no active operation</span></td></tr>
+      <tr><th>Cost / reservation</th><td>n/a</td><th>Fuel / diesel</th><td>No (former)</td></tr>
+      <tr><th>Restrooms</th><td>No</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Best match for study sketch label Dawson truck stop; no directory lists any facility at Exits 139-156; small gravel pull-off at SE ramp base; field visit recommended to confirm identity and ownership/reuse potential</p>
+    <p class="src">Sources: Satellite scan July 2026; study sketch; iexitapp.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/i64-exit156-candidate.png" target="_blank"><img src="satellite/i64-exit156-candidate.png" alt="Satellite view of Sam Black Church gravel pads (candidate - Exit 156)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Sam Black Church gravel pads (candidate - Exit 156) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-64 &middot; Exit 156 (US 60 Sam Black Church) &middot; Greenbrier County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.9060%2C-80.6300" target="_blank">37.9060, -80.6300 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Informal / candidate site &middot; Private (unknown owner)</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>Large ~100x80m gravel pad; 3 white trailers visible; second industrial yard NW at 37.9080 -80.6334</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td>Existing gravel pads; not a commercial truck stop</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>No</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Satellite scan found two truck-capable gravel yards directly off US-60 at Exit 156; neither is a commercial facility; potential informal use or future site candidate</p>
+    <p class="src">Sources: Satellite scan July 2026</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/alta-truck-plaza.png" target="_blank"><img src="satellite/alta-truck-plaza.png" alt="Satellite view of Alta Truck Plaza / Alta Station (Mobil)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Alta Truck Plaza / Alta Station (Mobil) <span class="badge b-field">Field-verified</span></h3>
+    <p class="loc">I-64 &middot; Exit 161 (WV 12); MM 161.5 &middot; Greenbrier County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.8654%2C-80.5547" target="_blank">37.8654, -80.5547 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - independent (Mobil)</td><th>Direction access</th><td>Both (field-verified)</td></tr>
+      <tr><th>Truck spaces</th><td><b>12 marked + 6-8 unmarked gravel</b> <span class="src">(FIELD-VERIFIED July 2026)</span></td><th>Status</th><td><span class="warn">Open (field-verified; one directory wrongly lists closed)</span></td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel + off-road diesel; 4 lanes; Fuelman</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>No (6am-9pm Mon-Sat; 7am-9pm Sun)</td><th>Lighting</th><td>Yes (lighted; paved)</td></tr>
+    </table>
+    <p class="notes">13194 Alta Dr; deli; restaurant; trucker lounge; ATM; only truck stop on I-64 between Nitro Exit 45 and VA line outside the Turnpike; imagery confirms station + large irregular gravel pad extending ~150m south of pumps (fits 6-10 trucks); 5-7 trucks visible</p>
+    <p class="src">Sources: Field visit July 2026; allstays.com; truckstopsandservices.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/walmart-lewisburg.png" target="_blank"><img src="satellite/walmart-lewisburg.png" alt="Satellite view of Walmart Supercenter Lewisburg" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Walmart Supercenter Lewisburg <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; Exit 169 (US 219) &middot; Greenbrier County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.8119%2C-80.4293" target="_blank">37.8119, -80.4293 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Informal (big-box lot) &middot; Private - Walmart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>No designated truck spaces</b> <span class="src">(n/a)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free at store discretion</td><th>Fuel / diesel</th><td>Auto fuel only</td></tr>
+      <tr><th>Restrooms</th><td>Yes (store hours)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Informal overnight big-rig parking typical of Walmart lots; subject to store policy; WVDOT 2023 profile notes Walmart spillover is common statewide</p>
+    <p class="src">Sources: findfuelstops.com; walmart.com/store/1348</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><div class="noimg">No satellite image (coordinates unresolved)</div></div>
+  <div class="info">
+    <h3>Stop In Food Store #132 Caldwell (Exxon) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; Exit 175 (US 60) &middot; Greenbrier County &middot; coordinates not yet established</p>
+    <table>
+      <tr><th>Type / ownership</th><td>Fuel only - no truck parking &middot; Private - independent (Exxon)</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>0</b> <span class="src">(AllStays: small stop no parking)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>n/a</td><th>Fuel / diesel</th><td>Diesel; fleet cards</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (5am-midnight)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Appears in truck-stop directories but has no truck parking; fuel-only relevance</p>
+    <p class="src">Sources: exxonmobilfuels.com; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><div class="noimg">No satellite image (coordinates unresolved)</div></div>
+  <div class="info">
+    <h3>Dixon's Truck Stop (legacy - Exit 175 area) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-64 &middot; Exit 175 area (US 60) &middot; Greenbrier County &middot; coordinates not yet established</p>
+    <table>
+      <tr><th>Type / ownership</th><td>Unknown - likely repair/towing yard today &middot; Private - independent</td><th>Direction access</th><td>Unknown</td></tr>
+      <tr><th>Truck spaces</th><td><b>Unknown</b> <span class="src">(n/a)</span></td><th>Status</th><td>Unverified (est. 1959; current listings = car repair / 24-hr towing)</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Unknown</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Listed on TruckMap at Exit 175 but absent from fuel directories; candidate for field check</p>
+    <p class="src">Sources: truckmap.com; manta.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/i64-welcome-center-west.png" target="_blank"><img src="satellite/i64-welcome-center-west.png" alt="Satellite view of I-64 Welcome Center West" loading="lazy"></a></div>
+  <div class="info">
+    <h3>I-64 Welcome Center West <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-64 &middot; WB MM 178.71 &middot; Greenbrier County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.7857%2C-80.3005" target="_blank">37.7857, -80.3005 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Welcome center &middot; Public - state</td><th>Direction access</th><td>WB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>8</b> <span class="src">(Satellite count July 2026: 1 occupied + 7 open parallel positions along the single long aisle (both sides counted))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Info desk 8am-6pm; grounds 24/7</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">First WB facility from VA; imagery confirms tight geometry: thin elongated shelf between WB lanes and hillside; single long aisle ~200m; no room to expand laterally; 1 truck visible</p>
+    <p class="src">Sources: wv511.org; wvtourism.com</p>
+  </div>
+</div>
+<h2 id="I-77">I-77 (incl. WV Turnpike) &mdash; 17 locations</h2>
+<div class="card">
+  <div class="imgcol"><a href="satellite/princeton-welcome-center.png" target="_blank"><img src="satellite/princeton-welcome-center.png" alt="Satellite view of Princeton Welcome Center" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Princeton Welcome Center <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 &middot; NB MM 8.93 (Exit 9 US-460) &middot; Mercer County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.3627%2C-81.0451" target="_blank">37.3627, -81.0451 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Welcome center &middot; Public - state</td><th>Direction access</th><td>Both (NB direct; bidirectional via Exit 9)</td></tr>
+      <tr><th>Truck spaces</th><td><b>10</b> <span class="src">(Satellite count July 2026: 10 striped long truck/RV slots (7 in main arc row + 3 in lower row); several occupied by cars at count)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Staffed 8:30am-6:30pm only</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">186 Greasy Ridge Rd; travel counselors; WiFi; craft shop; picnic; Vietnam Memorial</p>
+    <p class="src">Sources: turnpike.wv.gov; westvirginiarestareas.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/i77-truck-stop-princeton.png" target="_blank"><img src="satellite/i77-truck-stop-princeton.png" alt="Satellite view of I-77 Truck Stop Princeton (NOT FOUND)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>I-77 Truck Stop Princeton (NOT FOUND) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-77 &middot; Exit 9 (US-460) &middot; Mercer County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.3630%2C-81.0425" target="_blank">37.3630, -81.0425 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Does not exist (directory ghost) &middot; n/a</td><th>Direction access</th><td>n/a</td></tr>
+      <tr><th>Truck spaces</th><td><b>0</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td>NOT FOUND - full Exit 9 interchange scanned: hotels; vacant retail plaza; a private school-bus/contractor gravel yard; no truck stop exists</td></tr>
+      <tr><th>Cost / reservation</th><td>n/a</td><th>Fuel / diesel</th><td>n/a</td></tr>
+      <tr><th>Restrooms</th><td>n/a</td><th>Showers</th><td>n/a</td></tr>
+      <tr><th>24/7 staff</th><td>n/a</td><th>Lighting</th><td>n/a</td></tr>
+    </table>
+    <p class="notes">Directory listings (TruckMap/Roadnow) appear to be ghosts; recommend removal from driver-facing outputs after one field confirmation</p>
+    <p class="src">Sources: truckmap.com; roadnow.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/bluestone-travel-plaza.png" target="_blank"><img src="satellite/bluestone-travel-plaza.png" alt="Satellite view of Bluestone Travel Plaza" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Bluestone Travel Plaza <span class="badge b-off">Official</span></h3>
+    <p class="loc">I-77 Turnpike &middot; NB MM 17.22 (signed MP 18) &middot; Mercer County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.4748%2C-81.0677" target="_blank">37.4748, -81.0677 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Travel plaza &middot; Public - state (Parkways Authority)</td><th>Direction access</th><td>NB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>79</b> <span class="src">(Parkways Authority (69 pre-rebuild + 10 added); sketch figure 117 NOT supported by any official source)</span></td><th>Status</th><td>Open (rebuilt; reopened mid-Jan 2025)</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel; separated tractor-trailer fueling</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Yes (24/7 Mountain State Market)</td><th>Lighting</th><td>Yes (24/7 facility)</td></tr>
+    </table>
+    <p class="notes">New building; Wendy's; EV chargers in development; pet relief; picnic; imagery (post-rebuild era): new building/canopy/fresh concrete confirmed; ~4 angled truck rows visible with 14-18 trucks; east rows cloud-obscured so full 79 not countable</p>
+    <p class="src">Sources: cdllife.com; ttnews.com; turnpike.wv.gov</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/camp-creek-wayside.png" target="_blank"><img src="satellite/camp-creek-wayside.png" alt="Satellite view of Camp Creek Wayside (I-77 SB MM 18 parking area)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Camp Creek Wayside (I-77 SB MM 18 parking area) <span class="badge b-field">Field-verified</span></h3>
+    <p class="loc">I-77 Turnpike &middot; SB MM 18.3 &middot; Mercer County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.4858%2C-81.0802" target="_blank">37.4858, -81.0802 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Parking-only wayside &middot; Public - state (Parkways)</td><th>Direction access</th><td>SB only (field-verified)</td></tr>
+      <tr><th>Truck spaces</th><td><b>12</b> <span class="src">(FIELD-VERIFIED July 2026; imagery shows ~12 echelon slots)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>No (no facilities - field-verified)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Parking-only teardrop wayside across turnpike from Bluestone; no buildings; long accel/decel lanes; 5 tractor-trailers visible in imagery</p>
+    <p class="src">Sources: Field visit July 2026; westvirginiarestareas.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/camp-creek-exxon.png" target="_blank"><img src="satellite/camp-creek-exxon.png" alt="Satellite view of Camp Creek Exxon (Exit 20)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Camp Creek Exxon (Exit 20) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 Turnpike &middot; Exit 20 (US-19 Camp Creek) &middot; Mercer County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.4996%2C-81.1016" target="_blank">37.4996, -81.1016 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Gas station - NOT truck-capable &middot; Private - Exxon</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 marked; gravel pad ~5-8 informal</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td>Open (small rural station)</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Gas</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">RESOLVED by imagery: small red-roof rural station/store with single canopy and unstriped rutted gravel apron; NOT a real truck lot; AllStays 104-space figure was stale data duplicated from old Bluestone listing</p>
+    <p class="src">Sources: allstays.com; gasbuddy.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-beckley-harper-rd.png" target="_blank"><img src="satellite/gomart-beckley-harper-rd.png" alt="Satellite view of GoMart Truck Stop Beckley (Harper Rd)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>GoMart Truck Stop Beckley (Harper Rd) <span class="badge b-field">Field-verified</span></h3>
+    <p class="loc">I-77 &middot; Exit 44 (Harper Rd) &middot; Raleigh County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.7964%2C-81.2186" target="_blank">37.7964, -81.2186 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both (field-verified: access and facilities both directions)</td></tr>
+      <tr><th>Truck spaces</th><td><b>28</b> <span class="src">(FIELD-VERIFIED July 2026 (AllStays 18 is outdated))</span></td><th>Status</th><td>Open 24hr</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24hr</td><th>Lighting</th><td>Yes (24/7 facility)</td></tr>
+    </table>
+    <p class="notes">2100 Harper Rd; deli/restaurant; ATM; TCH/Fuelman; just west of interchange; imagery: separate diesel canopy behind store; ~10-12 marked slots along north tree line + wide open rear apron (28 total plausible incl apron); 9-10 trucks visible</p>
+    <p class="src">Sources: Field visit July 2026; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/beckley-travel-plaza.png" target="_blank"><img src="satellite/beckley-travel-plaza.png" alt="Satellite view of Beckley Travel Plaza" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Beckley Travel Plaza <span class="badge b-off">Official</span></h3>
+    <p class="loc">I-77 Turnpike &middot; MM 45.3 at Exit 45 &middot; Raleigh County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.8024%2C-81.2129" target="_blank">37.8024, -81.2129 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Travel plaza &middot; Public - state (Parkways Authority)</td><th>Direction access</th><td>Both via Exit 45 ramps (physically SB side)</td></tr>
+      <tr><th>Truck spaces</th><td><b>165</b> <span class="src">(Parkways Authority (130 pre-rebuild + 35 added))</span></td><th>Status</th><td>Open (rebuilt; reopened Dec 30 2024)</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel; separated tractor-trailer fueling</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Yes (24/7 Mountain State Market)</td><th>Lighting</th><td>Yes (24/7 facility)</td></tr>
+    </table>
+    <p class="notes">Largest truck lot on corridor; Starbucks; Wendy's; Popeye's; 8 EV fast chargers; Tamarack shares interchange but is NOT a separate truck lot; Tamarack lower lot allows free overnight truck/RV parking if driver notifies front desk; NOTE satellite imagery predates rebuild completion (shows old plaza + freshly striped new grid lot; ~50 trucks visible) - 165 figure is from Parkways press not countable in current imagery</p>
+    <p class="src">Sources: landline.media; ttnews.com; turnpike.wv.gov</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/burnwell-rest-area.png" target="_blank"><img src="satellite/burnwell-rest-area.png" alt="Satellite view of Burnwell Rest Area (MM 69)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Burnwell Rest Area (MM 69) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 Turnpike &middot; SB MM 69.32 (I-64 EB) &middot; Kanawha County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.0686%2C-81.3813" target="_blank">38.0686, -81.3813 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state (Parkways)</td><th>Direction access</th><td>SB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>14</b> <span class="src">(Satellite count July 2026: 12 occupied + 2 open parallel positions (double row north of building + south segment; incl. shoulder-edge overflow positions))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes (restrooms 24/7)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Building staffed 8:30am-6:30pm; 24hr vending</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Only public stop on 27-mile SB gap between Morton and Beckley; vending; WiFi; ATM</p>
+    <p class="src">Sources: turnpike.wv.gov; i77exits.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/morton-travel-plaza.png" target="_blank"><img src="satellite/morton-travel-plaza.png" alt="Satellite view of Morton Travel Plaza" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Morton Travel Plaza <span class="badge b-off">Official</span></h3>
+    <p class="loc">I-77 Turnpike &middot; NB MM 72.13 (I-64 WB); Cabin Creek &middot; Kanawha County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.1021%2C-81.3831" target="_blank">38.1021, -81.3831 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Travel plaza &middot; Public - state (Parkways Authority)</td><th>Direction access</th><td>NB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 during construction (20 pre-demolition; new count TBD - Parkways says expanded)</b> <span class="src">(Parkways / AllStays legacy)</span></td><th>Status</th><td><span class="warn">UNDER CONSTRUCTION - demolished Feb-Mar 2025; $50.3M rebuild; contract completion Oct 31 2026</span></td></tr>
+      <tr><th>Cost / reservation</th><td>n/a during construction</td><th>Fuel / diesel</th><td>No (closed)</td></tr>
+      <tr><th>Restrooms</th><td>No (closed)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Final phase of Turnpike plaza modernization; no interim truck parking at site; NB trucks must use Beckley MM 45 or GoMart Exit 95; satellite imagery predates demolition (shows old plaza with ~18-20 angled slots and 15-18 trucks - illustrates lost capacity)</p>
+    <p class="src">Sources: herald-dispatch.com; ttnews.com; turnpike.wv.gov</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-31-charleston.png" target="_blank"><img src="satellite/gomart-31-charleston.png" alt="Satellite view of GoMart #31 Charleston (W.U.T.S.)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>GoMart #31 Charleston (W.U.T.S.) <span class="badge b-conf">Directory-conflicting</span></h3>
+    <p class="loc">I-77 Turnpike &middot; Exit 95 (MacCorkle Ave/WV-61); NB MM 94.52 &middot; Kanawha County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.3062%2C-81.5625" target="_blank">38.3062, -81.5625 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both via Exit 95</td></tr>
+      <tr><th>Truck spaces</th><td><b>~25-30 (imagery supports the 25 claim; NOT 74/65)</b> <span class="src">(Satellite count + AllStays)</span></td><th>Status</th><td>Open 24hr</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel 24hr; 8 lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Conflicting (TruckerGuide: none)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24hr</td><th>Lighting</th><td>Yes (24/7 facility)</td></tr>
+    </table>
+    <p class="notes">6414 MacCorkle Ave SE; same facility as sketch label Go Mart (95); imagery: lot wedged between MacCorkle Ave and Kanawha River bank; stalls dead-end at riverside tree line; tight maneuvering; trailers doubled along east edge; 18-20 trucks visible; deli; ATM; motels adjacent</p>
+    <p class="src">Sources: allstays.com; truckerguideapp.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/loves-378-ripley.png" target="_blank"><img src="satellite/loves-378-ripley.png" alt="Satellite view of Go-Mart #33 Fairplain" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart #33 Fairplain <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 &middot; Exit 132 (WV-21); NB MM 132.44 &middot; Jackson County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.7610%2C-81.6939" target="_blank">38.7610, -81.6939 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>15</b> <span class="src">(AllStays)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">47 Shinn Ln; deli/restaurant; ATM; Fuelman; CAUTION imagery shows small white-canopy station with NO visible truck rows - 15-space claim doubtful; field-verify</p>
+    <p class="src">Sources: allstays.com; truckerpath.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/loves-378-ripley.png" target="_blank"><img src="satellite/loves-378-ripley.png" alt="Satellite view of Love's Travel Stop #378 Ripley/Fairplain" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Love's Travel Stop #378 Ripley/Fairplain <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-77 &middot; Exit 132; SB MM 132.22 &middot; Jackson County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.7573%2C-81.6898" target="_blank">38.7573, -81.6898 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - Love's</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>80</b> <span class="src">(Love's official)</span></td><th>Status</th><td>Open 24hr</td></tr>
+      <tr><th>Cost / reservation</th><td>Standard free; paid reserved via Love's app</td><th>Fuel / diesel</th><td>Diesel 7 lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (5)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Yes (24/7 facility)</td></tr>
+    </table>
+    <p class="notes">3875 Charleston Rd; McDonald's; CAT scale; tire care/truck repair; largest private lot mid-corridor</p>
+    <p class="src">Sources: loves.com; findtruckservice.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/mineral-wells-rest-area.png" target="_blank"><img src="satellite/mineral-wells-rest-area.png" alt="Satellite view of Mineral Wells Rest Area NB" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Mineral Wells Rest Area NB <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 &middot; NB MM 165.79 &middot; Wood County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.1309%2C-81.5472" target="_blank">39.1309, -81.5472 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>NB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>10</b> <span class="src">(Satellite count July 2026: 10 faintly striped echelon slots on the fan apron (2 occupied + 8 open))</span></td><th>Status</th><td>Open (reopened Jul 2019 after crash-damage closure)</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight allowed in designated areas</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Restrooms; vending; picnic; RV dump</p>
+    <p class="src">Sources: transportation.wv.gov; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/mineral-wells-rest-area.png" target="_blank"><img src="satellite/mineral-wells-rest-area.png" alt="Satellite view of Mineral Wells Rest Area SB" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Mineral Wells Rest Area SB <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 &middot; SB MM 165.86 &middot; Wood County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.1323%2C-81.5490" target="_blank">39.1323, -81.5490 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>SB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>10</b> <span class="src">(truckstopsandservices.com)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight allowed in designated areas</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Restrooms; picnic; vending; RV dump; pet area</p>
+    <p class="src">Sources: truckstopsandservices.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/ta-mineral-wells.png" target="_blank"><img src="satellite/ta-mineral-wells.png" alt="Satellite view of TA Mineral Wells (Par Mar; former Liberty Truck Stop)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>TA Mineral Wells (Par Mar; former Liberty Truck Stop) <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-77 &middot; Exit 170 (WV-14); MM 170.47 &middot; Wood County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.1948%2C-81.5260" target="_blank">39.1948, -81.5260 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - TA (Par Mar franchise; Amoco fuel)</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>104</b> <span class="src">(ta-petro.com (legacy Liberty listings said 150 - same site))</span></td><th>Status</th><td><span class="warn">Open (rebranded/reopened Oct 2024; Liberty name closed - same site not a second facility)</span></td></tr>
+      <tr><th>Cost / reservation</th><td>Standard free; TA Reserve-It paid reserved</td><th>Fuel / diesel</th><td>Diesel 24hr (Amoco); truck lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (count unknown; Liberty had 4)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Yes (24/7 facility)</td></tr>
+    </table>
+    <p class="notes">470 Frontage Rd; IHOP + Miss J's Cafe; CAT scale; laundry; driver lounge; biggest truck stop on free (non-toll) section; imagery: very large faintly striped apron - 104 claim credible; lot mostly empty (~8-10 trucks) in imagery</p>
+    <p class="src">Sources: ta-petro.com; newsandsentinel.com; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-parkersburg.png" target="_blank"><img src="satellite/gomart-parkersburg.png" alt="Satellite view of GoMart Parkersburg (Camden Ave)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>GoMart Parkersburg (Camden Ave) <span class="badge b-conf">Directory-conflicting</span></h3>
+    <p class="loc">I-77 &middot; Exit 173 (WV-95/Camden Ave); at Camden Ave/Gihon Rd fork &middot; Wood County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.2476%2C-81.5546" target="_blank">39.2476, -81.5546 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>C-store - truck capacity doubtful &middot; Private - GoMart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 marked (imagery); 10-space directory claim NOT supported</b> <span class="src">(Satellite scan July 2026 vs AllStays)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free</td><th>Fuel / diesel</th><td>Diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Geocode was ~0.5 mi off - corrected; imagery: blue-canopy station with small car-scale lot; only informal trailer parking is the vacant former shopping-plaza lot across Camden Ave (3-4 trailers visible there)</p>
+    <p class="src">Sources: allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/williamstown-welcome-center.png" target="_blank"><img src="satellite/williamstown-welcome-center.png" alt="Satellite view of Williamstown Welcome Center" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Williamstown Welcome Center <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-77 &middot; Exit 185 (WV-31); SB MM 184.89 &middot; Wood County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.3900%2C-81.4431" target="_blank">39.3900, -81.4431 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Welcome center &middot; Public - state</td><th>Direction access</th><td>Both via Exit 185</td></tr>
+      <tr><th>Truck spaces</th><td><b>18</b> <span class="src">(Satellite count July 2026: 18 striped herringbone truck/RV slots (8 upper bank + 10 lower bank; 2 occupied at count))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Staffed 8am-6pm only</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">1325 Highland Ave; WiFi; vending; picnic; dog park; RV dump; last/first WV facility at Ohio line; imagery: herringbone truck rows separate from car lot</p>
+    <p class="src">Sources: wvtourism.com; parkadvisor.com; wv511.org</p>
+  </div>
+</div>
+<h2 id="I-79">I-79 &mdash; 17 locations</h2>
+<div class="card">
+  <div class="imgcol"><a href="satellite/i79-mink-shoals-candidate.png" target="_blank"><img src="satellite/i79-mink-shoals-candidate.png" alt="Satellite view of Mink Shoals frontage yard (candidate - I-79 Exit 1)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Mink Shoals frontage yard (candidate - I-79 Exit 1) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-79 &middot; Exit 1 (Mink Shoals); west-side frontage road immediately NW of interchange &middot; Kanawha County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.3945%2C-81.5930" target="_blank">38.3945, -81.5930 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Informal / candidate site (linear truck-trailer yard) &middot; Private (unknown owner)</td><th>Direction access</th><td>Both via Exit 1</td></tr>
+      <tr><th>Truck spaces</th><td><b>~25-35 trucks/trailers visible single-file (imagery)</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td>Active informal/commercial use - NOT a designated parking facility</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>No</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Scan of WVDOT-flagged Mink Shoals undesignated-parking area (I-79 Exits 1-9): ~600m linear gravel strip between west frontage road and wooded hillside just NW of the Exit 1/Elk River interchange; ~25-35 tractors and drop trailers parked nose-to-tail; stacked materials at north end and building at south end suggest a commercial trailer-storage/repair yard absorbing local demand rather than open parking; remainder of Exits 0-2 sweep found no other truck-capable site; field-verify ownership and whether transient overnight parking is tolerated</p>
+    <p class="src">Sources: Satellite scan July 2026; WVDOT Truck Parking Profile 2023</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-86-big-otter.png" target="_blank"><img src="satellite/gomart-86-big-otter.png" alt="Satellite view of Go-Mart #86 Big Otter" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart #86 Big Otter <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; Exit 40 (WV-16) &middot; Clay County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.5926%2C-81.0431" target="_blank">38.5926, -81.0431 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>15</b> <span class="src">(AllStays; findfuelstops)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel 24/7</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Yes (24hr diesel)</td><th>Lighting</th><td>Yes (lighted)</td></tr>
+    </table>
+    <p class="notes">6101 Big Otter Hwy Ivydale; deli; restaurant; ATM; TCH/Fuelman; small rural lot</p>
+    <p class="src">Sources: allstays.com; truckmap.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/servia-rest-area.png" target="_blank"><img src="satellite/servia-rest-area.png" alt="Satellite view of Servia Rest Area North (Frametown)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Servia Rest Area North (Frametown) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; NB MM 49.24 &middot; Braxton County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6192%2C-80.8993" target="_blank">38.6192, -80.8993 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>NB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>~16 in RV/semi section (ParkMe; unofficial)</b> <span class="src">(ParkMe)</span></td><th>Status</th><td><span class="warn">Open BUT renovation pending: $21M contract awarded 6/30/2026 - expect closure during construction</span></td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed)</td><th>Lighting</th><td>Yes (per ParkMe)</td></tr>
+    </table>
+    <p class="notes">Picnic; pet area; RV dump; water-issue history (emergency closures Sept 2024); nearest public parking to north end of US-19 Corridor L</p>
+    <p class="src">Sources: wvmetronews.com 7/11/2026; wv511.org; parkme.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/servia-rest-area.png" target="_blank"><img src="satellite/servia-rest-area.png" alt="Satellite view of Servia Rest Area South (Frametown)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Servia Rest Area South (Frametown) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; SB MM 49.30 &middot; Braxton County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6203%2C-80.9002" target="_blank">38.6203, -80.9002 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>SB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>14</b> <span class="src">(Satellite count July 2026: 14 striped long-vehicle slots (5 occupied + 9 open; free and occupied spots counted))</span></td><th>Status</th><td>Open BUT same $21M renovation program - verify closure timing</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Mirror facility of NB side</p>
+    <p class="src">Sources: transportation.wv.gov; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-sutton-exit-62.png" target="_blank"><img src="satellite/gomart-sutton-exit-62.png" alt="Satellite view of Go-Mart Sutton (Exit 62 - UNVERIFIED)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart Sutton (Exit 62 - UNVERIFIED) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-79 &middot; Exit 62 / WV-4 Sutton &middot; Braxton County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6679%2C-80.7179" target="_blank">38.6679, -80.7179 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop (unverified) &middot; Private - GoMart</td><th>Direction access</th><td>Both via local road</td></tr>
+      <tr><th>Truck spaces</th><td><b>8 (TruckerGuide - UNVERIFIED; may duplicate Go-Mart #44)</b> <span class="src">(TruckerGuide)</span></td><th>Status</th><td>Open (listing address ambiguous)</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Small c-store; iExit confirms a Go Mart at Exit 62; treat 8-space figure with caution; verify lot on satellite</p>
+    <p class="src">Sources: truckerguideapp.com; iexitapp.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/pilot-474-sutton.png" target="_blank"><img src="satellite/pilot-474-sutton.png" alt="Satellite view of Pilot Travel Center #474 Sutton/Flatwoods" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Pilot Travel Center #474 Sutton/Flatwoods <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-79 &middot; Exit 67; SB MM 67.17 &middot; Braxton County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.7053%2C-80.6638" target="_blank">38.7053, -80.6638 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - Pilot</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>56 standard + 11 Prime reserved</b> <span class="src">(Pilot official (AllStays 25 outdated))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Standard free; Prime paid reservation via Pilot app</td><th>Fuel / diesel</th><td>Diesel 7 lanes; bulk DEF</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (5; reservable in app)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">270 Scott Fork Rd; CAT scale; Moe's 24hr; Cinnabon; laundry; 4x350kW EV chargers; frequently cited as filling overnight; lot small and fills quickly per reviews</p>
+    <p class="src">Sources: locations.pilotflyingj.com; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/pilot-474-sutton.png" target="_blank"><img src="satellite/pilot-474-sutton.png" alt="Satellite view of Go-Mart #44 Flatwoods" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart #44 Flatwoods <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 / US-19 &middot; Exit 67 (WV-4); WV511 US-19 SB MM 27.67 &middot; Braxton County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.7048%2C-80.6594" target="_blank">38.7048, -80.6594 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>20 to 30 (conflicting)</b> <span class="src">(AllStays 20; TSS 30)</span></td><th>Status</th><td>Open 24hr</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; trailer drop offered; no reservations</td><th>Fuel / diesel</th><td>Diesel; 8 lanes; large truck pumps</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (1 per TSS)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">LOCATION CORRECTED: 2195 Sutton Ln at I-79 Exit 67 Flatwoods (east side; Pilot is west side) - NOT at US-19 MM 27.67; paved lot; deli/restaurant; ATM; functions as overflow when Pilot fills</p>
+    <p class="src">Sources: truckstopsandservices.com; findfuelstops.com; gasbuddy.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/burnsville-rest-area.png" target="_blank"><img src="satellite/burnsville-rest-area.png" alt="Satellite view of Burnsville Rest Area South (Aspinall)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Burnsville Rest Area South (Aspinall) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; SB MM 84.40 &middot; Lewis (per WV511; near Braxton line) County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.9129%2C-80.5956" target="_blank">38.9129, -80.5956 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>SB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>10</b> <span class="src">(Satellite count July 2026: 10 striped long-vehicle slots (all open at count))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight tolerated</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">RV dump; vending; picnic; pet area; SB assignment confirmed by July 2026 imagery (facility on NW side of carriageway)</p>
+    <p class="src">Sources: wv511.org; campendium.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/burnsville-rest-area.png" target="_blank"><img src="satellite/burnsville-rest-area.png" alt="Satellite view of Burnsville Rest Area North (Aspinall)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Burnsville Rest Area North (Aspinall) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; NB MM 84.56 &middot; Lewis (per WV511) County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.9123%2C-80.5924" target="_blank">38.9123, -80.5924 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>NB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>12 long-vehicle + 6 auto (unofficial)</b> <span class="src">(RVParky (not WVDOT-confirmed))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight tolerated</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">RV dump on site; plenty of spots for big rigs per reviews</p>
+    <p class="src">Sources: rvparky.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/ta-jane-lew.png" target="_blank"><img src="satellite/ta-jane-lew.png" alt="Satellite view of TA Jane Lew (former Roady's Jane Lew Truck Stop)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>TA Jane Lew (former Roady's Jane Lew Truck Stop) <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-79 &middot; Exit 105 (WV-7/CR-8) &middot; Lewis County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.1035%2C-80.3886" target="_blank">39.1035, -80.3886 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - TA (franchise conversion)</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>75</b> <span class="src">(TA official (AllStays legacy 70))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Standard free; paid Reserve-It spaces</td><th>Fuel / diesel</th><td>Diesel + DEF at pump</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (6 per TA)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes (fuel 24/7)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">102 Jesse Run Rd; IHOP; Arby's; Miss J's Cafe; CAT scale; laundry; 3 service bays; King Tire on site; multiple directory addresses = same complex</p>
+    <p class="src">Sources: ta-petro.com/location/wv/ta-jane-lew; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/bridgeport-hill.png" target="_blank"><img src="satellite/bridgeport-hill.png" alt="Satellite view of Bridgeport Hill Truck Stop (UNVERIFIED)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Bridgeport Hill Truck Stop (UNVERIFIED) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">I-79 &middot; Exit 117 (WV-58); 9851 Cost Ave Anmoore &middot; Harrison County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.2527%2C-80.2975" target="_blank">39.2527, -80.2975 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop (unverified) &middot; Private - independent</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>5 (small stop)</b> <span class="src">(AllStays)</span></td><th>Status</th><td><span class="warn">Listed in directories; open/closed not independently verified</span></td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Presumed fuel (unverified)</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Tiny legacy independent ~1 km west of exit; verify existence on satellite/phone before counting capacity</p>
+    <p class="src">Sources: allstays.com; yelp.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/tpc-clarksburg.png" target="_blank"><img src="satellite/tpc-clarksburg.png" alt="Satellite view of Truck Parking Club lot Clarksburg (1800 N 12th St)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Truck Parking Club lot Clarksburg (1800 N 12th St) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; Off Exits 119/121 (~2 mi) &middot; Harrison County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.2910%2C-80.3438" target="_blank">39.2910, -80.3438 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Paid reservable lot &middot; Private - independent (TPC member)</td><th>Direction access</th><td>Both via local roads</td></tr>
+      <tr><th>Truck spaces</th><td><b>10</b> <span class="src">(Truck Parking Club listing)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>$5/hr; $15/day; $75/wk; $150/mo; instant booking truckparkingclub.com</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>No (likely none)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed; 24/7 gate access)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Gravel fenced lot; trailer drop allowed (landing gear support required); coords are street geocode - pin exact lot from imagery</p>
+    <p class="src">Sources: truckparkingclub.com; truxspot.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/meadowbrook-rest-area.png" target="_blank"><img src="satellite/meadowbrook-rest-area.png" alt="Satellite view of Meadowbrook Rest Area South (Bridgeport)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Meadowbrook Rest Area South (Bridgeport) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; SB MM 122.50 &middot; Harrison County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.3145%2C-80.2545" target="_blank">39.3145, -80.2545 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>SB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>14</b> <span class="src">(Satellite count July 2026: 6 positions on NE entry strip (5-6 occupied) + 8 echelon positions on SW apron (2 occupied) = 14 total (free and occupied counted))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight tolerated</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">1334 Barnetts Run Rd; RV dump; vending; picnic; pet area</p>
+    <p class="src">Sources: wv511.org; campendium.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/meadowbrook-rest-area.png" target="_blank"><img src="satellite/meadowbrook-rest-area.png" alt="Satellite view of Meadowbrook Rest Area North (Bridgeport)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Meadowbrook Rest Area North (Bridgeport) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; NB MM 122.72 &middot; Harrison County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.3143%2C-80.2501" target="_blank">39.3143, -80.2501 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Rest area &middot; Public - state</td><th>Direction access</th><td>NB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>17 (unofficial)</b> <span class="src">(SleepDog/usabreakdown directories (not WVDOT-confirmed))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight tolerated</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No (unstaffed)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Separate truck/passenger parking; RV dump; ADA + family restrooms</p>
+    <p class="src">Sources: sleepdogmattress.com; restareasnearme.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/kt-truck-stop-fairmont.png" target="_blank"><img src="satellite/kt-truck-stop-fairmont.png" alt="Satellite view of K&amp;T Truck Stop (Clark Travel Plaza) Fairmont" loading="lazy"></a></div>
+  <div class="info">
+    <h3>K&amp;T Truck Stop (Clark Travel Plaza) Fairmont <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; Exit 139 (Meadowdale Rd) &middot; Marion County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.4958%2C-80.1031" target="_blank">39.4958, -80.1031 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - independent</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>20</b> <span class="src">(AllStays; findtruckservice; ParkAdvisor concur)</span></td><th>Status</th><td>Open 24hr</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservation system found</td><th>Fuel / diesel</th><td>Diesel 6 lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (6)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">73 Meadowdale Rd; restaurant/deli; laundry; scales; motel on site; directory coords sit ~1 km SW of exit - confirm exact lot on imagery</p>
+    <p class="src">Sources: allstays.com; findtruckservice.com; parkadvisor.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/pilot-503-morgantown.png" target="_blank"><img src="satellite/pilot-503-morgantown.png" alt="Satellite view of Pilot Travel Center #503 Morgantown" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Pilot Travel Center #503 Morgantown <span class="badge b-off">Operator-published</span></h3>
+    <p class="loc">I-79 &middot; Exit 146 (Goshen Rd) &middot; Monongalia County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.5380%2C-79.9949" target="_blank">39.5380, -79.9949 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - Pilot</td><th>Direction access</th><td>Both via exit</td></tr>
+      <tr><th>Truck spaces</th><td><b>44 public + Prime reserved (count unknown)</b> <span class="src">(Pilot official (AllStays 50; one directory 70))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Standard free; Prime Parking reservable via app</td><th>Fuel / diesel</th><td>Diesel 7 lanes; DEF</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (5)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24/7</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">2309 Smithtown Rd; WVDOT 2023 profile stakeholder note: ALWAYS FULL - key demand indicator; CAT scale; laundry; Cinnabon</p>
+    <p class="src">Sources: locations.pilotflyingj.com; allstays.com; WVDOT Truck Parking Profile 2023</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/i79-sb-welcome-center.png" target="_blank"><img src="satellite/i79-sb-welcome-center.png" alt="Satellite view of I-79 Southbound Welcome Center (Morgantown/Star City)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>I-79 Southbound Welcome Center (Morgantown/Star City) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">I-79 &middot; SB MM 158.63 &middot; Monongalia County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=39.6976%2C-80.0464" target="_blank">39.6976, -80.0464 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Welcome center &middot; Public - state</td><th>Direction access</th><td>SB only</td></tr>
+      <tr><th>Truck spaces</th><td><b>14</b> <span class="src">(Satellite count July 2026: 14 echelon positions along the highway-side aisle; 13 occupied at count (effectively full))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; overnight tolerated</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Yes (24/7)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Staffed 8am-6pm only</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">First WV facility for SB traffic from PA; separate truck/passenger parking; RV dump with fresh water; WiFi; walking trail; NOTE July 2026 imagery shows truck line essentially full (13 rigs) despite reviews reporting plenty of space</p>
+    <p class="src">Sources: wv511.org; wvtourism.com</p>
+  </div>
+</div>
+<h2 id="US-19">US-19 (Corridor L) &mdash; 10 locations</h2>
+<div class="card">
+  <div class="imgcol"><a href="satellite/us19-exit57-candidate.png" target="_blank"><img src="satellite/us19-exit57-candidate.png" alt="Satellite view of US-19 / I-79 Exit 57 gravel pads (candidate)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>US-19 / I-79 Exit 57 gravel pads (candidate) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">US-19 / I-79 &middot; NE of US-19/I-79 Exit 57 directional-Y interchange &middot; Braxton County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.6193%2C-80.7560" target="_blank">38.6193, -80.7560 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Informal / candidate site &middot; Private (unknown owner)</td><th>Direction access</th><td>Both</td></tr>
+      <tr><th>Truck spaces</th><td><b>Two cleared gravel pads ~200x250 ft each; combined informal capacity 40-60 semis</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td>Vacant pads; trucks visibly parked in ramp gore nearby</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>No</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">STRONGEST FORMALIZATION CANDIDATE found by imagery: two large empty gravel pads beside NE ramp between hilltop business and ramps; visible gore/ramp-shoulder parking corroborates trucker reports; NOTE earlier geocode for this junction was ~4km off - true wye is at 38.618 -80.755</p>
+    <p class="src">Sources: Satellite scan July 2026</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/sheetz-bradley.png" target="_blank"><img src="satellite/sheetz-bradley.png" alt="Satellite view of Sheetz #457 Bradley/Mount Hope" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Sheetz #457 Bradley/Mount Hope <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; Old US-19 (Robert C Byrd Dr) ~1 mi west of four-lane &middot; Raleigh County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.8471%2C-81.1961" target="_blank">37.8471, -81.1961 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Fuel only - no documented truck parking &middot; Private - Sheetz</td><th>Direction access</th><td>Both via local road</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 documented</b> <span class="src">(n/a)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Yes (24/7 store)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Older-format store; car-oriented lot; no truck apron (imagery-confirmed); adjacent half-empty big-box lot could informally fit 5-10 semis</p>
+    <p class="src">Sources: gasbuddy.com; yelp.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/dte-oak-hill.png" target="_blank"><img src="satellite/dte-oak-hill.png" alt="Satellite view of DTE Repair &amp; Towing lot Oak Hill (Truck Parking Club)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>DTE Repair &amp; Towing lot Oak Hill (Truck Parking Club) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; West side of US-19 south of Pacwood Dr &middot; Fayette County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=37.9836%2C-81.1446" target="_blank">37.9836, -81.1446 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Paid reservable lot &middot; Private - independent (TPC)</td><th>Direction access</th><td>Both (direct US-19 frontage)</td></tr>
+      <tr><th>Truck spaces</th><td><b>20</b> <span class="src">(Truck Parking Club publishes no count; satellite count July 2026: 8 trucks/trailers present + ~12 open positions on main gravel apron = 20 (free and occupied counted))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>~$25/day; $100/wk; $300/mo via TPC app</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Towing/repair yard; imagery: two buildings; wide gravel yard sloping to dirt overflow; 8 trucks/trailers present at July 2026 count; unstriped uneven surface</p>
+    <p class="src">Sources: truckparkingclub.com/us/west-virginia/oak-hill</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/lochgelly-oak-hill.png" target="_blank"><img src="satellite/lochgelly-oak-hill.png" alt="Satellite view of Lochgelly Rd truck lot (Truck Parking Club)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Lochgelly Rd truck lot (Truck Parking Club) <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; NW side of US-19 at Lochgelly Rd (CR 15) crossing &middot; Fayette County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.0090%2C-81.1315" target="_blank">38.0090, -81.1315 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Paid reservable lot &middot; Private - independent (TPC)</td><th>Direction access</th><td>Both via Lochgelly Rd loop</td></tr>
+      <tr><th>Truck spaces</th><td><b>12</b> <span class="src">(Truck Parking Club publishes no count; satellite count July 2026: 4 trucks/trailers present + ~8 open positions across the two gravel pads = 12 (free and occupied counted))</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>~$25/day via TPC reservation</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">3948 Lochgelly Rd; imagery: gravel strip west of buildings + second rough pad SW; 4 trucks/trailers present at July 2026 count; a second TPC listing at 751 Lochgelly Rd is bobtail/box-truck ONLY (no trailers)</p>
+    <p class="src">Sources: truckparkingclub.com/us/west-virginia/oak-hill</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/us19-hico-candidate.png" target="_blank"><img src="satellite/us19-hico-candidate.png" alt="Satellite view of Hico truck yard (candidate - US-19/US-60 junction)" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Hico truck yard (candidate - US-19/US-60 junction) <span class="badge b-unres">Unresolved</span></h3>
+    <p class="loc">US-19 &middot; ~500m NE of US-19/US-60 interchange; behind store fronting US-60 &middot; Fayette County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.1204%2C-81.0042" target="_blank">38.1204, -81.0042 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Informal / candidate site (truck repair yard) &middot; Private - Dependable Truck &amp; Equipment</td><th>Direction access</th><td>Both via US-60</td></tr>
+      <tr><th>Truck spaces</th><td><b>est 8-12 informal</b> <span class="src">(Satellite scan July 2026)</span></td><th>Status</th><td>Open (repair yard; storage more than overnight parking)</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>No</td></tr>
+      <tr><th>Restrooms</th><td>Unknown</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Gravel repair yard with 5-7 trucks/trailers visible; interchange quadrants themselves are empty grass/woods; candidate for field check</p>
+    <p class="src">Sources: Satellite scan July 2026</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/usave-mount-nebo.png" target="_blank"><img src="satellite/usave-mount-nebo.png" alt="Satellite view of U-Save Travel Plaza (Mabel's) Mount Nebo" loading="lazy"></a></div>
+  <div class="info">
+    <h3>U-Save Travel Plaza (Mabel's) Mount Nebo <span class="badge b-conf">Directory-conflicting</span></h3>
+    <p class="loc">US-19 &middot; US-19 at WV-129; WV511 NB MM 5 (Nicholas) &middot; Nicholas County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.1962%2C-80.8613" target="_blank">38.1962, -80.8613 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - independent</td><th>Direction access</th><td>Both (at-grade intersection)</td></tr>
+      <tr><th>Truck spaces</th><td><b>~100-150 truck (AllStays 100; WVDOT-attributed 150; imagery supports 100-150 realistic; 300 only plausible counting entire unstriped apron + auxiliary lots)</b> <span class="src">(AllStays/WVDOT/FTS + satellite analysis)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Overnight free; no documented fee/reservation</td><th>Fuel / diesel</th><td>Diesel; 5 fuel lanes</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Yes (3; ~$5.30 per reviews)</td></tr>
+      <tr><th>24/7 staff</th><td>Yes 24hr</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">4 Riveria Rd; largest truck facility on Corridor L; certified scales; 4 service bays; tire/truck repair; Mabel's Restaurant; deli; laundry; ATM; WiFi; low review scores but functional; imagery: huge ~300x270m unstriped apron (fair condition; staining/cracking at south end) + north rows lot + east gravel trailer lot; ~50 vehicles visible of which ~30 may be stored inventory</p>
+    <p class="src">Sources: allstays.com; truckstopsandservices.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/gomart-51-mount-nebo.png" target="_blank"><img src="satellite/gomart-51-mount-nebo.png" alt="Satellite view of Go-Mart #51 Mount Nebo" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Go-Mart #51 Mount Nebo <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; NB MM 6.158; US-19 at WV-41 &middot; Nicholas County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.2120%2C-80.8506" target="_blank">38.2120, -80.8506 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Truck stop &middot; Private - GoMart</td><th>Direction access</th><td>Both (at-grade; WV511 lists NB side)</td></tr>
+      <tr><th>Truck spaces</th><td><b>20</b> <span class="src">(AllStays; TSS; ParkAdvisor)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; no reservations</td><th>Fuel / diesel</th><td>Diesel; Fuelman</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>Unknown</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">2074 Old Mt Nebo Rd; overnight tractor-trailer parking confirmed by directories; deli; ATM; air pump; imagery: very large open GRAVEL apron (not paved) extending north to a warehouse; est 15-25 spaces consistent with the 20 claim; pull-through access from US-19 frontage and Old Mt Nebo Rd; 5-7 trucks/trailers visible</p>
+    <p class="src">Sources: allstays.com; parkadvisor.com; wv511.org</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/walmart-summersville.png" target="_blank"><img src="satellite/walmart-summersville.png" alt="Satellite view of Sheetz Summersville" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Sheetz Summersville <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; US-19 at Wal St (1300 Wal St) &middot; Nicholas County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.3023%2C-80.8346" target="_blank">38.3023, -80.8346 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Fuel only - no documented truck parking &middot; Private - Sheetz</td><th>Direction access</th><td>Both</td></tr>
+      <tr><th>Truck spaces</th><td><b>0 documented</b> <span class="src">(n/a)</span></td><th>Status</th><td>Open</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>Yes (24/7 store)</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Standard-format store; car-oriented lot; not a Sheetz travel-center format store</p>
+    <p class="src">Sources: way.com; roadtrippers.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/walmart-summersville.png" target="_blank"><img src="satellite/walmart-summersville.png" alt="Satellite view of Walmart Supercenter Summersville" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Walmart Supercenter Summersville <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; US-19 at Wal St (200 Wal St) &middot; Nicholas County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.3048%2C-80.8356" target="_blank">38.3048, -80.8356 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Informal (big-box lot) &middot; Private - Walmart</td><th>Direction access</th><td>Both (signalized intersection)</td></tr>
+      <tr><th>Truck spaces</th><td><b>12 (unofficial)</b> <span class="src">(TruckMap/AllStays)</span></td><th>Status</th><td>Open (store ~6am-11pm)</td></tr>
+      <tr><th>Cost / reservation</th><td>Free; manager discretion; no reservations</td><th>Fuel / diesel</th><td>No truck diesel</td></tr>
+      <tr><th>Restrooms</th><td>Yes (store hours)</td><th>Showers</th><td>No</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Overnight semi parking reported allowed but subject to store manager policy; imagery: no rear truck lot (store backs to hillside); semis would use wide south-side aisles or SE outlot near Sheetz; informal capacity 10-15; 2-3 semis visible on US-19 shoulder/frontage</p>
+    <p class="src">Sources: truckmap.com; allstays.com</p>
+  </div>
+</div>
+<div class="card">
+  <div class="imgcol"><a href="satellite/little-general-birch-river.png" target="_blank"><img src="satellite/little-general-birch-river.png" alt="Satellite view of Little General / Exxon LG#2455 Birch River" loading="lazy"></a></div>
+  <div class="info">
+    <h3>Little General / Exxon LG#2455 Birch River <span class="badge b-dir">Directory</span></h3>
+    <p class="loc">US-19 &middot; US-19 at WV-82 (130 Powells Creek Rd); ~9 mi south of I-79 Exit 57 &middot; Nicholas County &middot; <a href="https://www.google.com/maps/search/?api=1&amp;query=38.4987%2C-80.7551" target="_blank">38.4987, -80.7551 &mdash; open in Google Maps</a></p>
+    <table>
+      <tr><th>Type / ownership</th><td>Fuel stop - informal truck parking suspected &middot; Private - Little General (Exxon)</td><th>Direction access</th><td>Both (at-grade)</td></tr>
+      <tr><th>Truck spaces</th><td><b>6 (informal)</b> <span class="src">(TruckerGuide lists parking but no count; satellite count July 2026: 3 trailers present + ~3 open semi-capable positions on wrap-around gravel apron = 6)</span></td><th>Status</th><td>Open (store 6:00-23:00)</td></tr>
+      <tr><th>Cost / reservation</th><td>Unknown</td><th>Fuel / diesel</th><td>Diesel + kerosene</td></tr>
+      <tr><th>Restrooms</th><td>Yes</td><th>Showers</th><td>Unknown</td></tr>
+      <tr><th>24/7 staff</th><td>No</td><th>Lighting</th><td>Unknown</td></tr>
+    </table>
+    <p class="notes">Only fuel point between Summersville and I-79; imagery: gravel apron wraps store; adjacent gravel lot at warehouse (N) and equipment yard (SW) truck-capable but small/cluttered; 3 trailers present at July 2026 count</p>
+    <p class="src">Sources: truckerguideapp.com; gasbuddy.com; exxon.com</p>
+  </div>
+</div>
+
+<h2 id="gaps">Coverage gaps &amp; candidate sites for field review</h2>
+<div class="intro">
+<ul>
+<li><b>I-64 Exit 1 Kenova/Ceredo:</b> WVDOT 2023 Truck Parking Profile flags recurring shoulder/ramp parking; no legal facility exists.</li>
+<li><b>I-64 Exits 121-139 (Beckley east to Sandstone):</b> no designated facility on I-64 proper; Walmart Beckley (37.8056,-81.1768) absorbs informal demand.</li>
+<li><b>I-64 Exit 150 "Dawson":</b> named on the study sketch but no directory lists any facility at Exits 139-156 &mdash; see Unresolved card; candidate for field visit.</li>
+<li><b>I-77 Turnpike Morton gap:</b> with Morton Travel Plaza closed until ~Oct 31, 2026, northbound trucks have no public facility between Beckley MM 45 and Charleston.</li>
+<li><b>I-77 free section Exits 99-124:</b> ~35-mile stretch with zero documented facilities; Ripley Exit 138 has only car-oriented stations.</li>
+<li><b>I-79 Mink Shoals (Exits 1-9):</b> WVDOT documents recurring undesignated truck parking. July 2026 satellite sweep of Exits 0-2 found one linear truck/trailer yard NW of Exit 1 (~25-35 units; see Unresolved card) and no other truck-capable site; ramps and shoulders remain the only informal option &mdash; field-check.</li>
+<li><b>I-79 Exits 91-99 (Weston):</b> July 2026 satellite scan of the Weston / US-33 area found no truck-capable facility; between the Burnsville rest areas (MM 84) and TA Jane Lew (Exit 105) there is no commercial truck parking on this corridor.</li>
+<li><b>I-79 Clarksburg/Bridgeport Exits 119-125 and Fairmont/Morgantown Exits 132-155:</b> no branded truck stop despite heavy commercial development (except K&amp;T Exit 139 and Pilot Exit 146, both small relative to demand).</li>
+<li><b>US-19 south half (Beckley to Oak Hill, ~20 mi):</b> zero documented truck parking; only paid reservable lots off-corridor in Oak Hill.</li>
+<li><b>US-19 Hico (US-60 junction):</b> Sunoco + truck repair yard; suspected informal parking, undocumented.</li>
+<li><b>US-19 at I-79 Exit 57:</b> truckers report shoulder/ramp parking at the junction; no facility exists.</li>
+<li><b>Utilization context:</b> WVDOT measured I-79 truck parking at 83% peak utilization; Pilot Morgantown described as "always full"; TA Hurricane and Pilot Nitro "typically very congested" &mdash; expect overflow at every gap above.</li>
+</ul>
+</div>
+<p class="src">Primary sources: WV511 Facilities; WVDOT Truck Parking Profile (Nov 2023); WV Parkways Authority / wvturnpike.com; operator sites (TA, Pilot, Love's, GoMart); trucker directories (AllStays, Trucker Path, TruckMap, Truck Parking Club); field visits July 2026. Satellite imagery: Esri World Imagery. Generated from wv-truck-parking-master.csv &mdash; edit the CSV and rerun tools/build-outputs.ps1 to update this page.</p>
+</main>
+</body>
+</html>
