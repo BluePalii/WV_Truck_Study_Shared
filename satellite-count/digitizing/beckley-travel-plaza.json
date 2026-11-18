@@ -1,0 +1,20 @@
+{
+ "site_id": "beckley-travel-plaza", "study_id": "A13",
+ "master_name": "Beckley Travel Plaza",
+ "image": "satellite-count/images/beckley-travel-plaza.png",
+ "blind_count": {"occupied": 44, "low": 38, "high": 50, "note": "SW lot rows A ~18, B ~8, C ~7, D ~8, + ~3 trucks parked by buildings; north pull-through area empty"},
+ "lots": [
+  {"lot_id": "all", "note": "southwest truck lot (four angled striped rows)",
+   "polygon": [[180,600],[420,600],[600,800],[668,860],[672,1335],[180,1345]]},
+  {"lot_id": "all", "note": "north pull-through lanes (empty in 2023 image; layout inferred from wear marks)",
+   "polygon": [[808,238],[1006,238],[1006,568],[808,568]]}
+ ],
+ "rows": [
+  {"id": "A", "p0": [213,1335], "p1": [213,612], "side": 1, "angle_deg": 65, "depth_m": 22, "striped": true, "note": "west row, cabs west, trucks rise to ENE"},
+  {"id": "B", "p0": [337,1312], "p1": [337,878], "side": 1, "angle_deg": 65, "depth_m": 22, "striped": true, "note": "second row, cabs west"},
+  {"id": "C", "p0": [463,996], "p1": [463,1305], "side": -1, "angle_deg": 65, "depth_m": 22, "striped": true, "note": "third row, cabs west, trucks fall to ESE"},
+  {"id": "D", "p0": [657,862], "p1": [657,1150], "side": 1, "angle_deg": 65, "depth_m": 22, "striped": true, "note": "east row, cabs east, trucks to WSW"},
+  {"id": "PT", "p0": [812,560], "p1": [1002,560], "side": -1, "angle_deg": 90, "depth_m": 93, "pull_through_trucks": 4, "striped": false,
+   "note": "north pull-through lanes ~93 m long (4 trucks end to end); empty in image, lane spacing from wear marks"}
+ ]
+}

@@ -31,6 +31,64 @@ if (Test-Path $tssPath) {
   }
 }
 
+# Parking Study locations (included_locations.txt IDs -> master names, see
+# tools\study-map.csv); drives the "Show Parking Study Locations only" toggle.
+$studyByName = @{}
+$studyMapPath = Join-Path $PSScriptRoot 'study-map.csv'
+if (Test-Path $studyMapPath) {
+  $masterNames = @{}
+  foreach ($r in $rows) { $masterNames[$r.Name] = $true }
+  foreach ($s in Import-Csv $studyMapPath) {
+    if (-not $masterNames.ContainsKey($s.MasterName)) {
+      Write-Warning "study-map.csv: $($s.StudyId) '$($s.MasterName)' has no matching master CSV row"
+      continue
+    }
+    if ($studyByName.ContainsKey($s.MasterName)) { $studyByName[$s.MasterName] += ", $($s.StudyId)" }
+    else { $studyByName[$s.MasterName] = $s.StudyId }
+  }
+}
+
+# satellite spot counts per study location (tools\satcount\summarize.py);
+# optional -- the tab shows "not available" if the summary is missing.
+$satcByName = @{}
+$satcPath = Join-Path $root 'satellite-count\study-summary.csv'
+if (Test-Path $satcPath) {
+  foreach ($c in Import-Csv $satcPath) {
+    $o = [ordered]@{}
+    foreach ($p in $c.PSObject.Properties) { $o[$p.Name] = $p.Value }
+    $ov = "satellite-count\overlays\$($c.site_id).jpg"
+    $o['overlay'] = $(if ($c.site_id -and (Test-Path (Join-Path $root $ov))) { "satellite-count/overlays/$($c.site_id).jpg" } else { '' })
+    # exact Esri World Imagery export the count image was fetched with (sidecar written by tools\satcount\esri.py)
+    $o['image_url'] = ''
+    $side = Join-Path $root "satellite-count\images\$($c.site_id).png.json"
+    if ($c.site_id -and (Test-Path $side)) {
+      $j = Get-Content $side -Raw | ConvertFrom-Json
+      $bb = ($j.bbox_3857 | ForEach-Object { [string]::Format([Globalization.CultureInfo]::InvariantCulture, '{0:R}', [double]$_) }) -join ','
+      $o['image_url'] = "https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/export?bbox=$bb&bboxSR=3857&imageSR=3857&size=$($j.size_px[0]),$($j.size_px[1])&format=png&f=image"
+      # report crop: bounding box of the digitized lot outlines + rows (base-image pixels), padded,
+      # as fractions of the image so the report can zoom the overlay onto the counted lot
+      $dig = Join-Path $root "satellite-count\digitizing\$($c.site_id).json"
+      if (Test-Path $dig) {
+        $d = Get-Content $dig -Raw | ConvertFrom-Json
+        $xs = @(); $ys = @()
+        foreach ($l in @($d.lots)) { foreach ($pt in @($l.polygon)) { $xs += [double]$pt[0]; $ys += [double]$pt[1] } }
+        foreach ($rw in @($d.rows)) { foreach ($pt in @($rw.p0, $rw.p1)) { if ($pt) { $xs += [double]$pt[0]; $ys += [double]$pt[1] } } }
+        if ($xs.Count) {
+          $W = [double]$j.size_px[0]; $H = [double]$j.size_px[1]
+          $x0 = ($xs | Measure-Object -Minimum).Minimum; $x1 = ($xs | Measure-Object -Maximum).Maximum
+          $y0 = ($ys | Measure-Object -Minimum).Minimum; $y1 = ($ys | Measure-Object -Maximum).Maximum
+          $pad = [Math]::Max(60, 0.15 * [Math]::Max($x1 - $x0, $y1 - $y0))
+          $o['crop'] = @(
+            [Math]::Round([Math]::Max(0, $x0 - $pad) / $W, 4), [Math]::Round([Math]::Max(0, $y0 - $pad) / $H, 4),
+            [Math]::Round([Math]::Min($W, $x1 + $pad) / $W, 4), [Math]::Round([Math]::Min($H, $y1 + $pad) / $H, 4),
+            $W, $H)
+        }
+      }
+    }
+    $satcByName[$c.location] = $o
+  }
+}
+
 $headers = $rows[0].psobject.Properties.Name
 $i = 0
 $list = foreach ($r in $rows) {
@@ -53,7 +111,11 @@ $list = foreach ($r in $rows) {
     lat = $lat; lon = $lon
     capMid = $e.mid; capClass = $e.class
     sat = $sat
+    studyId = $(if ($studyByName.ContainsKey($r.Name)) { $studyByName[$r.Name] } else { '' })
+    satc = $(if ($satcByName.ContainsKey($r.Name)) { $satcByName[$r.Name] } else { $null })
     raw = $raw
+    caps = $(if ($capSources.ContainsKey($r.Name)) { @($capSources[$r.Name]) } else { @() })
+    capAgree = $(Get-CapAgreement $(if ($capSources.ContainsKey($r.Name)) { $capSources[$r.Name] } else { @() }))
     tss = $(if ($tssByName.ContainsKey($r.Name)) {
       $t = $tssByName[$r.Name]
       $o = [ordered]@{}
@@ -134,8 +196,25 @@ button:hover { filter:brightness(1.05); }
 .estbox, .vbox { background:var(--bg); border:1px solid var(--border); border-radius:8px; padding:8px 10px; font-size:12.5px; margin:8px 0 0; }
 .estbox span { color:var(--ink2); }
 .vbox.ok { border-color:#00830066; color:#006300; }
+.capag { border-radius:8px; padding:7px 10px; font-size:12.5px; margin:8px 0 6px; border:1px solid var(--border); background:var(--bg); }
+.capag.agree { border-color:#00830088; color:#006300; }
+.capag.differ { border-color:#eda100; background:#fff4d6; color:#6b3a00; }
+table.captab { width:100%; border-collapse:collapse; font-size:12.5px; margin:4px 0 8px; }
+table.captab th { text-align:left; font-size:11px; color:var(--ink2); font-weight:600; border-bottom:1px solid var(--border); padding:4px 6px; }
+table.captab td { border-bottom:1px solid var(--border); padding:4px 6px; vertical-align:top; }
+table.captab tr.grp td { background:var(--bg); font-weight:650; font-size:11.5px; color:var(--ink); padding-top:6px; }
+table.captab td.num { white-space:nowrap; font-weight:650; }
+.capv { display:inline-block; min-width:22px; text-align:center; border-radius:5px; padding:0 5px; }
+.capv.same { background:#d9f2d9; color:#005200; }
+.capv.off { background:#ffd9a8; color:#6b3a00; outline:1px solid #eda100; }
+.capsum { font-weight:650; }
+.capsum.differ { color:#a35a00; }
+.capsum.agree { color:#007000; }
 .vchip { display:inline-block; font-size:11px; border:1px solid #eda10088; color:#8a4a00; border-radius:20px; padding:1px 8px; margin:2px 2px 0 0; }
-@media (prefers-color-scheme: dark) { .vchip { color:#eda100; } .vbox.ok { color:#0ca30c; } }
+@media (prefers-color-scheme: dark) { .vchip { color:#eda100; } .vbox.ok { color:#0ca30c; }
+  .capag.agree { color:#0ca30c; } .capag.differ { background:#3a2a00; color:#ffd27a; }
+  .capv.same { background:#0f3a12; color:#8be08b; } .capv.off { background:#4a3000; color:#ffd27a; }
+  .capsum.differ { color:#eda100; } .capsum.agree { color:#0ca30c; } }
 
 .main { display:grid; grid-template-columns:1.15fr .85fr; gap:12px; margin-bottom:12px; }
 .map-wrap { position:relative; height:600px; overflow:hidden; }
@@ -151,6 +230,7 @@ button:hover { filter:brightness(1.05); }
 .chip { display:inline-block; font-size:10.5px; border:1px solid var(--border); border-radius:20px; padding:1px 8px; margin:3px 4px 0 0; color:var(--ink2); background:var(--bg); }
 .chip.st-open { color:#006300; border-color:#00830055; }
 .chip.st-warn { color:#8a4a00; border-color:#eda10066; }
+.chip.study { color:var(--accent); border-color:var(--accent); }
 .fcard .mini { font-size:11.5px; color:var(--accent); margin-top:2px; }
 
 .charts { display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px; }
@@ -170,6 +250,10 @@ button:hover { filter:brightness(1.05); }
 .modal .sub { color:var(--ink2); font-size:13px; margin-bottom:10px; }
 .modal .x { position:absolute; top:10px; right:12px; font-size:16px; padding:2px 10px; }
 .modal img.sat { width:100%; border-radius:8px; border:1px solid var(--border); margin:8px 0; }
+.satstats { display:grid; grid-template-columns:repeat(3,1fr); gap:8px; margin:10px 0; }
+.satstats > div { border:1px solid var(--border); border-radius:8px; padding:8px 10px; background:var(--surface); }
+.satstats .v { font-size:22px; font-weight:700; font-variant-numeric:tabular-nums; }
+.satstats .l { font-size:11.5px; color:var(--ink2); }
 .modal table { width:100%; border-collapse:collapse; font-size:12.5px; }
 .modal td { border-bottom:1px solid var(--grid); padding:5px 8px; vertical-align:top; }
 .modal td:first-child { color:var(--ink2); white-space:nowrap; width:150px; }
@@ -179,12 +263,24 @@ button:hover { filter:brightness(1.05); }
 .tabbar .tab.active { background:var(--surface); color:var(--ink); font-weight:650; border-color:var(--accent); }
 .tabpane { padding-top:10px; }
 .tssnote { color:var(--muted); font-size:11.5px; margin:10px 0 0; }
+.dom { color:var(--muted); font-size:0.85em; }
 
-#report { display:none; }
+/* off-screen (not display:none) so the report's Leaflet map can lay out and load tiles before printing */
+#report { position:absolute; left:-10000px; top:0; width:7.5in; height:0; overflow:hidden; background:#fff; color:#111; }
+#report .rmap { width:7.2in; max-width:100%; height:5in; border:1px solid #999; border-radius:4px; margin-bottom:6px; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+#report .rpin { width:22px; height:22px; border-radius:50%; border:2px solid #fff; color:#fff; font:700 10px/18px Arial, sans-serif; text-align:center; box-shadow:0 0 0 1px #333; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+#report .rlegend { font-size:8.5pt; color:#333; margin-bottom:4px; }
+#report .rlegend span { margin-right:12px; white-space:nowrap; }
+#report .rlegend .dot { display:inline-block; width:9px; height:9px; border-radius:50%; margin-right:4px; vertical-align:middle; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+#report .dom { color:#666; font-size:0.85em; }
+#report .rcard img.ov { float:none; display:block; max-width:100%; max-height:4.2in; margin:6px 0 2px; }
+#report .cap { font-size:8.5pt; color:#444; font-style:italic; }
+#report .ovcrop { position:relative; overflow:hidden; max-width:100%; margin:6px 0 2px; border:1px solid #999; border-radius:4px; }
+#report .rcard .ovcrop img { position:absolute; max-width:none; max-height:none; height:auto; float:none; margin:0; border:0; border-radius:0; }
 @media print {
   body { background:#fff; color:#111; font-size:10.5pt; }
   .app { display:none !important; }
-  #report { display:block; padding:0; }
+  #report { position:static; left:auto; width:auto; height:auto; overflow:visible; display:block; padding:0; }
   #report h1 { font-size:19pt; margin:0 0 2px; }
   #report .sub { color:#444; margin-bottom:10px; }
   #report h2 { font-size:13pt; border-bottom:2px solid #0f2a4a; color:#0f2a4a; padding-bottom:2px; margin:18px 0 8px; }
@@ -198,6 +294,15 @@ button:hover { filter:brightness(1.05); }
   #report .rcard img { max-width:3.4in; max-height:2.4in; float:right; margin:0 0 6px 10px; border:1px solid #999; border-radius:4px; }
   #report .rcard p { margin:2px 0; font-size:9pt; }
   #report .rcard::after { content:""; display:block; clear:both; }
+  #report table.captab { font-size:8.5pt; margin:2px 0 4px; clear:none; }
+  #report table.captab th, #report table.captab td { border-bottom:1px solid #ccc; padding:2px 4px; color:#111; }
+  #report table.captab tr.grp td { background:#eef1f5; color:#0f2a4a; }
+  #report .capag { font-size:9pt; padding:3px 6px; margin:3px 0; background:#f6f6f4; color:#111; border:1px solid #bbb; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  #report .capag.differ { background:#fff4d6; border-color:#eda100; color:#6b3a00; }
+  #report .capag.agree { border-color:#008300; color:#006300; }
+  #report .capv.same { background:#d9f2d9; color:#005200; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  #report .capv.off { background:#ffd9a8; color:#6b3a00; outline:1px solid #eda100; -webkit-print-color-adjust:exact; print-color-adjust:exact; }
+  #report .capsum.differ { color:#a35a00; } #report .capsum.agree { color:#007000; }
 }
 @media (max-width: 1000px) { .main, .charts { grid-template-columns:1fr; } .kpis { grid-template-columns:repeat(2,1fr); } .map-wrap { height:420px; } .listing { height:420px; } }
 
@@ -266,6 +371,7 @@ button:focus-visible, input:focus-visible, a:focus-visible, .chip.toggle input:f
     <div class="dd" data-key="status" data-label="Status"></div>
     <div class="dd" data-key="conf" data-label="Confidence"></div>
     <div class="dd" id="dd-hidden" style="display:none"></div>
+    <label class="switch-row" title="Limit the map, list, counts, charts, report and CSV export to the Parking Study locations listed in included_locations.txt"><input type="checkbox" id="f-study"> <span>Show Parking Study Locations only</span></label>
     <select id="f-sort"><option value="corr">Sort: corridor order</option><option value="name">Sort: name A&ndash;Z</option><option value="spaces">Sort: est. spaces (high first)</option></select>
     <button id="f-reset">Reset</button>
     <span class="spacer" id="f-count"></span>
@@ -339,6 +445,8 @@ button:focus-visible, input:focus-visible, a:focus-visible, .chip.toggle input:f
 
 <script>
 var DATA = __DATA__;
+// PowerShell JSON turns one-element arrays into objects and empty ones into {} -- normalize
+DATA.forEach(function (r) { r.caps = Array.isArray(r.caps) ? r.caps : (r.caps && r.caps.group ? [r.caps] : []); });
 var COLS = __COLS__;
 var TSS_DATE = '__TSSDATE__';
 
@@ -471,8 +579,10 @@ document.addEventListener('click', closeAllDropdowns);
 
 function filtered() {
   var q = byId('f-search').value.toLowerCase();
+  var studyOnly = byId('f-study').checked;
   return DATA.filter(function (r) {
     if (hiddenSet[r.name]) return false;
+    if (studyOnly && !r.studyId) return false;
     for (var i = 0; i < FACETS.length; i++) {
       var act = facetActive(FACETS[i].key);
       if (act.length && act.indexOf(r[FACETS[i].key]) === -1) return false;
@@ -504,9 +614,13 @@ function sorted(rows) {
 
 /* ---------- map ---------- */
 var map = null, markerLayer = null;
+var STREETS_URL = 'https://server.arcgisonline.com/ArcGIS/rest/services/World_Street_Map/MapServer/tile/{z}/{y}/{x}';
+var STREETS_ATTR = 'Tiles &copy; Esri &mdash; Esri, HERE, Garmin, USGS, &copy; OpenStreetMap contributors';
 if (window.L) {
   map = L.map('map').setView([38.7, -81.1], 7);
-  var streets = L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', { maxZoom: 19, attribution: '&copy; OpenStreetMap contributors' });
+  // Esri street basemap: OSM's volunteer tile servers block pages opened from
+  // file:// (no Referer header), which is how this dashboard is usually viewed.
+  var streets = L.tileLayer(STREETS_URL, { maxZoom: 19, attribution: STREETS_ATTR });
   var satTiles = L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', { maxZoom: 19, attribution: 'Esri World Imagery' });
   streets.addTo(map);
   L.control.layers({ 'Streets': streets, 'Satellite': satTiles }, null, { collapsed: false, position: 'topright' }).addTo(map);
@@ -530,10 +644,9 @@ function fitToResults() {
   if (pts.length) { map.fitBounds(pts, { padding: [30, 30], maxZoom: 13 }); }
 }
 function popupHtml(r) {
-  var sp = trunc(r.raw['Truck spaces'], 70);
   return '<div style="min-width:220px"><b>' + esc(r.name) + '</b><br>' +
     esc(r.type) + ' &middot; ' + esc(r.own) + '<br>' +
-    '<b>Spaces:</b> ' + esc(sp) + '<br>' +
+    '<b>Spaces:</b> ' + capSummaryHtml(r) + '<br>' +
     '<b>Status:</b> ' + esc(r.status) + ' &middot; ' + esc(r.conf) + '<br>' +
     '<a href="#" onclick="openDetail(' + r.id + ');return false;">Full details + satellite</a> &middot; ' +
     '<a href="#" onclick="toggleHidden(' + r.id + ');return false;" title="Exclude this facility from the map, list, counts and exports (undo via the Hidden control)">Hide</a></div>';
@@ -563,10 +676,12 @@ function renderList(rows) {
       '<span class="hidebtn" onclick="event.stopPropagation();toggleHidden(' + r.id + ')" title="Hide this facility from the map, list, counts and exports (undo via the Hidden control in the filter bar)">&times; Hide</span>' +
       '<div class="nm">' + esc(r.name) + '</div>' +
       '<div class="meta">' + esc(r.corr) + ' &middot; ' + esc(trunc(r.raw['Milepost / exit'], 42)) + ' &middot; ' + esc(r.raw['County']) + ' Co.</div>' +
-      '<div class="meta"><b>Spaces:</b> ' + esc(trunc(r.raw['Truck spaces'], 74)) + '</div>' +
+      '<div class="meta"><b>Spaces:</b> ' + capSummaryHtml(r) + (r.capMid != null ? ' &middot; study est. ~' + r.capMid : '') + '</div>' +
       '<span class="' + statusChipClass(r.status) + '">' + esc(r.status) + '</span>' +
       '<span class="chip">' + esc(r.type) + '</span>' +
       '<span class="chip">' + esc(r.conf) + '</span>' +
+      (r.studyId ? '<span class="chip study" title="Parking Study location ID (included_locations.txt)">Study ' + esc(r.studyId) + '</span>' : '') +
+      (r.satc && r.satc.total_spots !== '' ? '<span class="chip" title="Satellite count on the ' + esc(r.satc.image_date) + ' image: total spots / occupied / empty (open the facility for method and caveats)">Sat ' + esc(r.satc.total_spots) + ' spots &middot; ' + esc(r.satc.occupied_at_image) + ' occ &middot; ' + esc(r.satc.empty_at_image) + ' empty</span>' : '') +
       (r.lat != null && map ? '<div class="mini" onclick="event.stopPropagation();zoomTo(' + r.id + ')">Show on map &rarr;</div>' : '<div class="mini" style="color:var(--muted)">no coordinates</div>') +
       '</div>';
   });
@@ -641,16 +756,139 @@ function linkifySources(s) {
     return esc(t);
   }).join(' &middot; ');
 }
-function capacityBlock(r) {
-  var est = r.capMid != null ? '~' + r.capMid + ' truck spaces' : 'no numeric estimate (count unavailable / unpublished)';
-  return '<div class="estbox"><b>Study capacity estimate:</b> ' + est + ' &middot; counted as: ' + esc(CLASS_META[r.capClass].label) + '<br>' +
-    '<span>How decided: published/field/satellite count where exact (satellite counts include occupied and open spots), otherwise analyst midpoint of the recorded figure &quot;' + esc(trunc(r.raw['Truck spaces'], 110)) + '&quot; per count source: ' + esc(r.raw['Count source'] || 'n/a') + '. Only operating public / private / paid-reservable facilities count toward the dashboard space totals; informal and candidate capacity is tracked separately and closed/ghost sites count zero.</span></div>';
+/* Count source -> linked parts. Each ';'-part is matched to a URL: first an entry
+   of the row's Sources column (most specific page), else a canonical site. */
+var SOURCE_LINKS = [
+  { re: /allstays/i, dom: 'allstays.com' },
+  { re: /\bTSS\b|truckstopsandservices/i, dom: 'truckstopsandservices.com', tss: true },
+  { re: /findfuelstops/i, dom: 'findfuelstops.com' },
+  { re: /parkme/i, dom: 'parkme.com' },
+  { re: /parkadvisor/i, dom: 'parkadvisor.com' },
+  { re: /truckerguide/i, dom: 'truckerguideapp.com' },
+  { re: /truck parking club/i, dom: 'truckparkingclub.com' },
+  { re: /parkways authority/i, dom: 'turnpike.wv.gov' },
+  { re: /wvdot/i, dom: 'transportation.wv.gov' },
+  { re: /\bFTS\b|findtruckservice/i, dom: 'findtruckservice.com' },
+  { re: /pilot/i, dom: 'pilotflyingj.com' },
+  { re: /\bTA\b/, dom: 'ta-petro.com' },
+  { re: /truckers news/i, dom: 'truckersnews.com' },
+  { re: /movin'? out/i, dom: 'movinout.com' },
+  { re: /\bwv511\b/i, dom: 'wv511.org' }
+];
+function srcEntries(r) {
+  return String(r.raw['Sources'] || '').split(/;\s*/).map(function (t) { return t.trim().split(/\s/)[0]; })
+    .filter(function (t) { return /^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}(\/\S*)?$/i.test(t); });
+}
+function extLink(label, url) {
+  var dom = url.replace(/^https?:\/\//, '').split(/[/?#]/)[0];
+  return '<a target="_blank" rel="noopener" href="' + esc(url) + '">' + esc(label) + '</a> <span class="dom">(' + esc(dom) + ')</span>';
+}
+function satImageLinks(r) {
+  var l = [];
+  if (r.satc && r.satc.image_url) { l.push(extLink('Esri World Imagery export of the image used', r.satc.image_url)); }
+  else if (r.sat) { l.push('<a target="_blank" rel="noopener" href="satellite/' + esc(r.sat) + '">station image</a> <span class="dom">(satellite/' + esc(r.sat) + ')</span>'); }
+  if (r.lat != null) { l.push(extLink('Google Maps satellite view', 'https://www.google.com/maps/@' + r.lat + ',' + r.lon + ',300m/data=!3m1!1e3')); }
+  return l.join(' &middot; ');
+}
+function sourceLinks(r, text) {
+  var ents = srcEntries(r);
+  // once a satellite part starts, the rest of the text belongs to it (its own ';' are sentence punctuation)
+  var parts = [], segs = String(text || '').split(/;\s*/);
+  for (var k = 0; k < segs.length; k++) {
+    var p = segs[k];
+    if (/satellite|imagery/i.test(p)) { parts.push(segs.slice(k).join('; ')); break; }
+    parts = parts.concat(p.split(/\s*\/\s*/));
+  }
+  return parts.map(function (part) {
+    var t = part.trim();
+    if (!t) { return ''; }
+    if (/^field[- ]verified/i.test(t)) { return esc(t) + ' <span class="dom">(study team field visit, July 2026)</span>'; }
+    if (/satellite (count|estimate) nov 2026/i.test(t) && r.satc && r.satc.image_url) {
+      return esc(t) + ' &mdash; ' + extLink('Esri World Imagery export of the image used', r.satc.image_url);
+    }
+    if (/satellite|imagery/i.test(t)) { var sl = satImageLinks(r); return esc(t) + (sl ? ' &mdash; ' + sl : ''); }
+    for (var i = 0; i < SOURCE_LINKS.length; i++) {
+      var s = SOURCE_LINKS[i];
+      if (!s.re.test(t)) { continue; }
+      if (s.tss && r.tss && r.tss.Url) { return extLink(t, r.tss.Url); }
+      var hit = ents.filter(function (e) { return e.toLowerCase().indexOf(s.dom.split('.')[0]) >= 0; })[0];
+      return extLink(t, 'https://' + (hit || s.dom));
+    }
+    if (/^[a-z0-9][a-z0-9.-]*\.[a-z]{2,}(\/\S*)?$/i.test(t)) { return extLink(t, 'https://' + t); }
+    return esc(t);
+  }).filter(function (x) { return x; }).join(' &middot; ');
+}
+/* ---------- truck spaces from every source: Public -> Private -> Satellite count ---------- */
+var CAP_GROUPS = [['Public', 'Public sources'], ['Private', 'Private sources'], ['Satellite', 'Satellite counting algorithm']];
+function capRef(r) {
+  // the value most sources give (ties -> the study estimate) is the reference; other values are highlighted
+  var cnt = {}, best = null;
+  (r.caps || []).forEach(function (e) { if (e.spaces != null) { cnt[e.spaces] = (cnt[e.spaces] || 0) + 1; } });
+  Object.keys(cnt).forEach(function (k) {
+    var v = +k;
+    if (best == null || cnt[k] > cnt[best] || (cnt[k] === cnt[best] && v === r.capMid)) { best = v; }
+  });
+  return best;
+}
+function capSummaryHtml(r) {
+  var a = r.capAgree || { status: 'none' };
+  var t = a.status === 'differ' ? a.min + ' to ' + a.max + ' (sources differ)' :
+    a.status === 'agree' ? a.min + ' (all ' + a.n + ' sources agree)' :
+    a.status === 'single' ? a.min + ' (one source)' : 'no published count';
+  return '<span class="capsum ' + a.status + '">' + esc(t) + '</span>';
+}
+function capEntryLink(r, e) {
+  if (e.group === 'Satellite') { return r.satc && r.satc.image_url ? extLink('image used', r.satc.image_url) : ''; }
+  if (!e.url) { return e.kind === 'field' ? '<span class="dom">(study team field visit)</span>' : ''; }
+  if (/^https?:/i.test(e.url)) { return extLink('source', e.url); }
+  return '<a target="_blank" rel="noopener" href="' + esc(e.url) + '">' + esc(e.url) + '</a>';
+}
+function capBanner(r) {
+  var a = r.capAgree || { status: 'none' };
+  var msg = a.status === 'agree' ? '<b>All ' + a.n + ' sources agree: ' + a.min + ' truck spaces.</b>' :
+    a.status === 'differ' ? '<b>Sources do not agree: ' + a.min + ' to ' + a.max + ' truck spaces.</b> Highlighted figures differ from the most common figure (' + capRef(r) + ').' :
+    a.status === 'single' ? '<b>Only one source gives a number: ' + a.min + ' truck spaces.</b> Nothing to compare it with yet.' :
+    '<b>No published count found</b> for this location.';
+  return '<div class="capag ' + a.status + '">' + msg + '</div>';
+}
+function capTable(r) {
+  var ref = capRef(r), multi = !!(r.capAgree && r.capAgree.n > 1);
+  var h = '<table class="captab"><tr><th>Source</th><th>Spaces</th><th>As published</th><th>Checked</th><th>Link / note</th></tr>';
+  CAP_GROUPS.forEach(function (g, gi) {
+    var es = (r.caps || []).filter(function (e) { return e.group === g[0]; });
+    h += '<tr class="grp"><td colspan="5">' + (gi + 1) + '. ' + esc(g[1]) + '</td></tr>';
+    if (!es.length) {
+      h += '<tr><td colspan="5" style="color:var(--ink2)">' + (g[0] === 'Satellite' ? (r.studyId ? 'No satellite count for this location.' : 'Not counted (satellite counting covers the Parking Study locations only).') : 'None found.') + '</td></tr>';
+      return;
+    }
+    es.forEach(function (e) {
+      var cls = (e.spaces == null || !multi) ? '' : (e.spaces === ref ? 'same' : 'off');
+      var num = e.spaces == null ? '&mdash;' : '<span class="capv ' + cls + '">' + e.spaces + '</span>';
+      var lk = capEntryLink(r, e);
+      h += '<tr><td>' + esc(e.source) + '</td><td class="num">' + num + '</td><td>' + esc(e.figure) + '</td><td>' + esc(e.retrieved || '') + '</td><td>' +
+        lk + (e.note ? (lk ? '<br>' : '') + '<span style="color:var(--ink2)">' + esc(e.note) + '</span>' : '') + '</td></tr>';
+    });
+  });
+  return h + '</table>';
+}
+function capBlock(r) {
+  return capBanner(r) + capTable(r) +
+    '<div class="tssnote">Order: public sources (study-team field counts, WVDOT, WV Parkways Authority, NPS), then private sources (operator websites, Truck Parking Club, directories), then the satellite counting algorithm. ' +
+    'Area-based satellite maxima (&quot;up to N&quot;) are ceilings, not counts, and are not compared. Figures and links come from capacity-sources.csv, wv-truck-parking-tss.csv and satellite-count/study-summary.csv.</div>' +
+    '<div class="estbox"><b>Study capacity estimate:</b> ' + (r.capMid != null ? '~' + r.capMid + ' truck spaces' : 'no numeric estimate') + ' &middot; counted as: ' + esc(CLASS_META[r.capClass].label) +
+    '<br><span>Picked as: study-team field count, else the operator&rsquo;s own site, else WV Parkways Authority / NPS, else the WVDOT GIS layer, else the satellite row count, else the median of directory figures. Closed and no-parking sites count zero. Only operating public / private / paid-reservable facilities count toward the dashboard totals.</span></div>';
+}
+function capCompareLine(r) {
+  return '<div class="capag ' + ((r.capAgree && r.capAgree.status) || 'none') + '">Truck spaces across all sources: ' + capSummaryHtml(r) +
+    ' &middot; <a href="#" onclick="showTab(0);return false;">see every source</a></div>';
 }
 function verifFlags(r) {
   if (r.conf === 'Field-verified') { return []; }
   var f = [];
-  if (/satellite|imagery/i.test(String(r.raw['Count source'] || ''))) { f.push('space count is a satellite estimate'); }
-  if (/conflict/i.test(String(r.raw['Truck spaces'] || '')) || r.conf === 'Directory-conflicting') { f.push('conflicting directory data'); }
+  var ca = r.capAgree || {};
+  if (ca.status === 'differ') { f.push('sources disagree on space count (' + ca.min + ' to ' + ca.max + ')'); }
+  if ((r.caps || []).length && (r.caps || []).every(function (e) { return e.group === 'Satellite'; })) { f.push('space count is satellite-only'); }
+  if (r.conf === 'Directory-conflicting') { f.push('conflicting directory data'); }
   if (r.status === 'Unverified' || /UNVERIFIED/.test(r.name)) { f.push('existence / operation unverified'); }
   if (r.conf === 'Unresolved') { f.push('unresolved - field visit recommended'); }
   ['Lighting', 'Showers', '24/7 staff', 'Restrooms'].forEach(function (c) {
@@ -678,7 +916,7 @@ function tssBlock(r) {
   var spots = t.ParkingSpots;
   if (t.ReservedSpots && t.ReservedSpots !== '0') { spots += ' (' + t.ReservedSpots + ' reserved)'; }
   if (t.PaidSpots && t.PaidSpots !== '0') { spots += ' (' + t.PaidSpots + ' paid)'; }
-  var h = '<div class="estbox"><b>As published by TruckStopsAndServices.com</b> &mdash; shown verbatim for source comparison; the study estimate on the Study data tab may differ.</div>';
+  var h = '<div class="estbox"><b>As published by TruckStopsAndServices.com</b> &mdash; shown verbatim for source comparison; all sources are compared on the Truck spaces tab.</div>';
   h += '<table>';
   h += tssRow('Listed as', t.TssName + ' (' + t.Category + ')');
   h += tssRow('Highway / exit', (t.Highway || '') + (t.Exit ? ' exit ' + t.Exit : ''));
@@ -699,8 +937,41 @@ function tssBlock(r) {
   h += '<div class="tssnote">Fetched ' + esc(t.FetchedDate) + ' by tools\\fetch-tss.ps1 (cached in tss-cache\\).' + (t.MatchNote ? ' Match: ' + esc(t.MatchNote) : '') + '</div>';
   return h;
 }
+function satcBlock(r) {
+  var c = r.satc;
+  if (!c) {
+    return '<div class="vbox">No satellite count &mdash; satellite counting (tools\\satcount\\) covers the Parking Study locations only.</div>';
+  }
+  if (c.total_spots === '') {
+    return '<div class="vbox"><b>No satellite count for this location.</b> ' + esc(c.note || 'Not available.') + '</div>';
+  }
+  var h = '<div class="estbox"><b>Satellite count &mdash; counting aid, not yet accepted.</b> Spots and trucks were measured on one daytime satellite image dated <b>' +
+    esc(c.image_date || 'unknown') + '</b>. Occupancy is a snapshot, not overnight demand. Missed trucks show as empty spots, so empty runs high. The row count is listed last on the Truck spaces tab, after public and private sources, and feeds the study estimate only when none of them gives a number; open-apron area maxima are never compared or totalled. Method: methodology.md &sect;2b.</div>';
+  h += '<div class="satstats">' +
+    '<div><div class="v">' + esc(c.total_spots) + '</div><div class="l">Total spots</div></div>' +
+    '<div><div class="v">' + esc(c.occupied_at_image) + '</div><div class="l">Occupied (trucks on image)</div></div>' +
+    '<div><div class="v">' + esc(c.empty_at_image) + '</div><div class="l">Empty</div></div>' +
+    '</div>';
+  h += '<table>';
+  h += tssRow('Total spots from', c.total_spots_source);
+  h += tssRow('Empty counted by', c.empty_method);
+  h += tssRow('Image date', c.image_date);
+  h += tssRow('Satellite: counted spots on rows', c.satellite_row_spots);
+  h += tssRow('Satellite: occupied / empty spots on rows', c.satellite_row_spots !== '' ? c.satellite_occupied_spots + ' / ' + c.satellite_empty_spots : '');
+  h += tssRow('Trucks parked outside counted spots', c.trucks_outside_spots && c.trucks_outside_spots !== '0' ? c.trucks_outside_spots : '');
+  h += tssRow('Satellite: area-based ceiling (open apron)', c.satellite_area_spots);
+  h += tssRow('Field-verified spots (July 2026)', c.field_verified_spots);
+  h += tssRow('Flags', c.flags);
+  h += tssRow('Note', c.note);
+  h += '</table>';
+  if (c.overlay) {
+    h += '<img class="sat" src="' + esc(c.overlay) + '" alt="Spot-by-spot satellite overlay for ' + esc(r.name) + '">' +
+      '<div class="tssnote">Overlay: white = lot outline; red spot = occupied, green spot = empty; magenta box = truck parked outside counted spots; thin cyan = vehicle outside the lot.</div>';
+  }
+  return h;
+}
 function showTab(n) {
-  [0, 1].forEach(function (i) {
+  [0, 1, 2, 3].forEach(function (i) {
     byId('tabpane' + i).style.display = (i === n) ? '' : 'none';
     byId('tabbtn' + i).className = (i === n) ? 'tab active' : 'tab';
   });
@@ -709,7 +980,7 @@ function openDetail(id) {
   var r = DATA[id];
   var h = '<button class="x" onclick="closeDetail()" title="Close">&times;</button>' +
     '<h2>' + esc(r.name) + '</h2>' +
-    '<div class="sub">' + esc(r.corr) + ' &middot; ' + esc(r.raw['Milepost / exit']) + ' &middot; ' + esc(r.raw['County']) + ' County &middot; ' + esc(CLASS_META[r.capClass].label) + '</div>';
+    '<div class="sub">' + esc(r.corr) + ' &middot; ' + esc(r.raw['Milepost / exit']) + ' &middot; ' + esc(r.raw['County']) + ' County &middot; ' + esc(CLASS_META[r.capClass].label) + (r.studyId ? ' &middot; Parking Study ' + esc(r.studyId) : '') + '</div>';
   var links = '';
   if (r.lat != null) {
     links += '<a target="_blank" rel="noopener" href="https://www.google.com/maps?q=' + r.lat + ',' + r.lon + '">Open in Google Maps</a>' +
@@ -719,22 +990,26 @@ function openDetail(id) {
   links += '<a href="#" onclick="closeDetail();toggleHidden(' + r.id + ');return false;" title="Exclude this facility from the map, list, counts and exports (undo via the Hidden control)">Hide from dashboard</a>';
   h += '<div class="links">' + links + '</div>';
   h += '<div class="tabbar">' +
-    '<button id="tabbtn0" class="tab active" onclick="showTab(0)">Study data</button>' +
-    '<button id="tabbtn1" class="tab" onclick="showTab(1)">TruckStopsAndServices.com</button>' +
+    '<button id="tabbtn0" class="tab active" onclick="showTab(0)">Truck spaces (all sources)</button>' +
+    '<button id="tabbtn1" class="tab" onclick="showTab(1)">Study data</button>' +
+    '<button id="tabbtn2" class="tab" onclick="showTab(2)">TruckStopsAndServices.com</button>' +
+    '<button id="tabbtn3" class="tab" onclick="showTab(3)">Satellite count</button>' +
     '</div>';
-  var s = capacityBlock(r);
+  var s = capCompareLine(r);
   s += verificationBlock(r);
   if (r.sat) { s += '<img class="sat" src="satellite/' + esc(r.sat) + '" alt="Satellite image of ' + esc(r.name) + '">'; }
   s += '<table>';
   COLS.forEach(function (c) {
     var v = r.raw[c];
     if (v === '' || v == null) { return; }
-    var cell = (c === 'Sources' || c === 'Count source') ? linkifySources(v) : esc(v);
+    var cell = c === 'Count source' ? sourceLinks(r, v) : (c === 'Sources' ? linkifySources(v) : esc(v));
     s += '<tr><td>' + esc(c) + '</td><td>' + cell + '</td></tr>';
   });
   s += '</table>';
-  h += '<div id="tabpane0" class="tabpane">' + s + '</div>';
-  h += '<div id="tabpane1" class="tabpane" style="display:none">' + tssBlock(r) + '</div>';
+  h += '<div id="tabpane0" class="tabpane">' + capBlock(r) + '</div>';
+  h += '<div id="tabpane1" class="tabpane" style="display:none">' + s + '</div>';
+  h += '<div id="tabpane2" class="tabpane" style="display:none">' + capCompareLine(r) + tssBlock(r) + '</div>';
+  h += '<div id="tabpane3" class="tabpane" style="display:none">' + capCompareLine(r) + satcBlock(r) + '</div>';
   byId('modal').innerHTML = h;
   byId('modal-bg').style.display = 'flex';
 }
@@ -745,6 +1020,7 @@ document.addEventListener('keydown', function (e) { if (e.key === 'Escape') { cl
 /* ---------- report generation ---------- */
 function activeFilterText() {
   var parts = [];
+  if (byId('f-study').checked) { parts.push('Parking Study locations only'); }
   FACETS.forEach(function (f) {
     var act = facetActive(f.key);
     if (act.length) { parts.push(f.label + ': ' + act.join(' / ')); }
@@ -754,7 +1030,7 @@ function activeFilterText() {
   if (hiddenCount()) { parts.push(hiddenCount() + ' facilit' + (hiddenCount() === 1 ? 'y' : 'ies') + ' hidden by viewer'); }
   return parts.length ? parts.join(' | ') : 'none (full inventory)';
 }
-function buildReport() {
+function buildReport(done) {
   var rows = sorted(filtered());
   var sp = spacesSum(rows);
   var h = '<h1>WV Truck Parking Study &mdash; Report</h1>' +
@@ -762,6 +1038,16 @@ function buildReport() {
     '<h2>Summary</h2>' +
     '<table><tr><th>Locations in report</th><th>Operating w/ designated parking</th><th>Est. designated truck spaces</th><th>Field-verified</th></tr>' +
     '<tr><td>' + rows.length + ' of ' + DATA.length + '</td><td>' + rows.filter(isOperating).length + '</td><td>~' + sp.sum + (sp.unk ? ' (+' + sp.unk + ' facilities without published counts)' : '') + '</td><td>' + rows.filter(function (r) { return r.conf === 'Field-verified'; }).length + '</td></tr></table>';
+
+  // locator map: numbered points match the # column and the Facility details numbers
+  var noCoord = rows.map(function (r, i) { return r.lat == null ? (i + 1) + '. ' + r.name : null; }).filter(function (x) { return x; });
+  h += '<h2>Map of locations in this report</h2>' +
+    '<div class="rlegend">Numbers match the Facility table and Facility details. Point colour = capacity class: ' +
+    CLASS_ORDER.filter(function (c) { return rows.some(function (r) { return r.capClass === c; }); }).map(function (c) {
+      return '<span><span class="dot" style="background:' + CLASS_META[c].light + '"></span>' + esc(CLASS_META[c].label) + '</span>';
+    }).join('') + '</div>' +
+    '<div id="rmap" class="rmap"></div>' +
+    (noCoord.length ? '<div class="rlegend"><b>Not on map (no coordinates):</b> ' + esc(noCoord.join('; ')) + '</div>' : '');
 
   h += '<h2>Breakdown by corridor</h2><table><tr><th>Corridor</th><th>Locations</th><th>Est. designated spaces</th></tr>';
   CORR_ORDER.forEach(function (c) {
@@ -772,32 +1058,114 @@ function buildReport() {
   });
   h += '</table>';
 
-  h += '<h2>Facility table</h2><table><tr><th>Facility</th><th>Milepost / exit</th><th>Access</th><th>Type</th><th>Ownership</th><th>Truck spaces</th><th>Status</th><th>Confidence</th></tr>';
-  rows.forEach(function (r) {
-    h += '<tr><td><b>' + esc(r.name) + '</b></td><td>' + esc(trunc(r.raw['Milepost / exit'], 36)) + '</td><td>' + esc(trunc(r.raw['Direction access'], 26)) + '</td><td>' + esc(r.type) + '</td><td>' + esc(r.own) + '</td><td>' + esc(trunc(r.raw['Truck spaces'], 60)) + '</td><td>' + esc(r.status) + '</td><td>' + esc(r.conf) + '</td></tr>';
+  h += '<h2>Facility table</h2><table><tr><th>#</th><th>Facility</th><th>Milepost / exit</th><th>Access</th><th>Type</th><th>Ownership</th><th>Truck spaces</th><th>Status</th><th>Confidence</th></tr>';
+  rows.forEach(function (r, i) {
+    h += '<tr><td>' + (i + 1) + '</td><td><b>' + esc(r.name) + '</b>' + (r.studyId ? ' <span style="color:#52514e;font-size:11px">(Study ' + esc(r.studyId) + ')</span>' : '') + '</td><td>' + esc(trunc(r.raw['Milepost / exit'], 36)) + '</td><td>' + esc(trunc(r.raw['Direction access'], 26)) + '</td><td>' + esc(r.type) + '</td><td>' + esc(r.own) + '</td><td>' + capSummaryHtml(r) + '</td><td>' + esc(r.status) + '</td><td>' + esc(r.conf) + '</td></tr>';
   });
   h += '</table>';
 
+  var satRows = rows.filter(function (r) { return r.satc; });
+  if (satRows.length) {
+    h += '<h2>Satellite spot counts (counting aid &mdash; not yet accepted)</h2>' +
+      '<p style="font-size:12px;color:#52514e">Measured on one daytime satellite image per site (date shown), so occupancy is a snapshot, not overnight demand. Missed trucks show as empty spots, so empty runs high. Total spots come from the named source. Method and validation: methodology.md &sect;2b.</p>' +
+      '<table><tr><th>Study</th><th>Facility</th><th>Image date</th><th>Total spots</th><th>Occupied</th><th>Empty</th><th>Total spots from</th></tr>';
+    satRows.forEach(function (r) {
+      var c = r.satc;
+      h += '<tr><td>' + esc(c.study_id) + '</td><td>' + esc(r.name) + '</td><td>' + esc(c.image_date) + '</td><td>' + esc(c.total_spots) + '</td><td>' +
+        esc(c.occupied_at_image) + '</td><td>' + esc(c.empty_at_image) + '</td><td>' + esc(c.total_spots_source || c.note) + '</td></tr>';
+    });
+    h += '</table>';
+  }
   h += '<h2>Facility details</h2>';
-  rows.forEach(function (r) {
+  rows.forEach(function (r, i) {
+    var c = r.satc, hasOv = !!(c && c.overlay && c.total_spots !== '');
+    var satLine = '';
+    if (c && c.total_spots !== '') {
+      satLine = '<p><b>Satellite count</b> (image dated ' + esc(c.image_date || 'unknown') + '; counting aid, not yet accepted): ' +
+        esc(c.total_spots) + ' total spots, ' + esc(c.occupied_at_image) + ' occupied, ' + esc(c.empty_at_image) + ' empty &middot; <b>Total from:</b> ' + esc(c.total_spots_source) +
+        ' &middot; <b>Source:</b> ' + (c.image_url ? extLink('Esri World Imagery export of the image used', c.image_url) : 'Esri World Imagery') + ' &middot; method: methodology.md &sect;2b</p>';
+    } else if (c) {
+      satLine = '<p><b>Satellite count:</b> not available &mdash; ' + esc(c.note || 'no count') + '</p>';
+    }
     h += '<div class="rcard">' +
-      (r.sat ? '<img src="satellite/' + esc(r.sat) + '" alt="">' : '') +
-      '<h3>' + esc(r.name) + '</h3>' +
+      (!hasOv && r.sat ? '<img src="satellite/' + esc(r.sat) + '" alt="">' : '') +
+      '<h3>' + (i + 1) + '. ' + esc(r.name) + (r.studyId ? ' <span style="font-weight:400;color:#52514e">(Study ' + esc(r.studyId) + ')</span>' : '') + '</h3>' +
       '<div class="m">' + esc(r.corr) + ' &middot; ' + esc(r.raw['Milepost / exit']) + ' &middot; ' + esc(r.raw['County']) + ' County' + (r.lat != null ? ' &middot; ' + r.lat + ', ' + r.lon : '') + '</div>' +
       '<p><b>Type:</b> ' + esc(r.raw['Facility type']) + ' &middot; <b>Ownership:</b> ' + esc(r.raw['Ownership']) + '</p>' +
-      '<p><b>Truck spaces:</b> ' + esc(r.raw['Truck spaces']) + ' <i>(' + esc(r.raw['Count source']) + ')</i></p>' +
+      '<p><b>Truck spaces by source</b> (public &rarr; private &rarr; satellite algorithm):</p>' + capBanner(r) + capTable(r) +
+      satLine +
       '<p><b>Status:</b> ' + esc(r.raw['Status']) + ' &middot; <b>Cost:</b> ' + esc(r.raw['Cost / reservation']) + '</p>' +
       '<p><b>Amenities:</b> restrooms: ' + esc(r.raw['Restrooms']) + ' &middot; showers: ' + esc(r.raw['Showers']) + ' &middot; 24/7 staff: ' + esc(r.raw['24/7 staff']) + ' &middot; lighting: ' + esc(r.raw['Lighting']) + ' &middot; fuel: ' + esc(r.raw['Fuel / diesel']) + '</p>' +
       '<p><b>Study estimate:</b> ' + (r.capMid != null ? '~' + r.capMid + ' spaces' : 'no numeric estimate') + ' (' + esc(CLASS_META[r.capClass].label) + ')' + (verifFlags(r).length ? ' &middot; <b>Verify in field:</b> ' + esc(verifFlags(r).join('; ')) : ' &middot; field-verified July 2026') + '</p>' +
       (r.raw['Notes'] ? '<p><b>Notes:</b> ' + esc(r.raw['Notes']) + '</p>' : '') +
-      (r.raw['Sources'] ? '<p><b>Sources:</b> ' + esc(r.raw['Sources']) + '</p>' : '') +
+      (r.raw['Sources'] ? '<p><b>Sources:</b> ' + linkifySources(r.raw['Sources']) + '</p>' : '') +
+      (hasOv ? ovFigure(c, r) +
+        '<div class="cap">Satellite count image, Esri World Imagery dated ' + esc(c.image_date || 'unknown') + ': ' + esc(c.total_spots) + ' spots, ' +
+        esc(c.occupied_at_image) + ' occupied (red), ' + esc(c.empty_at_image) + ' empty (green). White = lot outline; magenta = truck parked outside counted spots; thin cyan = vehicle outside the lot. Counting aid, not yet accepted.</div>' : '') +
       '</div>';
   });
   byId('report').innerHTML = h;
+  drawReportMap(rows, done);
+}
+// annotated count image, zoomed onto the digitized lot (crop = fractions of the image + base size)
+function ovFigure(c, r) {
+  var alt = 'Satellite count image for ' + esc(r.name);
+  var full = ' <a target="_blank" rel="noopener" href="' + esc(c.overlay) + '">full annotated image</a>';
+  var cr = c.crop;
+  if (!cr || cr.length < 6) { return '<img class="ov" src="' + esc(c.overlay) + '" alt="' + alt + '">'; }
+  var cw = cr[2] - cr[0], ch = cr[3] - cr[1];
+  var aspect = (cw * cr[4]) / (ch * cr[5]);
+  var wIn = Math.min(7.2, 4.4 * aspect);
+  return '<div class="ovcrop" style="width:' + wIn.toFixed(2) + 'in;aspect-ratio:' + aspect.toFixed(4) + '">' +
+    '<img src="' + esc(c.overlay) + '" alt="' + alt + '" style="width:' + (100 / cw).toFixed(3) + '%;left:' + (-100 * cr[0] / cw).toFixed(3) + '%;top:' + (-100 * cr[1] / ch).toFixed(3) + '%"></div>' +
+    '<div class="cap">Zoomed to the counted lot;' + full + '.</div>';
+}
+var rmap = null;
+function drawReportMap(rows, done) {
+  var finished = false;
+  function finish() { if (!finished) { finished = true; if (done) { done(); } } }
+  if (rmap) { rmap.remove(); rmap = null; }
+  var el = byId('rmap');
+  var pts = rows.map(function (r, i) { return { r: r, n: i + 1 }; }).filter(function (p) { return p.r.lat != null; });
+  if (!window.L || !el) {
+    if (el) { el.innerHTML = '<div style="padding:12px;color:#555">Map unavailable (offline or map library not loaded).</div>'; el.style.height = 'auto'; }
+    finish(); return;
+  }
+  if (!pts.length) { el.innerHTML = '<div style="padding:12px;color:#555">No locations with coordinates.</div>'; el.style.height = 'auto'; finish(); return; }
+  rmap = L.map(el, { zoomControl: false, attributionControl: true, fadeAnimation: false, zoomAnimation: false });
+  var tiles = L.tileLayer(STREETS_URL, { maxZoom: 19, attribution: STREETS_ATTR }).addTo(rmap);
+  tiles.on('load', function () { setTimeout(finish, 250); });
+  rmap.fitBounds(pts.map(function (p) { return [p.r.lat, p.r.lon]; }), { padding: [40, 40], maxZoom: 12 });
+  // de-clutter: pins closer than ~26 px are grouped and fanned out on a ring,
+  // with a thin leader line back to the true location
+  pts.forEach(function (p) { p.px = rmap.latLngToLayerPoint([p.r.lat, p.r.lon]); });
+  var groups = [];
+  pts.forEach(function (p) {
+    var g = groups.filter(function (g) { return g.some(function (q) { return q.px.distanceTo(p.px) < 26; }); })[0];
+    if (g) { g.push(p); } else { groups.push([p]); }
+  });
+  groups.forEach(function (g) {
+    var cx = 0, cy = 0;
+    g.forEach(function (p) { cx += p.px.x; cy += p.px.y; });
+    cx /= g.length; cy /= g.length;
+    var rad = g.length > 1 ? Math.max(24, g.length * 26 / (2 * Math.PI)) : 0;
+    g.forEach(function (p, k) {
+      var a = -Math.PI / 2 + 2 * Math.PI * k / g.length;
+      var pos = g.length > 1 ? rmap.layerPointToLatLng(L.point(cx + rad * Math.cos(a), cy + rad * Math.sin(a))) : L.latLng(p.r.lat, p.r.lon);
+      if (g.length > 1) {
+        L.polyline([[p.r.lat, p.r.lon], pos], { color: '#333', weight: 1, opacity: 0.8, interactive: false }).addTo(rmap);
+        L.circleMarker([p.r.lat, p.r.lon], { radius: 2.5, color: '#333', weight: 1, fillColor: '#333', fillOpacity: 1, interactive: false }).addTo(rmap);
+      }
+      L.marker(pos, {
+        icon: L.divIcon({ className: '', iconSize: [22, 22], iconAnchor: [11, 11],
+          html: '<div class="rpin" style="background:' + CLASS_META[p.r.capClass].light + '">' + p.n + '</div>' })
+      }).addTo(rmap);
+    });
+  });
+  setTimeout(finish, 6000);
 }
 byId('btn-report').addEventListener('click', function () {
-  buildReport();
-  setTimeout(function () { window.print(); }, 150);
+  buildReport(function () { window.print(); });
 });
 
 /* ---------- CSV export ---------- */
@@ -807,8 +1175,13 @@ function csvCell(v) {
 }
 byId('btn-csv').addEventListener('click', function () {
   var rows = sorted(filtered());
-  var lines = [COLS.map(csvCell).join(',')];
-  rows.forEach(function (r) { lines.push(COLS.map(function (c) { return csvCell(r.raw[c]); }).join(',')); });
+  var SATC = [['Sat total spots', 'total_spots'], ['Sat total spots source', 'total_spots_source'], ['Sat image date', 'image_date'],
+    ['Sat occupied', 'occupied_at_image'], ['Sat empty', 'empty_at_image'], ['Sat empty method', 'empty_method']];
+  var lines = [COLS.concat(['Study ID']).concat(SATC.map(function (x) { return x[0]; })).map(csvCell).join(',')];
+  rows.forEach(function (r) {
+    lines.push(COLS.map(function (c) { return csvCell(r.raw[c]); }).concat([csvCell(r.studyId)])
+      .concat(SATC.map(function (x) { return csvCell(r.satc ? r.satc[x[1]] : ''); })).join(','));
+  });
   var blob = new Blob(['﻿' + lines.join('\r\n')], { type: 'text/csv;charset=utf-8' });
   var a = document.createElement('a');
   a.href = URL.createObjectURL(blob);
@@ -828,7 +1201,14 @@ function render() {
 }
 byId('f-search').addEventListener('input', render);
 byId('f-sort').addEventListener('change', render);
+try { byId('f-study').checked = localStorage.getItem('wvtp-study-only') === '1'; } catch (e) {}
+byId('f-study').addEventListener('change', function () {
+  try { localStorage.setItem('wvtp-study-only', byId('f-study').checked ? '1' : '0'); } catch (e) {}
+  render(); fitToResults();
+});
 byId('f-reset').addEventListener('click', function () {
+  byId('f-study').checked = false;
+  try { localStorage.setItem('wvtp-study-only', '0'); } catch (e) {}
   FACETS.forEach(function (f) { filterState[f.key] = {}; });
   Array.prototype.slice.call(document.querySelectorAll('.filters .dd[data-key]')).forEach(function (dd) {
     Array.prototype.slice.call(dd.querySelectorAll('input')).forEach(function (cb) { cb.checked = false; });

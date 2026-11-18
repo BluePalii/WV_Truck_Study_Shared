@@ -1,0 +1,10 @@
+{
+ "site_id": "brake-check-133", "study_id": "A23",
+ "master_name": "I-64 EB Brake Check Area (Exit 133 Bragg)",
+ "image": "satellite-count/images/brake-check-133.png",
+ "blind_count": {"occupied": 0, "low": 0, "high": 0, "note": "no trucks on the apron"},
+ "spot_note": "Unmarked wedge apron used for short brake-check stops, not overnight parking; area figure is a physical ceiling only.",
+ "lots": [{"lot_id": "all", "area_estimate": true, "note": "wedge apron between the EB off- and on-ramps",
+   "polygon": [[300,372],[420,302],[600,280],[622,292],[560,322],[420,362],[332,402]]}],
+ "rows": []
+}

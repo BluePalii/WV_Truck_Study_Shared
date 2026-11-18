@@ -1,0 +1,10 @@
+{
+ "site_id": "exxon-marmet", "study_id": "A10",
+ "master_name": "Exxon Marmet (Exit 89)",
+ "image": "satellite-count/images/exxon-marmet.png",
+ "blind_count": {"occupied": 0, "low": 0, "high": 1, "note": "no trucks parked on the riverside apron; one truck by the store/diesel canopy is outside the apron"},
+ "spot_note": "Unmarked paved apron along the river with no parked trucks or markings; area-based estimate only, and whether trucks may park here (vs. fuel only) is not established.",
+ "lots": [{"lot_id": "all", "area_estimate": true, "note": "unmarked paved apron along the river SE of the store",
+   "polygon": [[560,330],[640,330],[720,440],[850,520],[860,650],[760,660],[600,520],[560,440]]}],
+ "rows": []
+}

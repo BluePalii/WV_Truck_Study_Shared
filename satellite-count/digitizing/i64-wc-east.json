@@ -1,0 +1,14 @@
+{
+ "site_id": "i64-wc-east", "study_id": "A01",
+ "master_name": "I-64 Welcome Center East",
+ "image": "satellite-count/images/i64-wc-east.png",
+ "blind_count": {"occupied": 8, "low": 7, "high": 8, "note": "7 tractor-trailers + 1 bobtail on the apron"},
+ "lots": [{"lot_id": "all", "note": "unmarked truck apron north of the car lot",
+   "polygon": [[415,352],[640,342],[905,338],[905,372],[770,440],[715,522],[560,538],[440,532],[405,470]]}],
+ "rows": [
+  {"id": "N", "p0": [770,386], "p1": [462,394], "side": -1, "angle_deg": 42, "depth_m": 21, "striped": false,
+   "note": "angled parking along the north edge, cabs to the NE (as trucks use it)"},
+  {"id": "S", "p0": [730,470], "p1": [545,520], "side": 1, "angle_deg": 42, "depth_m": 21, "striped": false,
+   "note": "angled parking along the south edge, cabs to the E/SE"}
+ ]
+}

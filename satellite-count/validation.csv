@@ -1,0 +1,25 @@
+site_id,study_id,lot_id,occupied_truth,occupied_truth_low,occupied_truth_high,occupied_truth_method,capacity_truth,capacity_truth_source,notes
+alta,A17,all,4,3,6,"blind hand count from the same image, recorded before model output was viewed",19,Field-verified July 2026 (study team): 12 marked + 6-8 unmarked gravel (midpoint 19),"2018 image: 1 truck on the west edge, ~3 in the south part of the lot"
+beckley-travel-plaza,A13,all,44,38,50,"blind hand count from the same image, recorded before model output was viewed",,,"SW lot rows A ~18, B ~8, C ~7, D ~8, + ~3 trucks parked by buildings; north pull-through area empty"
+birch-river-overlook,A21,all,1,1,1,"blind hand count from the same image, recorded before model output was viewed",,,one tractor-trailer on the loop (2016 image); two small vehicles not counted
+bluestone-travel-plaza,A16,all,15,12,17,"blind hand count from the same image, recorded before model output was viewed",,,"west diagonal row ~11, east row ~4; thin cloud haze over the lot"
+brake-check-133,A23,all,0,0,0,"blind hand count from the same image, recorded before model output was viewed",,,no trucks on the apron
+burnwell-ra,A12,all,5,4,6,"blind hand count from the same image, recorded before model output was viewed",,,east lane 2 TT upper + 1 TT and 1 short vehicle lower; west lane 1 TT
+camp-creek-wayside,A15,all,7,6,8,"blind hand count from the same image, recorded before model output was viewed",12,"Field-verified July 2026 (study team): SB only, 12 truck spots",6 tractor-trailers in echelon + 1 short vehicle (bobtail or box truck)
+dte-oak-hill,A22,all,8,6,10,"blind hand count from the same image, recorded before model output was viewed",,,"mixed repair-yard vehicles: box trailers, 1 tractor-trailer, car carrier, misc trucks"
+exxon-marmet,A10,all,0,0,1,"blind hand count from the same image, recorded before model output was viewed",,,no trucks parked on the riverside apron; one truck by the store/diesel canopy is outside the apron
+gomart-31-charleston,A08,all,17,15,19,"blind hand count from the same image, recorded before model output was viewed",,,"central stacks ~4 + ~5 + 1, river-edge angled row ~4, south end ~3"
+gomart-51-mount-nebo,A20,all,1,0,1,"blind hand count from the same image, recorded before model output was viewed",,,one red tractor (possibly bobtail) on the north gravel apron; vehicles south of the store are cars
+gomart-59-huntington,A02,all,21,19,23,"blind hand count from the same image, recorded before model output was viewed",,,"north row ~11, south row ~10; 3 trailers by the west building not counted (not a truck-parking area)"
+gomart-beckley-harper,A14,all,13,12,14,"blind hand count from the same image, recorded before model output was viewed",28,Field-verified July 2026 (study team): 28 dedicated truck spots,"N row 9, W row 3 (2 bobtails + 1 tractor-trailer), E strip 1 (+1 uncertain dark vehicle)"
+hurricane-ra-east,A04,all,3,3,3,"blind hand count from the same image, recorded before model output was viewed",,,EB (south) strip: 3 tractor-trailers in echelon; trucks on ramp shoulders outside the lot not counted
+hurricane-ra-west,A03,all,9,9,10,"blind hand count from the same image, recorded before model output was viewed",,,WB (north) lot: 9 tractor-trailers; a box truck/RV by the car lot not counted
+i64-wc-east,A01,all,8,7,8,"blind hand count from the same image, recorded before model output was viewed",,,7 tractor-trailers + 1 bobtail on the apron
+i64-wc-west,A18,all,1,1,1,"blind hand count from the same image, recorded before model output was viewed",,,one tractor-trailer on the truck apron
+pilot-243-nitro,A07,all,13,11,15,"blind hand count from the same image, recorded before model output was viewed",,,main row ~11 + bobtail + blue tractor-trailer on the apron; 2 trucks on the north entry curb and the docks of the warehouse to the north are outside the lot
+sheetz-marmet,A09,all,6,6,7,"blind hand count from the same image, recorded before model output was viewed",,,6 trucks in the striped angled row (+1 uncertain at the NE end)
+ta-hurricane,A06,all,46,40,52,"blind hand count from the same image, recorded before model output was viewed",,,"south lot ~41 (central stack ~13, two-deep block 6-8, SW echelon ~8 + 2, east stack ~6, singles ~4); NE corner 4; trucks queued in drive/fuel lanes excluded"
+us19-exit57-pads,A24,all,1,0,1,"blind hand count from the same image, recorded before model output was viewed",,,one truck/equipment unit on the east pad
+usave-mount-nebo,A19,all,2,2,3,"blind hand count from the same image, recorded before model output was viewed",,,2 tractor-trailers on the open apron
+weigh-station-eb,A41,all,0,0,0,"blind hand count from the same image, recorded before model output was viewed",,,no trucks on the pad (one car)
+weigh-station-wb,A42,all,1,1,2,"blind hand count from the same image, recorded before model output was viewed",,,1 tractor-trailer parked on the west apron; 1 on the scale lane (not parking) excluded

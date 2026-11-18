@@ -1,0 +1,10 @@
+{
+ "site_id": "weigh-station-wb", "study_id": "A42",
+ "master_name": "I-64 Weigh Station WB (Hurricane)",
+ "image": "satellite-count/images/weigh-station-wb.png",
+ "blind_count": {"occupied": 1, "low": 1, "high": 2, "note": "1 tractor-trailer parked on the west apron; 1 on the scale lane (not parking) excluded"},
+ "spot_note": "Unmarked wedge apron; area-based estimate only. Whether trucks may park outside inspection is not established.",
+ "lots": [{"lot_id": "all", "area_estimate": true, "note": "unmarked apron west of the scale house",
+   "polygon": [[40,232],[270,236],[275,262],[180,300],[100,330],[40,330]]}],
+ "rows": []
+}

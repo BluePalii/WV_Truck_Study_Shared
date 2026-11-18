@@ -1,0 +1,14 @@
+{
+ "site_id": "hurricane-ra-west", "study_id": "A03",
+ "master_name": "Hurricane Rest Area West",
+ "image": "satellite-count/images/hurricane-ra-west.png",
+ "blind_count": {"occupied": 9, "low": 9, "high": 10, "note": "WB (north) lot: 9 tractor-trailers; a box truck/RV by the car lot not counted"},
+ "lots": [{"lot_id": "all", "note": "WB (north) truck lot; car lot to the NW excluded",
+   "polygon": [[340,195],[545,200],[600,240],[590,300],[560,350],[470,375],[360,470],[290,470],[300,370],[330,330],[330,280]]}],
+ "rows": [
+  {"id": "T", "p0": [420,282], "p1": [470,213], "side": 1, "angle_deg": 52, "depth_m": 22, "striped": false, "note": "top group, cabs west, trucks E-W"},
+  {"id": "M", "p0": [333,337], "p1": [384,291], "side": 1, "angle_deg": 42, "depth_m": 21, "striped": false, "note": "middle-left group, cabs west"},
+  {"id": "SE1", "p0": [300,462], "p1": [455,375], "side": -1, "angle_deg": 40, "depth_m": 21, "striped": false, "note": "SE edge, trucks NNE, cabs south"},
+  {"id": "SE2", "p0": [455,372], "p1": [556,336], "side": -1, "angle_deg": 49, "depth_m": 21, "striped": false, "note": "SE edge east part, trucks NNE, cabs south"}
+ ]
+}

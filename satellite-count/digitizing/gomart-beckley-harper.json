@@ -1,0 +1,133 @@
+{
+ "site_id": "gomart-beckley-harper",
+ "study_id": "A14",
+ "master_name": "GoMart Truck Stop Beckley (Harper Rd)",
+ "image": "satellite-count/images/gomart-beckley-harper.png",
+ "blind_count": {
+  "occupied": 13,
+  "low": 12,
+  "high": 14,
+  "note": "N row 9, W row 3 (2 bobtails + 1 tractor-trailer), E strip 1 (+1 uncertain dark vehicle)"
+ },
+ "field_capacity": {
+  "value": 28,
+  "source": "Field-verified July 2026 (study team): 28 dedicated truck spots"
+ },
+ "lots": [
+  {
+   "lot_id": "all",
+   "note": "truck lot north/west of fuel canopy + east edge strip; excludes fuel lanes and building",
+   "polygon": [
+    [
+     372,
+     80
+    ],
+    [
+     560,
+     76
+    ],
+    [
+     722,
+     92
+    ],
+    [
+     748,
+     110
+    ],
+    [
+     748,
+     178
+    ],
+    [
+     540,
+     176
+    ],
+    [
+     472,
+     178
+    ],
+    [
+     466,
+     295
+    ],
+    [
+     378,
+     295
+    ]
+   ]
+  },
+  {
+   "lot_id": "all",
+   "note": "east edge parallel strip",
+   "polygon": [
+    [
+     758,
+     252
+    ],
+    [
+     814,
+     252
+    ],
+    [
+     828,
+     462
+    ],
+    [
+     768,
+     462
+    ]
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "id": "N",
+   "p0": [
+    470,
+    150
+   ],
+   "p1": [
+    708,
+    164
+   ],
+   "side": -1,
+   "angle_deg": 78,
+   "depth_m": 21,
+   "striped": true,
+   "note": "north angled row; west part shows oil-stain stall marks"
+  },
+  {
+   "id": "W",
+   "p0": [
+    446,
+    272
+   ],
+   "p1": [
+    448,
+    104
+   ],
+   "side": -1,
+   "angle_deg": 40,
+   "depth_m": 21,
+   "striped": false,
+   "note": "west echelon row, unmarked"
+  },
+  {
+   "id": "E",
+   "p0": [
+    778,
+    262
+   ],
+   "p1": [
+    806,
+    452
+   ],
+   "side": 1,
+   "angle_deg": 0,
+   "depth_m": 21,
+   "width_m": 3.7,
+   "striped": false,
+   "note": "east edge parallel strip"
+  }
+ ]
+}

@@ -1,0 +1,16 @@
+{
+ "site_id": "birch-river-overlook", "study_id": "A21",
+ "master_name": "Birch River Scenic Overlook (US-19)",
+ "image": "satellite-count/images/birch-river-overlook.png",
+ "blind_count": {"occupied": 1, "low": 1, "high": 1, "note": "one tractor-trailer on the loop (2016 image); two small vehicles not counted"},
+ "lots": [
+  {"lot_id": "all", "note": "southern paved loop (east-side lot)",
+   "polygon": [[330,360],[500,360],[500,745],[330,745]]},
+  {"lot_id": "all", "area_estimate": true, "note": "open paved pad at the north end of the lot",
+   "polygon": [[398,145],[470,140],[482,330],[402,330]]}
+ ],
+ "rows": [
+  {"id": "E", "p0": [484,385], "p1": [480,705], "side": 1, "angle_deg": 0, "depth_m": 21, "width_m": 3.7, "striped": false,
+   "note": "parallel parking along the outer east edge of the loop"}
+ ]
+}

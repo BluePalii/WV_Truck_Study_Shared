@@ -1,0 +1,54 @@
+{
+ "site_id": "sheetz-marmet",
+ "study_id": "A09",
+ "master_name": "Sheetz Marmet (Exit 89)",
+ "image": "satellite-count/images/sheetz-marmet.png",
+ "blind_count": {
+  "occupied": 6,
+  "low": 6,
+  "high": 7,
+  "note": "6 trucks in the striped angled row (+1 uncertain at the NE end)"
+ },
+ "lots": [
+  {
+   "lot_id": "all",
+   "note": "striped angled truck row on the west side of the lot",
+   "polygon": [
+    [
+     245,
+     480
+    ],
+    [
+     468,
+     300
+    ],
+    [
+     445,
+     215
+    ],
+    [
+     205,
+     395
+    ]
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "id": "R1",
+   "p0": [
+    240,
+    470
+   ],
+   "p1": [
+    458,
+    297
+   ],
+   "side": -1,
+   "angle_deg": 68,
+   "depth_m": 21,
+   "striped": true,
+   "note": "striped angled row; baseline along the stall mouths (cab ends)"
+  }
+ ]
+}

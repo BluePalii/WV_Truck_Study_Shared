@@ -1,0 +1,55 @@
+{
+ "site_id": "weigh-station-eb",
+ "study_id": "A41",
+ "master_name": "I-64 Weigh Station EB (Hurricane)",
+ "image": "satellite-count/images/weigh-station-eb.png",
+ "blind_count": {
+  "occupied": 0,
+  "low": 0,
+  "high": 0,
+  "note": "no trucks on the pad (one car)"
+ },
+ "spot_note": "Weigh-station pad: whether trucks may park outside inspection is not established.",
+ "lots": [
+  {
+   "lot_id": "all",
+   "note": "striped pad east of the scale house",
+   "polygon": [
+    [
+     640,
+     240
+    ],
+    [
+     865,
+     240
+    ],
+    [
+     865,
+     305
+    ],
+    [
+     640,
+     305
+    ]
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "id": "P",
+   "p0": [
+    666,
+    249
+   ],
+   "p1": [
+    662,
+    299
+   ],
+   "side": -1,
+   "angle_deg": 90,
+   "depth_m": 31,
+   "striped": true,
+   "note": "short E-W striped lanes (~30 m) east of the scale house, one truck each"
+  }
+ ]
+}

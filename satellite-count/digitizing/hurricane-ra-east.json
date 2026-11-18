@@ -1,0 +1,11 @@
+{
+ "site_id": "hurricane-ra-east", "study_id": "A04",
+ "master_name": "Hurricane Rest Area East",
+ "image": "satellite-count/images/hurricane-ra-east.png",
+ "blind_count": {"occupied": 3, "low": 3, "high": 3, "note": "EB (south) strip: 3 tractor-trailers in echelon; trucks on ramp shoulders outside the lot not counted"},
+ "lots": [{"lot_id": "all", "note": "EB (south) truck strip along the ramp",
+   "polygon": [[760,600],[1060,640],[1060,720],[760,690]]}],
+ "rows": [
+  {"id": "S", "p0": [1032,672], "p1": [843,626], "side": -1, "angle_deg": 43, "depth_m": 21, "striped": false, "note": "echelon strip, cabs NE"}
+ ]
+}

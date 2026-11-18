@@ -1,0 +1,11 @@
+{
+ "site_id": "usave-mount-nebo", "study_id": "A19",
+ "master_name": "U-Save Travel Plaza (Mabel's) Mount Nebo",
+ "image": "satellite-count/images/usave-mount-nebo.png",
+ "blind_count": {"occupied": 2, "low": 2, "high": 3, "note": "2 tractor-trailers on the open apron"},
+ "spot_note": "Unmarked open gravel apron with no rows to follow; only an area-based estimate is possible.",
+ "lots": [{"lot_id": "all", "area_estimate": true,
+   "note": "open gravel truck apron SE of the store; fenced yard/building further SE excluded",
+   "polygon": [[300,200],[560,60],[820,90],[953,355],[680,700],[560,660],[330,420]]}],
+ "rows": []
+}

@@ -1,0 +1,54 @@
+{
+ "site_id": "alta",
+ "study_id": "A17",
+ "master_name": "Alta Truck Plaza / Alta Station (Mobil)",
+ "image": "satellite-count/images/alta.png",
+ "blind_count": {
+  "occupied": 4,
+  "low": 3,
+  "high": 6,
+  "note": "2018 image: 1 truck on the west edge, ~3 in the south part of the lot"
+ },
+ "spot_note": "No rows digitized: the only imagery is from 2018 (8 years before the July 2026 field visit) and shows no striping; the field-verified count (12 marked + 6-8 unmarked gravel) is the count of record.",
+ "lots": [
+  {
+   "lot_id": "all",
+   "note": "paved/gravel truck area west and south of the store (2018 layout)",
+   "polygon": [
+    [
+     440,
+     380
+    ],
+    [
+     505,
+     380
+    ],
+    [
+     525,
+     525
+    ],
+    [
+     655,
+     540
+    ],
+    [
+     645,
+     705
+    ],
+    [
+     540,
+     725
+    ],
+    [
+     440,
+     565
+    ]
+   ]
+  }
+ ],
+ "rows": [],
+ "field_capacity": {
+  "value": 19,
+  "source": "Field-verified July 2026 (study team): 12 marked + 6-8 unmarked gravel (midpoint 19)"
+ }
+}

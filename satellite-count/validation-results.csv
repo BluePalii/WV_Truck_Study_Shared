@@ -1,0 +1,25 @@
+site_id,lot_id,image_date,occupied_algo,occupied_truth,occupied_truth_range,occupied_error,occupied_within_truth_range,capacity_algo,capacity_truth,capacity_error,capacity_pct_error,capacity_truth_source
+alta,all,2018-11-21,2,4,3-6,-2,False,,19,,,Field-verified July 2026 (study team): 12 marked + 6-8 unmarked gravel (midpoint 19)
+beckley-travel-plaza,all,2023-02-18,42,44,38-50,-2,True,169,,,,
+birch-river-overlook,all,2016-04-20,1,1,1-1,0,True,4,,,,
+bluestone-travel-plaza,all,2025-10-22,14,15,12-17,-1,True,35,,,,
+brake-check-133,all,2023-02-18,0,0,0-0,0,True,,,,,
+burnwell-ra,all,2020-11-20,3,5,4-6,-2,False,8,,,,
+camp-creek-wayside,all,2025-10-22,7,7,6-8,0,True,7,12,-5,-41.7,"Field-verified July 2026 (study team): SB only, 12 truck spots"
+dte-oak-hill,all,2025-10-06,1,8,6-10,-7,False,,,,,
+exxon-marmet,all,2025-11-13,0,0,0-1,0,True,,,,,
+gomart-31-charleston,all,2025-11-13,15,17,15-19,-2,True,31,,,,
+gomart-51-mount-nebo,all,2023-10-05,0,1,0-1,-1,True,,,,,
+gomart-59-huntington,all,2024-10-19,22,21,19-23,1,True,27,,,,
+gomart-beckley-harper,all,2023-02-18,11,13,12-14,-2,False,26,28,-2,-7.1,Field-verified July 2026 (study team): 28 dedicated truck spots
+hurricane-ra-east,all,2025-03-11,3,3,3-3,0,True,9,,,,
+hurricane-ra-west,all,2025-03-11,9,9,9-10,0,True,20,,,,
+i64-wc-east,all,2024-10-19,8,8,7-8,0,True,23,,,,
+i64-wc-west,all,2023-02-18,1,1,1-1,0,True,9,,,,
+pilot-243-nitro,all,2025-03-11,15,13,11-15,2,True,26,,,,
+sheetz-marmet,all,2025-11-13,4,6,6-7,-2,False,18,,,,
+ta-hurricane,all,2025-03-11,40,46,40-52,-6,True,37,,,,
+us19-exit57-pads,all,2025-04-28,1,1,0-1,0,True,,,,,
+usave-mount-nebo,all,2023-10-05,4,2,2-3,2,False,,,,,
+weigh-station-eb,all,2025-03-11,0,0,0-0,0,True,3,,,,
+weigh-station-wb,all,2025-03-11,1,1,1-2,0,True,,,,,

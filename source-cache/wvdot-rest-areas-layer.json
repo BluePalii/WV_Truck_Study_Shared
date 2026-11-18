@@ -1,0 +1,903 @@
+{
+ "currentVersion": 10.81,
+ "cimVersion": "2.6.0",
+ "id": 7,
+ "name": "Rest_Areas",
+ "type": "Feature Layer",
+ "parentLayer": null,
+ "defaultVisibility": true,
+ "minScale": 0,
+ "maxScale": 0,
+ "canScaleSymbols": false,
+ "geometryType": "esriGeometryPoint",
+ "description": "Feature set containing the location and features of all Rest Areas, Welcome Centers, Travel Plazas on the interstates in West Virginia. Data obtained through the West Virginia Department of Transportation All Stays\u2014trucker resources(https://www.allstays.com/c/truck-stops-west-virginia.htm), Truckers Directory\u2014truck stops in WV Guide (http://www.truckstopsandservices.com/listcatbusinesses.php?id=19&amp;state=50), and Truck Stops online(http://www.truckstopsonline.com/Search_State.aspx?state=WV), Attributes shared in this feature class include: RouteID, Interstate Number, Feature Name, City, County, Number of Parking Spaces for Cars and Trucks, Restrooms, ADA Compliant Restrooms, Family Restrooms, Tourist Information, Food, Type of Food Establishment, (vending machines, snack bar, fast food, restaurant, convenience store), Fuel, Gift Shop, Picnic Tables, DOH District, Lat, and Long, feature type and exact mile point.. Data has been verified using aerial imagery, google earth ,and WVDOT Measurement App ( https://gis.transportation.wv.gov/measures/). Data is current as of November 1, 2018. Data Coordinate System: NAD_1983_UTM_Zone_17N",
+ "copyrightText": "WVDOT GTI SECTION",
+ "editFieldsInfo": null,
+ "ownershipBasedAccessControlForFeatures": null,
+ "syncCanReturnChanges": false,
+ "relationships": [],
+ "isDataVersioned": false,
+ "isDataArchived": false,
+ "isDataBranchVersioned": false,
+ "isDataReplicaTracked": false,
+ "isCoGoEnabled": false,
+ "supportsRollbackOnFailureParameter": true,
+ "archivingInfo": {
+  "supportsQueryWithHistoricMoment": false,
+  "startArchivingMoment": -1
+ },
+ "supportsStatistics": true,
+ "supportsExceedsLimitStatistics": true,
+ "supportsAdvancedQueries": true,
+ "supportsValidateSQL": true,
+ "supportsCoordinatesQuantization": true,
+ "supportsCalculate": true,
+ "supportsASyncCalculate": true,
+ "supportsDatumTransformation": true,
+ "advancedQueryCapabilities": {
+  "supportsPagination": true,
+  "supportsTrueCurve": true,
+  "supportsQueryWithDistance": true,
+  "supportsReturningQueryExtent": true,
+  "supportsStatistics": true,
+  "supportsPercentileStatistics": true,
+  "supportsHavingClause": true,
+  "supportsOrderBy": true,
+  "supportsDistinct": true,
+  "supportsCountDistinct": true,
+  "supportsQueryWithResultType": true,
+  "supportsReturningGeometryCentroid": false,
+  "supportsSqlExpression": true,
+  "supportsQueryWithDatumTransformation": true
+ },
+ "advancedEditingCapabilities": {
+  "supportedSqlFormatsInCalculate": [
+   "standard"
+  ]
+ },
+ "hasMetadata": true,
+ "extent": {
+  "xmin": -9175190.9762,
+  "ymin": 4489829.657200001,
+  "xmax": -8665960.7277,
+  "ymax": 4955959.501500003,
+  "spatialReference": {
+   "wkid": 102100,
+   "latestWkid": 3857,
+   "xyTolerance": 0.001,
+   "zTolerance": 2,
+   "mTolerance": 2.0E-4,
+   "falseX": -20037700,
+   "falseY": -30241100,
+   "xyUnits": 1.4892314192838538E8,
+   "falseZ": 0,
+   "zUnits": 1,
+   "falseM": -100000,
+   "mUnits": 10000
+  }
+ },
+ "sourceSpatialReference": {
+  "wkid": 102100,
+  "latestWkid": 3857,
+  "xyTolerance": 0.001,
+  "zTolerance": 2,
+  "mTolerance": 2.0E-4,
+  "falseX": -20037700,
+  "falseY": -30241100,
+  "xyUnits": 10000,
+  "falseZ": 0,
+  "zUnits": 1,
+  "falseM": -100000,
+  "mUnits": 40000
+ },
+ "drawingInfo": {
+  "renderer": {
+   "type": "uniqueValue",
+   "field1": "Type",
+   "uniqueValueInfos": [
+    {
+     "symbol": {
+      "type": "esriPMS",
+      "url": "e90d1c67bb0e1b72a9fd10b70ac74b59",
+      "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABqklEQVQ4jbXUT2iScRzH8fdvirMtTCObjQXi02GBDAwhq8MgVgo7ul2NdVh1CDYiYofBIij6QxEdOuxYQUQIgzpX0mSssV0a041Bq0eSrSHp5kQf93ST9DH1Qfvefj8+v9f3e/jyM9LiMv43UFVV84qcuZ7ezVv0ACajIe+RrNNCiGTlhN4Lkx8eJLb3dE+1+MQPcKcSNCpFVRMOnXdyNXACs6mNt7MyD8MxCsX9skxeKZpKSK3Od0N9TAydLJ09Lhv9bjuBqU+o2t61QclxkFvBXpKpHMF7s6R287wY93HR42D43HHefP6hD7QfaicclXm/8JNo7BcAj2fivLrh45Rk0w/OxbcZvh8tu+t32wHY2Mz+61ljeygEPL/mZdQvEU9kePnxW3Pg5QEXVwISq4kMg7cjZPaU5sDg2R4ARp7Os57cqZltCNzJKcTkNF+//66bbQh89m6NLquZdLbQGvD1zTN0Hz7AsUszJFO55sGx6SV6jnTUxSrBrPNoZ9VQZHkLgC6rWQsYBJZOU7oa+GXu0cBpoKORqf8qBVjQgEIIFZjXiWmq5T/2H32rgzY4uPq/AAAAAElFTkSuQmCC",
+      "contentType": "image/png",
+      "width": 15,
+      "height": 15,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0
+     },
+     "value": "IC",
+     "label": "Tourist Infortmation Center"
+    },
+    {
+     "symbol": {
+      "type": "esriPMS",
+      "url": "9d172954690af1222f37ef85fa2dfd55",
+      "imageData": "iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAACXBIWXMAAA7EAAAOxAGVKw4bAAABg0lEQVQ4jbXTPUhCURQH8D/6/CiwNPoQGoqKQCJxqKXJIqI5rMmppaHJBi2HaHBIaGsybKglKCEKAqOUlgpC0CybRCwxNLRXD7/tPVtCfKjpE/1v53Lvj8M9HAJNDtFS0GL36+VSsYQLQKXzdIjM7BoXFHEWuG3zLZ3eh81XnginjuQyMXaWVUIARhbYLiLEZCIHmin81XwI+LziQ5opIJH5KQNjVBYdbUTRqfqHltVJaNUDrLNQLIW1fQ9st6GqHdccytPrN+JUFkIBDxMjXTjWT2Fu8wbXj9HGwI0DLy5c7wCAGWUfHCY1DBpF42BpXP5PAEC3RFT1Tk1QNSRFJk9DSPCwMj8MAHB6K3dXF2jSjrNqd4DE1tFz4+D5QxiBSBIMU8BLiMKhM4g8zTQO7tkDxaHUk9bucmliVBbBjyTSObo5oM7qhs7q5oSxwFSWiY72Syru63/p6RQhSuYSZeC6RnFpPvHNTit7ZVzAr0SefrsbPCsDAcCwOObg1F6FNH3Kv4wgiibsYJU3AAAAAElFTkSuQmCC",
+      "contentType": "image/png",
+      "width": 15,
+      "height": 15,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0
+     },
+     "value": "PA",
+     "label": "Parking Area"
+    },
+    {
+     "symbol": {
+      "type": "esriPMS",
+      "url": "292a4e045f94696ae288578cf84d8f57",
+      "imageData": "iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAADMUlEQVRIid2WS0xTaRiGn3NarNPKAaUCU7RSR1EEQbxVw4CJgrrwttLIgnibuNDM0tHExLrSGCMLNZlATIyXcXTGKIkxXiKigloZjajEa0GKHQZFlLZQ6NWFKeF4TqvdzMJ3df7/f8/7nO//zk3L/yTt9w/67eij0oetPTXdHn96JBJJODBJKwZ/yjQ05JhT1thW5/lVQbYTL6UjdU+vdbzrV61UFARSDEl88PoxSjq63YOqMPvz96sqFpjPAstVQb0D3mVqkOx0A+vLLGwos2A71cKRq61UbSoid5xEzRUHp246cfcHZOc4/uubN3wsCw2HSY0ej9CKrLBm8cviiZTPyEQQlFc+a9JoZk2azYGNRZy+5aTmioM7z94DEAiGZdmqW7SwIIPT2+ZjlHRUVtn5tfoBjw8tJUkjKry1dheVVXbO7ijm9r4yWpy9lGyvU/hUQZYMA0ZJB4AogEZUKWeYNKJA1JFnTkGv03wbKCrvQBC3L8hkUzIX/+lkpTVLtr7rjyc0t32kNG8sBy+85ELTv1RtKlLNigs6Wd/OuTtvAOj84FOAGp92c625a2hcaEklluKCqi87mDpO4tkbNz0eP81tH+PZ4yom6N6LHnLHSzxs/Ry+tnQC1ZcdCp8uSWQwEEarid/HmKC2Li9lhRmcrG8H4Imzl5JpRlqcbplv6cwfqbW7KM414vEFEwetKTGzZNeNoXHtXRf71xfKQD9PMxIMRai1uzBKOhbkpycO6hsIkmNK5rnLQ/vbPjaUW3jV6ZV5bGvz2Xni8dDDvLsiP3GQYaSWg5tn4vEF+POWj+otcxAEONPQofDmmJJjAr4Kiso81sB4o171FRTVvClpeAdi9+cbQXqy0w1xPXNz0qh71BXXIwNFiIS/NKywmpg/NS1mwEprFqYxPzDZNEo2L3yxBTKQfoS2SRDg+PXX/N2o7AWAzx8CYPPhJrb+fl/V4/YFmD4h9W1M0N51BfdX72us+6uhY6G/X1GcTP2DISCkupY5emSoIFvaeikWCODMtuJFO441W72+kBUiyu/CV6TRiN5Uvf68rWJK9/B51ZthT2WhHbAnComn7+936xM00Qu+8nOLswAAAABJRU5ErkJggg==",
+      "contentType": "image/png",
+      "width": 19,
+      "height": 19,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0
+     },
+     "value": "RA",
+     "label": "Rest Area"
+    },
+    {
+     "symbol": {
+      "type": "esriPMS",
+      "url": "28c62e629425de5565f0aabdb81d7e0e",
+      "imageData": "iVBORw0KGgoAAAANSUhEUgAAACcAAAAUCAYAAAAOTSQ2AAAACXBIWXMAAA7EAAAOxAGVKw4bAAACvklEQVRIic2WTUhUURTHf+e+mZTMsBa2CILIwE0QWVEIgbWoRW9K+pgxCQpb1KZFUAQVQZsijKhNuEyimdEgTWtnRC2iXFjYx8ooDMpwIWpqOu+eFjPqjD7HmSao/+re83V/93HveTfAf6zAvwbIJh84FULRDSiTeVUSlmBkmIQNYoKaV643ZXlc/2lxuFDrOtRpBN2R1wLKEFbuIHIGtU6aZwzoBgYQKUN1M7AyI9c494CTi8MZL4En5UBRmrULI9cy4jxtQIikWVaBLQJZnpqPo1wmOHkXgMSKUezoccQ0o1qCcCOZA0CZ335zO3PCd1TXAw0AKL2IPAR1gRKfjBFgF52RbkLxGtRWYUZfYOUq6G06IxfZF32OladAxULL5n4hlNVAVWqWQOjCUo3wxmc3J+gIdyfz7FZUQqgEQc1MSHtdP+79/WB6CoeDfuBVavwO1UqMVqMyN66HjnBLGugvhO3oTO6sOo68x401A8sKg+uINAFNM/O90TBIzbw4lfbMvPAt3PgxRsrPUTpw1DdetL4wuHlFzRCig/PsYue0BFGITfCsJoEbPQ+yNsPtSB/Wv/P8OZzR4AIeZwE7GPMFq5lwmgiA8Q0v8A8hAuplApnKvEqoUwl/+8slK+8B2oADabaDHGq5QOthL8caYWDqb8OtQfQJKpvm2Ncx4Z0Gbi5aIRSvQbUWaPFzZ4dTuZQa9M7ziXxEtRSVl4juBIrTnNcJxb7yKNI6XQkAzyomNXZjW1Dbmjwa/soOJ3a6e1fgRmszwe10DCBzL0EAJY4b2w22Ec+cAsAsfY03NokbvwJ6FqSYLPKHE94m9ycbs8LP6gPCMMoo0Mvs9dsG5gHGfsON/UDHyzCyhmTn7ktbsD83uLa6z+yPXs4RalbWCeD8HMQrieJ4+T2ZZHIsN7hpwD/XUAG5GfqvX8K/AXsg7Accp0i8AAAAAElFTkSuQmCC",
+      "contentType": "image/png",
+      "width": 29,
+      "height": 15,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0
+     },
+     "value": "TP",
+     "label": "Travel Plaza"
+    },
+    {
+     "symbol": {
+      "type": "esriPMS",
+      "url": "dc21ffdef3b1c14c5f8ee94fb740201c",
+      "imageData": "iVBORw0KGgoAAAANSUhEUgAAABoAAAAaCAYAAACpSkzOAAAACXBIWXMAAA7EAAAOxAGVKw4bAAACNklEQVRIieXUXUhTYRjA8f/5cG4ptiVSpJUkUl2VIqa4sI+rCEwWUXhVEAR1J9pYVwWBEVEXQRBFRRRehFkQIZTgJ0pWNMKPYRdhrkGb2tzSbe6c04UEnthpnDYq6rk773ne5/c+8LyvzG8K+d+HWm+/qfd+mL85E0kUaZpmuqBFlpJbS/L7ap3y0ZNVVUspIfeNV6vv90+/8IcWMup02BdyoZU+BBpTQlFVbMgU+R4T/mjdym9dUVVT7dlAABJJRVf7P5g6gIrNDvou7jXc5L7r5fqz95lDogj5VuNmcyTRFGIIpYviQhvtrbV0vQ5QUeag+dZb1DR37pcgQYBVuRJWi0SBLYcHLTUMTcwQDMcIzMXoeffZPDQwFmJ0KsyRXRux5+UAIAoCDdXFNFQXA6BpkCuLLCYUDjs3UNjUaQ4aHA/huefFVVvCwQv99LYtD0hz4xZd3pUnPkanwtjzLIx9nKepfhMjk7PpId90BKe7m8BcjGP7Sjl9oJzLnT6c7u6UB/L5I3R46lhnt7Kz5Tlr7VbyfhimlFA0lmRwPATA+fZRrj2dJBiO82l20bD7/ed6kSWR+YUlvnxdorLMkR5aGYqqEQzH06WxEFcAxfD/n3oZBDVbhQVBMIasFmlEEJbHNdMoKsjVXSYddPXEjpeH2gZ6Hg1N784EW7/GplSW2091GUEAHR7nnjN3vDWLCaUaNNOPmiwLkSKH7fFZ17YZ3Xqq5EvHtw8Dw2aRnx4gm8X+Cugbo5W6NBTi5toAAAAASUVORK5CYII=",
+      "contentType": "image/png",
+      "width": 19,
+      "height": 19,
+      "angle": 0,
+      "xoffset": 0,
+      "yoffset": 0
+     },
+     "value": "TS",
+     "label": "Truck Stop"
+    }
+   ],
+   "fieldDelimiter": ",",
+   "authoringInfo": {
+    "colorRamp": {
+     "type": "multipart",
+     "colorRamps": [
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        181,
+        168,
+        67,
+        255
+       ],
+       "toColor": [
+        181,
+        168,
+        67,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        130,
+        36,
+        173,
+        255
+       ],
+       "toColor": [
+        130,
+        36,
+        173,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        47,
+        144,
+        173,
+        255
+       ],
+       "toColor": [
+        47,
+        144,
+        173,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        173,
+        61,
+        83,
+        255
+       ],
+       "toColor": [
+        173,
+        61,
+        83,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        52,
+        191,
+        131,
+        255
+       ],
+       "toColor": [
+        52,
+        191,
+        131,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        59,
+        102,
+        196,
+        255
+       ],
+       "toColor": [
+        59,
+        102,
+        196,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        81,
+        181,
+        38,
+        255
+       ],
+       "toColor": [
+        81,
+        181,
+        38,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        199,
+        120,
+        64,
+        255
+       ],
+       "toColor": [
+        199,
+        120,
+        64,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        171,
+        65,
+        143,
+        255
+       ],
+       "toColor": [
+        171,
+        65,
+        143,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        199,
+        58,
+        48,
+        255
+       ],
+       "toColor": [
+        199,
+        58,
+        48,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        66,
+        201,
+        197,
+        255
+       ],
+       "toColor": [
+        66,
+        201,
+        197,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        43,
+        63,
+        189,
+        255
+       ],
+       "toColor": [
+        43,
+        63,
+        189,
+        255
+       ]
+      },
+      {
+       "type": "algorithmic",
+       "algorithm": "esriCIELabAlgorithm",
+       "fromColor": [
+        91,
+        65,
+        163,
+        255
+       ],
+       "toColor": [
+        91,
+        65,
+        163,
+        255
+       ]
+      }
+     ]
+    }
+   }
+  },
+  "scaleSymbols": true,
+  "transparency": 0,
+  "labelingInfo": null
+ },
+ "hasM": true,
+ "hasZ": false,
+ "allowUpdateWithoutMValues": false,
+ "allowGeometryUpdates": true,
+ "allowTrueCurvesUpdates": false,
+ "onlyAllowTrueCurveUpdatesByTrueCurveClients": false,
+ "hasAttachments": false,
+ "supportsApplyEditsWithGlobalIds": false,
+ "htmlPopupType": "esriServerHTMLPopupTypeAsHTMLText",
+ "objectIdField": "OBJECTID",
+ "globalIdField": "",
+ "displayField": "Name",
+ "typeIdField": "Type",
+ "subtypeField": "",
+ "fields": [
+  {
+   "name": "OBJECTID",
+   "type": "esriFieldTypeOID",
+   "alias": "OBJECTID",
+   "domain": null,
+   "editable": false,
+   "nullable": false,
+   "defaultValue": null,
+   "modelName": "OBJECTID"
+  },
+  {
+   "name": "RTKEY",
+   "type": "esriFieldTypeString",
+   "alias": "RTKEY",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 50,
+   "defaultValue": null,
+   "modelName": "RTKEY"
+  },
+  {
+   "name": "Route",
+   "type": "esriFieldTypeString",
+   "alias": "Route",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 254,
+   "defaultValue": null,
+   "modelName": "Route"
+  },
+  {
+   "name": "Name",
+   "type": "esriFieldTypeString",
+   "alias": "Name",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 254,
+   "defaultValue": null,
+   "modelName": "Name"
+  },
+  {
+   "name": "Mile",
+   "type": "esriFieldTypeInteger",
+   "alias": "Mile",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "Mile"
+  },
+  {
+   "name": "City",
+   "type": "esriFieldTypeString",
+   "alias": "City",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 254,
+   "defaultValue": null,
+   "modelName": "City"
+  },
+  {
+   "name": "County",
+   "type": "esriFieldTypeString",
+   "alias": "County",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 254,
+   "defaultValue": null,
+   "modelName": "County"
+  },
+  {
+   "name": "CarSpac",
+   "type": "esriFieldTypeInteger",
+   "alias": "CarSpac",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "CarSpac"
+  },
+  {
+   "name": "TruckSpa",
+   "type": "esriFieldTypeInteger",
+   "alias": "TruckSpa",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "TruckSpa"
+  },
+  {
+   "name": "restrooms",
+   "type": "esriFieldTypeString",
+   "alias": "restrooms",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 2,
+   "defaultValue": null,
+   "modelName": "restrooms"
+  },
+  {
+   "name": "ADA_Rest",
+   "type": "esriFieldTypeString",
+   "alias": "ADA_Rest",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 2,
+   "defaultValue": null,
+   "modelName": "ADA_Rest"
+  },
+  {
+   "name": "Fam_Rest",
+   "type": "esriFieldTypeString",
+   "alias": "Fam_Rest",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 2,
+   "defaultValue": null,
+   "modelName": "Fam_Rest"
+  },
+  {
+   "name": "TI",
+   "type": "esriFieldTypeString",
+   "alias": "TI",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 10,
+   "defaultValue": null,
+   "modelName": "TI"
+  },
+  {
+   "name": "Food",
+   "type": "esriFieldTypeString",
+   "alias": "Food",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 2,
+   "defaultValue": null,
+   "modelName": "Food"
+  },
+  {
+   "name": "FoodTy",
+   "type": "esriFieldTypeString",
+   "alias": "FoodTy",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 50,
+   "defaultValue": null,
+   "modelName": "FoodTy"
+  },
+  {
+   "name": "Fuel",
+   "type": "esriFieldTypeString",
+   "alias": "Fuel",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 20,
+   "defaultValue": null,
+   "modelName": "Fuel"
+  },
+  {
+   "name": "Shop",
+   "type": "esriFieldTypeString",
+   "alias": "Shop",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 2,
+   "defaultValue": null,
+   "modelName": "Shop"
+  },
+  {
+   "name": "PT",
+   "type": "esriFieldTypeInteger",
+   "alias": "PT",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "PT"
+  },
+  {
+   "name": "DIST",
+   "type": "esriFieldTypeInteger",
+   "alias": "DIST",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "DIST"
+  },
+  {
+   "name": "LAT",
+   "type": "esriFieldTypeDouble",
+   "alias": "LAT",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "LAT"
+  },
+  {
+   "name": "LONG",
+   "type": "esriFieldTypeDouble",
+   "alias": "LONG",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "LONG"
+  },
+  {
+   "name": "Type",
+   "type": "esriFieldTypeString",
+   "alias": "Type",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 2,
+   "defaultValue": null,
+   "modelName": "Type"
+  },
+  {
+   "name": "MM",
+   "type": "esriFieldTypeDouble",
+   "alias": "MM",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "defaultValue": null,
+   "modelName": "MM"
+  },
+  {
+   "name": "GoogleSV",
+   "type": "esriFieldTypeString",
+   "alias": "GoogleSV",
+   "domain": null,
+   "editable": true,
+   "nullable": true,
+   "length": 254,
+   "defaultValue": null,
+   "modelName": "GoogleSV"
+  }
+ ],
+ "geometryField": {
+  "name": "Shape",
+  "type": "esriFieldTypeGeometry",
+  "alias": "Shape",
+  "domain": null,
+  "editable": true,
+  "nullable": true,
+  "defaultValue": null,
+  "modelName": "Shape"
+ },
+ "indexes": [
+  {
+   "name": "R35812_pk",
+   "fields": "OBJECTID",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  },
+  {
+   "name": "S35794_idx",
+   "fields": "Shape",
+   "isAscending": true,
+   "isUnique": true,
+   "description": ""
+  }
+ ],
+ "dateFieldsTimeReference": {
+  "timeZone": "UTC",
+  "respectsDaylightSaving": false
+ },
+ "types": [
+  {
+   "id": "IC",
+   "name": "Tourist Infortmation Center",
+   "domains": {},
+   "templates": [
+    {
+     "name": "Tourist Infortmation Center",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "LONG": null,
+       "GoogleSV": null,
+       "RTKEY": null,
+       "Route": null,
+       "Name": null,
+       "Mile": null,
+       "City": null,
+       "County": null,
+       "CarSpac": null,
+       "TruckSpa": null,
+       "restrooms": null,
+       "ADA_Rest": null,
+       "Fam_Rest": null,
+       "TI": null,
+       "Food": null,
+       "FoodTy": null,
+       "Fuel": null,
+       "Shop": null,
+       "PT": null,
+       "DIST": null,
+       "LAT": null,
+       "Type": "IC",
+       "MM": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPoint"
+    }
+   ]
+  },
+  {
+   "id": "PA",
+   "name": "Parking Area",
+   "domains": {},
+   "templates": [
+    {
+     "name": "Parking Area",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "LONG": null,
+       "GoogleSV": null,
+       "RTKEY": null,
+       "Route": null,
+       "Name": null,
+       "Mile": null,
+       "City": null,
+       "County": null,
+       "CarSpac": null,
+       "TruckSpa": null,
+       "restrooms": null,
+       "ADA_Rest": null,
+       "Fam_Rest": null,
+       "TI": null,
+       "Food": null,
+       "FoodTy": null,
+       "Fuel": null,
+       "Shop": null,
+       "PT": null,
+       "DIST": null,
+       "LAT": null,
+       "Type": "PA",
+       "MM": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPoint"
+    }
+   ]
+  },
+  {
+   "id": "RA",
+   "name": "Rest Area",
+   "domains": {},
+   "templates": [
+    {
+     "name": "Rest Area",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "LONG": null,
+       "GoogleSV": null,
+       "RTKEY": null,
+       "Route": null,
+       "Name": null,
+       "Mile": null,
+       "City": null,
+       "County": null,
+       "CarSpac": null,
+       "TruckSpa": null,
+       "restrooms": null,
+       "ADA_Rest": null,
+       "Fam_Rest": null,
+       "TI": null,
+       "Food": null,
+       "FoodTy": null,
+       "Fuel": null,
+       "Shop": null,
+       "PT": null,
+       "DIST": null,
+       "LAT": null,
+       "Type": "RA",
+       "MM": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPoint"
+    }
+   ]
+  },
+  {
+   "id": "TP",
+   "name": "Travel Plaza",
+   "domains": {},
+   "templates": [
+    {
+     "name": "Travel Plaza",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "LONG": null,
+       "GoogleSV": null,
+       "RTKEY": null,
+       "Route": null,
+       "Name": null,
+       "Mile": null,
+       "City": null,
+       "County": null,
+       "CarSpac": null,
+       "TruckSpa": null,
+       "restrooms": null,
+       "ADA_Rest": null,
+       "Fam_Rest": null,
+       "TI": null,
+       "Food": null,
+       "FoodTy": null,
+       "Fuel": null,
+       "Shop": null,
+       "PT": null,
+       "DIST": null,
+       "LAT": null,
+       "Type": "TP",
+       "MM": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPoint"
+    }
+   ]
+  },
+  {
+   "id": "TS",
+   "name": "Truck Stop",
+   "domains": {},
+   "templates": [
+    {
+     "name": "Truck Stop",
+     "description": "",
+     "prototype": {
+      "attributes": {
+       "LONG": null,
+       "GoogleSV": null,
+       "RTKEY": null,
+       "Route": null,
+       "Name": null,
+       "Mile": null,
+       "City": null,
+       "County": null,
+       "CarSpac": null,
+       "TruckSpa": null,
+       "restrooms": null,
+       "ADA_Rest": null,
+       "Fam_Rest": null,
+       "TI": null,
+       "Food": null,
+       "FoodTy": null,
+       "Fuel": null,
+       "Shop": null,
+       "PT": null,
+       "DIST": null,
+       "LAT": null,
+       "Type": "TS",
+       "MM": null
+      }
+     },
+     "drawingTool": "esriFeatureEditToolPoint"
+    }
+   ]
+  }
+ ],
+ "templates": [],
+ "maxRecordCount": 1000,
+ "supportedQueryFormats": "JSON, geoJSON, PBF",
+ "capabilities": "Query",
+ "useStandardizedQueries": true,
+ "standardMaxRecordCount": 32000,
+ "tileMaxRecordCount": 8000,
+ "standardMaxRecordCountNoGeometry": 32000,
+ "maxRecordCountFactor": 1,
+ "serviceItemId": "ffa0026ed42542aebc680e94426ca337"
+}

@@ -1,0 +1,12 @@
+{
+ "site_id": "pilot-243-nitro", "study_id": "A07",
+ "master_name": "Pilot Travel Center #243 Nitro",
+ "image": "satellite-count/images/pilot-243-nitro.png",
+ "blind_count": {"occupied": 13, "low": 11, "high": 15, "note": "main row ~11 + bobtail + blue tractor-trailer on the apron; 2 trucks on the north entry curb and the docks of the warehouse to the north are outside the lot"},
+ "lots": [{"lot_id": "all", "note": "truck lot north of the fuel canopy incl. open apron to its south; warehouse docks to the north excluded",
+   "polygon": [[570,470],[660,448],[910,560],[985,600],[985,700],[800,700],[780,632],[590,602]]}],
+ "rows": [
+  {"id": "R1", "p0": [598,488], "p1": [905,574], "side": 1, "angle_deg": 90, "depth_m": 22, "striped": false,
+   "note": "main truck row; trucks parked roughly N-S, cabs at either end"}
+ ]
+}

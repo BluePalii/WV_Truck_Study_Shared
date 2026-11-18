@@ -1,0 +1,36 @@
+site_id,lot_id,row_id,layout,striped,length_m,spot_width_along_row_m,width_method,width_strength,spots,occupied_spots,empty_spots,extra_trucks_in_row,occ_appearance_diagnostic
+beckley-travel-plaza,all,A,angle 65,True,216.9,4.33,measured (detected-truck spacing),-0.17,50,19,31,0,37
+beckley-travel-plaza,all,B,angle 65,True,130.2,4.74,default (no clear period),-0.18,27,5,22,0,15
+beckley-travel-plaza,all,C,angle 65,True,92.7,4.74,default (no clear period),0.07,19,6,13,0,8
+beckley-travel-plaza,all,D,angle 65,True,86.4,4.11,measured (detected-truck spacing),-0.14,21,10,11,0,17
+beckley-travel-plaza,all,PT,angle 90,False,57.0,4.3,default (no clear period),0.2,52,0,52,0,0
+birch-river-overlook,all,E,parallel,False,96.0,23.0,default,0.0,4,0,4,0,0
+bluestone-travel-plaza,all,W,angle 58,True,112.7,5.07,default (no clear period),0.06,22,9,13,0,0
+bluestone-travel-plaza,all,E,angle 58,True,65.7,5.07,default (no clear period),-0.13,13,5,8,0,6
+burnwell-ra,all,E1,parallel,False,83.5,23.0,default,0.0,3,2,1,0,1
+burnwell-ra,all,E2,parallel,False,58.2,23.0,default,0.0,2,0,2,0,1
+burnwell-ra,all,W,parallel,False,75.1,23.0,default,0.0,3,1,2,0,4
+camp-creek-wayside,all,R1,angle 23,False,62.0,8.55,measured (image periodicity),0.19,7,6,1,1,4
+gomart-31-charleston,all,W,angle 90,False,79.8,3.61,measured (detected-truck spacing),-0.26,22,10,12,1,12
+gomart-31-charleston,all,E,angle 37,False,63.0,7.15,default (no clear period),0.17,9,2,7,0,10
+gomart-59-huntington,all,N,angle 90,False,52.8,3.85,measured (detected-truck spacing),0.06,13,11,2,0,6
+gomart-59-huntington,all,S,angle 90,False,53.4,3.74,measured (detected-truck spacing),0.01,14,11,3,0,5
+gomart-beckley-harper,all,N,angle 78,True,71.5,4.08,measured (detected-truck spacing),-0.09,17,9,8,0,10
+gomart-beckley-harper,all,W,angle 40,False,50.4,6.69,default (no clear period),-0.06,7,1,6,0,4
+gomart-beckley-harper,all,E,parallel,False,57.6,23.0,default,0.0,2,1,1,0,3
+hurricane-ra-east,all,S,angle 43,False,58.3,6.31,default (no clear period),-0.26,9,3,6,0,6
+hurricane-ra-west,all,T,angle 52,False,25.6,5.46,default (no clear period),0.02,4,3,1,0,3
+hurricane-ra-west,all,M,angle 42,False,20.6,6.43,default (no clear period),0.0,3,2,1,0,2
+hurricane-ra-west,all,SE1,angle 40,False,53.3,6.69,default (no clear period),0.02,8,2,6,0,2
+hurricane-ra-west,all,SE2,angle 49,False,32.2,5.7,default (no clear period),-0.25,5,2,3,0,2
+i64-wc-east,all,N,angle 42,False,92.4,6.43,default (no clear period),-0.06,14,4,10,0,5
+i64-wc-east,all,S,angle 42,False,57.5,6.43,default (no clear period),0.0,9,4,5,0,2
+i64-wc-west,all,R1,angle 34,False,69.1,7.69,default (no clear period),-0.21,9,1,8,0,9
+pilot-243-nitro,all,R1,angle 90,False,95.6,3.62,measured (detected-truck spacing),-0.02,26,13,13,0,9
+sheetz-marmet,all,R1,angle 68,True,83.5,4.64,default (no clear period),-0.25,18,4,14,0,2
+ta-hurricane,all,C,angle 61,False,59.1,4.2,measured (image periodicity),0.19,14,12,2,0,11
+ta-hurricane,all,M,angle 90,False,22.2,4.3,default (no clear period),-0.07,5,3,2,0,5
+ta-hurricane,all,SW,angle 36,False,56.4,8.11,measured (detected-truck spacing),-0.15,7,6,1,0,8
+ta-hurricane,all,E,angle 86,False,28.5,3.98,measured (detected-truck spacing),-0.01,7,7,0,0,2
+ta-hurricane,all,NE,angle 48,False,27.2,5.79,default (no clear period),0.31,4,3,1,0,5
+weigh-station-eb,all,P,angle 90,True,15.1,4.3,default (no clear period),0.0,3,0,3,0,0

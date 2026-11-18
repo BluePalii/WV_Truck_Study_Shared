@@ -1,0 +1,13 @@
+{
+ "site_id": "burnwell-ra", "study_id": "A12",
+ "master_name": "Burnwell Rest Area (MM 69)",
+ "image": "satellite-count/images/burnwell-ra.png",
+ "blind_count": {"occupied": 5, "low": 4, "high": 6, "note": "east lane 2 TT upper + 1 TT and 1 short vehicle lower; west lane 1 TT"},
+ "lots": [{"lot_id": "all", "note": "two parallel truck lanes north of the building",
+   "polygon": [[390,180],[447,180],[502,662],[458,672],[394,522]]}],
+ "rows": [
+  {"id": "E1", "p0": [427,192], "p1": [437,470], "side": -1, "angle_deg": 0, "depth_m": 21, "width_m": 3.7, "striped": false, "note": "east truck lane, north part"},
+  {"id": "E2", "p0": [437,470], "p1": [477,660], "side": -1, "angle_deg": 0, "depth_m": 21, "width_m": 3.7, "striped": false, "note": "east truck lane, south part"},
+  {"id": "W", "p0": [398,250], "p1": [408,500], "side": -1, "angle_deg": 0, "depth_m": 21, "width_m": 3.7, "striped": false, "note": "west truck lane"}
+ ]
+}

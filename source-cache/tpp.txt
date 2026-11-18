@@ -1,0 +1,902 @@
+                  Truck Parking Profile
+
+WEST VIRGINIA STATE
+FREIGHT PLAN
+
+                                                                           November 2023
+Tech Memo
+
+West Virginia State Freight Plan
+
+Truck Parking Profile
+
+  prepared by
+
+ Cambridge Systematics, Inc.
+
+  with
+
+ Mott MacDonald
+
+  date
+
+ November 2023
+                                                                                                                                      Truck Parking Profile
+
+TABLE OF CONTENTS
+
+1.0 Overview .................................................................................................................................................1
+        1.1 Why Truck Drivers Need to Park ...................................................................................................1
+
+2.0 Truck Parking Inventory ........................................................................................................................3
+        2.1 Methodology ..................................................................................................................................3
+        2.2 Inventory ........................................................................................................................................3
+
+3.0 Stakeholder Engagement ......................................................................................................................8
+        3.1 Stakeholder Survey........................................................................................................................8
+        3.2 Regional Government Interviews...................................................................................................8
+                 BCKP Regional Intergovernmental Council...................................................................................9
+                 Morgantown-Monongalia County...................................................................................................9
+                 KYOVA Interstate Planning Commission.....................................................................................10
+                 Washington County - Planning and Community Development Department...............................10
+                 Brook-Hancock Jefferson Metropolitan Planning Commission ...................................................10
+                 Bel-O-Mar Regional Council ........................................................................................................11
+        3.3 Truck Parking Workshops............................................................................................................11
+
+4.0 Truck Parking Demand and Safety.....................................................................................................12
+        4.1 Data Collection and Processing...................................................................................................12
+        4.2 Truck Parking Demand at Designated Facilities..........................................................................13
+        4.3 Undesignated Truck Parking .......................................................................................................16
+        4.4 Safety and Other Truck Parking Challenges ...............................................................................16
+
+                                                              West Virginia Department of Transportation
+                                                                                           i
+                                                            Truck Parking Profile
+
+LIST OF TABLES
+
+Table 1.1  Summary of Hours-of-Service Rules for Property-Carrying Drivers.........................................2
+Table 2.1  Truck Parking Typologies .........................................................................................................5
+Table 2.2  Truck Parking Capacity by Roadway Type ..............................................................................6
+Table 2.3  Total Truck Parking Facilities by Corridor.................................................................................6
+Table 2.4  Total Number of Truck Parking Facilities and Spaces .............................................................7
+Table 4.1  Candidate ATRI Truck GPS Expansion Factor ......................................................................13
+Table 4.2  Truck Parking Demand by Facility Type.................................................................................13
+Table 4.3  Demand at Designated Locations by WVDOT District ...........................................................15
+Table 4.4  Demand at Designated Locations by Area .............................................................................15
+Table 4.5  Demand along Major Roadways ............................................................................................16
+
+                West Virginia Department of Transportation
+                                            ii
+                                                             Truck Parking Profile
+
+LIST OF FIGURES
+
+Figure 1.1  Reasons Truck Drivers Park.....................................................................................................1
+Figure 2.1  Truck Parking Inventory in West Virginia..................................................................................4
+Figure 2.2  Distribution of Truck Parking Capacity .....................................................................................5
+Figure 3.1  Regional Government Stakeholders.........................................................................................9
+Figure 4.1  Peak-Hour Utilization of Designated Truck Parking Facilities in West Virginia ......................14
+Figure 4.2  Undesignated Parked Truck-Involved Crashes by Severity, 2017-2021...............................17
+Figure 4.3  Undesignated Parked Truck-Involved Crashes by Lighting Conditions, 2017-2021 .............18
+Figure 4.4  Undesignated Parked Truck-Involved Crashes by Manner of Collision, 2017-2021.............18
+Figure 4.5  Undesignated Parked Truck-Involved Crashes by Roadway Surface Conditions,
+            2017-2021 ..............................................................................................................................19
+Figure 4.6  Undesignated Parked Truck-Involved Crashes by Time of Day, 2017-2021 ........................19
+
+                 West Virginia Department of Transportation
+                                            iii
+                                                                                                                                      Truck Parking Profile
+
+1.0 OVERVIEW
+
+Truck freight movement is an essential element of West Virginia economic vitality completing millions of daily
+deliveries shipped by a network of highways, railways, waterways, ports, airports, and pipelines. The State's
+economy also relies on truck drivers and their ability to safely and efficiently complete deliveries. The West
+Virginia Department of Transportation (WVDOT) is working towards a more efficient and higher-capacity
+freight system. An adequate supply of truck parking is critical to achieving that goal. To that end, the WVDOT
+decided to undertake a statewide assessment of truck parking needs.
+
+1.1 Why Truck Drivers Need to Park
+
+Truck drivers need to park for different reasons and there are unique challenges for various types of parking
+needs (see Figure 1.1). Drivers must adhere to Federal and State hours of service (HOS) regulations that
+place specific time limits on driving and rest intervals. Drivers almost always need to park and wait for
+delivery windows at shippers and receivers, and sometimes are impacted by unexpected road closures or
+congestion. Finally, truck drivers are essential workers, who need to take personal breaks for rest and
+safety.
+Figure 1.1 Reasons Truck Drivers Park
+
+Commercial Motor Vehicle (CMV) labor regulations are under the purview of the U.S. Federal Motor Carrier
+Safety Administration (FMCSA). FMCSA propagates rules to increase safety on the road. For CMVs, the
+mandatory HOS regulations have the greatest impact on truck parking. The most recent HOS regulations,
+updated in September 2020, are outlined below in Table 1.1.
+
+                                                              West Virginia Department of Transportation
+                                                                                          1
+                                                                           Truck Parking Profile
+
+Table 1.1 Summary of Hours-of-Service Rules for Property-Carrying Drivers
+
+Regulation                                                                Description
+11-Hour Driving Limit
+14-Hour Limit          May drive a maximum of 11hours after 10consecutive hours off duty.
+
+30-Minute Driving      May not drive beyond the 14th consecutive hour after coming on duty, following
+Break                  10consecutive hours off duty. Off-duty time does not extend the 14-hour period.
+
+60/70-Hour Limit       Drivers must take a 30-minute break when they have driven for a period of 8cumulative
+                       hours without at least a 30-minute interruption. The break may be satisfied by any
+Sleeper Berth          nondriving period of 30consecutive minutes (i.e., on-duty not driving, off duty, sleeper
+Provision              berth, or any combination of these taken consecutively).
+
+Adverse Driving        May not drive after 60/70hours on duty in 7/8consecutive days. A driver may restart a
+Conditions             7/8-consecutive-day period after taking 34 or more consecutive hours off duty.
+Short-Haul Exception
+                       Drivers may split their required 10-hour off-duty period, as long as one off-duty period
+                       (whether in or out of the sleeper berth) is at least 2hours long and the other involves at
+                       least 7consecutive hours spent in the sleeper berth. All sleeper berth pairings must add
+                       up to at least 10hours. When used together, neither period counts against the maximum
+                       14-hour driving window.
+
+                       Drivers are allowed to extend the 11-hour maximum driving limit and 14-hour driving
+                       window by up to 2hours when adverse driving conditions are encountered.
+
+                       A driver is exempt from the requirements of �395.8 and �395.11 if: the driver operates
+                       within a 150air-mile radius of the normal work reporting location, and the driver does not
+                       exceed a maximum duty period of 14hours. Drivers using the short-haul exception in
+                       �395.1(e)(1) must report and return to the normal work reporting location within
+                       14consecutive hours and stay within a 150air-mile radius of the work reporting location.
+
+Source:  https://www.fmcsa.dot.gov/regulations/hours-service/summary-hours-service-regulations, September29,
+         2020.
+
+HOS regulations are strongly enforced by State agencies, and penalties can be high. To avoid these steep
+fines, drivers are under pressure to find parking as quickly and efficiently as possible to avoid violating HOS
+regulations while trying to make pick-ups/deliveries as efficiently as possible.
+
+To increase compliance with HOS regulations, most CMV drivers are required to track their HOS with an
+electronic logging device (ELD). An ELD monitors a vehicle's engine to capture data on whether the engine
+is running, whether the vehicle is moving, miles driven, and duration of engine operation (engine hours). This
+approach to HOS monitoring replaced a paper version, which provided drivers with some leeway in finding
+parking within the HOS limits. With the full implementation of the ELD mandate in December 2019, time and
+location are now tracked much more precisely. This allows for closer enforcement of existing HOS
+regulations, which makes finding parking within allowable time limits even more critical.
+
+                       West Virginia Department of Transportation
+                                                   2
+                                                                                                                                      Truck Parking Profile
+
+2.0 TRUCK PARKING INVENTORY
+
+Truck parking facilities are essential for truck movements across West Virginia's highways. Truck drivers
+require places to take mandatory breaks during the day and overnight, refuel their vehicles, and coordinate
+delivery windows with their destination. Inadequate truck parking supplies forces these drivers to make
+difficult choices that compromise their and other roadway users' safety--such as driving outside of their
+scheduled hours, possibly in an overtired state, or parking in undesignated areas that could be unsafe for the
+driver or create roadway hazards.
+
+2.1 Methodology
+
+Data on the location and capacity of truck parking facilities was gathered from previous WVDOT inventory
+initiatives, the Jason Law surveys of the State, third-party websites (e.g., TruckStopGuide.com, Trucker
+Path), company websites (e.g., Pilot, Flying J, etc.), and from examining current aerial maps. The inventory
+of truck parking facilities covers both public and commercial facilities. Public facilities include travel plazas,
+rest areas, and welcome centers which are owned by WVDOT and located adjacent to State highways and
+Federal Interstates. These public facilities offer different levels of amenities for drivers. Travel Plazas are
+located on the West Virginia Turnpike portion of I-77 and offer the highest level of service, including Wi-Fi,
+restaurants, gift shops, and fueling stations. Welcome Centers are located on major roads at State border
+crossings and have large buildings staffed by the West Virginia tourism department with Wi-Fi and
+comfortable restrooms but few other amenities of interest to truckers. Rest areas have the lowest level of
+amenities, usually only restrooms, but are located along major roads often in rural areas.
+
+Most commercial vehicle weigh stations in West Virginia have parking spaces for trucks, although they are
+dedicated for conducting inspections and other weigh station business, and not intended for general truck
+parking needs. Importantly, in cases where public facilities were collocated, but separated by a median
+barrier (e.g., an eastbound facility and a separate westbound facility directly across the highway), each
+facility was counted separately as part of the analysis. Commercial truck parking facilities are private
+businesses that typically provide fuel, and often offer food, showers, and other services for truck drivers.
+
+Information on the capacity (i.e., number of spaces) of truck parking facilities reported from the various data
+sources was not always consistent. Sources from official reporting such as company websites or public data
+were used when available. In cases where firsthand data was unavailable, information on capacity from third-
+party sources such as mobile applications were collected and compared to aerial imagery to estimate the
+number of spaces available. Using this methodology, every public facility--regardless of capacity--and any
+private facility with at least 10 parking spaces were included as part of the State's truck parking inventory.
+
+2.2 Inventory
+
+In total, there are 60 truck parking facilities--public and commercial--included in the inventory analysis.
+These facilities provide approximately 1,860 truck parking spaces in West Virginia. Figure 2.1 displays truck
+parking locations across the State.
+
+                                                              West Virginia Department of Transportation
+                                                                                          3
+                                                     Truck Parking Profile
+
+Figure 2.1 Truck Parking Inventory in West Virginia
+
+Source: West Virginia Department of Transportation, 2022.
+
+Table 2.1 groups truck parking facilities by six typologies which describe the level of amenities usually
+present at the facility for truck drivers. Public facilities are based on WWVDOT's naming conventions. Rest
+areas and welcome centers both provide parking, restrooms, and potentially vending machines. Travel
+plazas provide amenities typical of a gas station by partnering with commercial entities who provide food and
+fuel for drivers.
+
+Commercial facilities include truck stops which provide full-service amenities such as specialized fueling
+stations, maintenance facilities, showers, food, etc. Gas stations typically provide fuel, food, and restrooms,
+but not the other amenities offered at full-service truck stops. Other commercial facilities are any facility that
+does not provide fuel but allow drivers to park overnight. These include restaurants, retail establishments,
+and commercial parking lots.
+
+Commercial facilities make up 66 percent of the total truck parking capacity in West Virginia. As shown in
+Table 2.1, the nine full-amenity truck stops in the State account for 755 spots or 41 percent of the State's
+capacity. However, the typical truck parking facility in West Virginia provides 10-20 spots. As shown in
+Figure 2.2, 40 facilities (or 67 percent of all facilities in the State) have 20 or less spots.
+
+                                                              West Virginia Department of Transportation
+                                                                                          4
+Table 2.1 Truck Parking Typologies                                                      Truck Parking Profile
+
+Commercial Public    Type of Facilities         Number of Facilities            Parking Capacity
+                   Travel Plaza                          2 (3%)                    137 (7%)
+                   Welcome Center                        9 (15%)                   283 (15%)
+                   Rest Area                                                       216 (12%)
+                   Truck Stop                          13 (22%)                    755 (41%)
+                                                         9 (15%)                   414 (22%)
+                                                                                     55 (3%)
+                   Gas Station                                        22 (37%)
+                                                                                 1,860
+                   Other Commercial Facilities                         5 (8%)
+                                                                      60
+ Total
+Source:            West Virginia Department of Transportation, 2022.
+
+Figure 2.2 Distribution of Truck Parking Capacity
+
+ Number of Facilities
+
+Source: West Virginia Department of Transportation, 2022.
+
+Table 2.2 shows the total number of private and commercial parking spaces by type of roadway. When
+analyzing parking facilities at the intersection of two major roadways the higher classification roadway was
+given precedent (e.g., Interstates > U.S. Highways > State Routes). 16 facilities were located at intersections,
+accounting for 523 parking spots in West Virginia. 82 percent of West Virginia trucking capacity (or 1,524 spots)
+are along Interstate corridors or interchanges of Interstates and other major facilities. About 35 percent of the
+State's truck parking capacity is publicly provided via travel plazas, rest areas, and welcome centers. All the
+State's public facilities are located adjacent to Interstates or interchanges between Interstates and other major
+facilities. The majority of commercially provided truck parking capacity also is proximate to Interstates. About
+72 percent (873 spaces in total) of commercial truck parking spaces are along Interstates.
+
+                                                              West Virginia Department of Transportation
+                                                                                          5
+                                                                             Truck Parking Profile
+
+Table 2.2 Truck Parking Capacity by Roadway Type
+
+Roadway Type                     Public                     Commercial         Total
+Interstate                       651                            873          1,524
+U.S. Highway                                                    303
+State Route                         0                             33           303
+Total                               0                                            33
+                                 651                          1,209
+                                                                             1,860
+
+Source: West Virginia Department of Transportation, 2022.
+
+Table 2.3 provides details on truck parking capacity at the corridor level. For example, the I-77 corridor
+contains the largest share of both public and commercial truck parking capacity. Nearly 56 percent of public
+spaces and nearly 21 percent of commercial spaces are located along I-77. It is followed by I-79 and I-64 in
+terms of total capacity. These three corridors alone account for 64 percent of the State's total truck parking
+capacity.
+
+Table 2.3 Total Truck Parking Facilities by Corridor
+
+Corridor         Number of       Number of     Number of       Number of     Total Parking Spaces
+I-77          Public Facilities     Public    Commercial      Commercial            620 (33%)
+I-79                               Parking                  Parking Spaces          378 (20%)
+I-64                  8 (24%)      Spaces       Facilities                          210 (11%)
+US-19                10 (30%)                     7 (20%)       253 (21%)           195 (10%)
+I-70                              367 (56%)       6 (17%)       252 (21%)           170 (9%)
+I-81                  6 (18%)                     4 (11%)       150 (12%)            82 (4%)
+US-50                 2 (6%)      126 (19%)       5 (14%)       195 (16%)            76 (4%)
+I-68                  1 (3%)                      1 (3%)        170 (14%)            64 (3%)
+Rt-817                1 (3%)       60 (9%)        1 (3%)                             33 (2%)
+US-220                1 (3%)                      4 (11%)         28 (2%)            22 (1%)
+US-340                1 (3%)         0            1 (3%)          76 (6%)            10 (1%)
+Total                 0                           2 (6%)          20 (2%)
+                      2 (6%)         0            2 (6%)          33 (3%)         1860 (100%)
+                      0                           1 (3%)          22 (2%)
+                     33 (100%)     54 (8%)                        10 (1%)
+                                                 35 (100%)    1209 (100%)
+                                     0
+
+                                   44 (7%)
+
+                                     0
+
+                                     0
+
+                                     0
+
+                                  651 (100%)
+
+Source: West Virginia Department of Transportation, 2022.
+
+Table 2.4 shows the number of parking facilities and truck parking spaces by WVDOT district. The State is
+divided into 10 transportation districts, which are each comprised of multiple counties. The results in
+Table 2.4 indicate that districts generally have a comparable number of public facilities--between 10 to
+20 percent--but with a few outliers. Districts 1 and 10 have the largest truck parking supply. Together, they
+account for about 36 percent of all truck parking spaces. Four of the State's six Interstates traverse District 1,
+which likely contributes to the prevalence of commercial facilities. District 10 is traversed by two Interstates--
+I-77 and I-64. Notably, I-77 provides access to the Charlotte, NC metropolitan area which likely contributes to
+the prevalence of truck parking capacity along this corridor. Districts 2 and 8 have notably small shares of the
+State's overall truck parking capacity. District 8 has no capacity, while District 2 has only 57 spaces which is
+
+                                 West Virginia Department of Transportation
+                                                             6
+                                                                                        Truck Parking Profile
+
+3 percent of the State's overall truck parking capacity. Both Districts 2 and 8 are heavily forested and
+mountainous and also contain multiple wildlife management areas, State parks, national forests, and other
+environmentally sensitive areas. This limits the suitability of much of these districts for truck parking facilities.
+
+Table 2.4 Total Number of Truck Parking Facilities and Spaces
+
+Corridor  Number of Public  Number of Public   Number of                   Number of    Total Parking
+1               Facilities   Parking Spaces   Commercial                  Commercial        Spaces
+2                  6 (18%)                                              Parking Spaces      348 (19%)
+3                  1 (3%)          80 (12%)     Facilities                 268 (22%)          57 (3%)
+4                  5 (15%)         20 (3%)         8 (23%)                                  179 (10%)
+5                  7 (21%)         43 (7%)         1 (3%)                    37 (3%)        242 (13%)
+6                  3 (9%)         107 (16%)        6 (17%)                 136 (11%)        132 (7%)
+7                  1 (3%)          54 (8%)         5 (14%)                 135 (11%)        170 (9%)
+8                  4 (12%)                         5 (14%)                                  218 (12%)
+9                  0 (0%)            0 (0%)        1 (3%)                    78 (6%)           0 (0%)
+10                 2 (6%)          72 (11%)        3 (9%)                  170 (14%)        205 (11%)
+Total              4 (12%)                         0 (0%)                  146 (12%)        318 (17%)
+                 33 (100%)           0 (0%)        4 (11%)
+                                     8 (1%)        2 (6%)                      0 (0%)     1869 (100%)
+                                  276 (42%)                                197 (16%)
+                                  660 (100%)      35 (100%)
+                                                                             42 (3%)
+                                                                          1209 (100%)
+
+Source: West Virginia Department of Transportation, 2022.
+
+                            West Virginia Department of Transportation
+                                                        7
+                                                                                                                                      Truck Parking Profile
+
+3.0 STAKEHOLDER ENGAGEMENT
+
+The project team engaged in a series of interviews, workshops, and digital surveys with local officials from
+WVDOT and regional Government officials from metropolitan planning organizations (MPO) and
+intergovernmental councils to gain a better understanding of truck parking needs and issues across the
+State. The goal of these strategies is to leverage local expertise and context to better understand this
+analysis.
+
+3.1 Stakeholder Survey
+
+In April of 2023, an online survey was distributed to stakeholders in West Virginia that included a few
+questions regarding truck parking. The survey response pool was not large enough to make definite
+conclusions about parking issues in the State, but increasing truck traffic, truck mobility, truck parking, and
+maintenance of highway infrastructure were all mentioned by stakeholders as major issues facing the State.
+When asked where truck parking was a major issue survey respondents said both major roads--Interstates
+and highways--as well as minor back roads had deficient truck parking capacity.
+
+3.2 Regional Government Interviews
+
+Officials from all eight regional governments in West Virginia were interviewed to understand the particular
+truck parking needs in their area. Figure 3.1 shows a map of the location of these MPOs. Six of these
+regional entities noted truck parking issues, which are discussed in detail below. In general, stakeholders
+noted specific locations where truck parking capacity was not able to handle the demand causing congestion
+and undesignated parking issues. Locations tended to be near the larger urbanized areas in the State.
+
+                                                              West Virginia Department of Transportation
+                                                                                          8
+                                             Truck Parking Profile
+
+Figure 3.1 Regional Government Stakeholders
+
+Source: West Virginia Department of Transportation, 2022.
+
+BCKP Regional Intergovernmental Council
+
+The interview noted that major commercial facilities outside of Charleston were full and causing congestion
+and undesignated parking issues.
+� The Travel Centers of America facility in Teays Valley and the Pilot Travel Center facility in Nitro
+
+     are typically very congested. These facilities are along I-64 northwest of Charleston.
+� Undesignated parking often occurs along I-79 near the town of Mink Shoals (northeast of Charleston).
+
+Morgantown-Monongalia County
+
+The regional Government noted issues with undesignated parking, with truckers ignoring and removing
+signage that prohibited parking in certain areas.
+
+                                                              West Virginia Department of Transportation
+                                                                                          9
+                                                                                                                                      Truck Parking Profile
+
+� The interviewer noted interchange 152 of I-79 where trucks can be found within 1/2 mile of the
+     interchange utilizing wide shoulders available; Goshen Road near I-79 and the Pilot Travel Center which
+     is always full; 4H Camp Road near Walmart; and US-119 at the interchange with I-68.
+
+� The State has placed a 'No Overnight Parking' sign on the road in several of these areas. Some signs
+     put in place to indicate that truck parking was illegal were removed by truckers.
+
+KYOVA Interstate Planning Commission
+
+The interviewees noted that truck parking was an issue across the region. The commission borders Kentucky
+to west I-64 traverses the MPO connecting Kentucky, both within the MPO, and Charleston which is just east
+of the commission's jurisdiction.
+
+� I-64 and US-52 do not have enough truck parking capacity. Trucks park along the shoulder across these
+     major roadways.
+
+� Exit 1 of I-64 was noted as a particularly problematic area near the Kentucky border.
+
+Washington County - Planning and Community Development Department
+
+The Department oversees the portion of West Virginia between Pennsylvania and Maryland, traversed by
+I-81. The largest urban development in the area is Hagerstown. The interviewee noted several areas along
+I-81 where truck parking is inadequate leading to overflowing onto entrance and exit ramps.
+
+� Public parking locations: West Virginia Welcome Center near the border to Pennsylvania, an old weigh
+     station no longer in service, and the Inwood Welcome Center bordering Maryland.
+
+� Smaller commercial facilities near Exits 16 and 8 along I-81. Walmart stores near these two exits fill up
+     with spillover trucks as well.
+
+Brook-Hancock Jefferson Metropolitan Planning Commission
+
+The jurisdiction of the commission does not include as many major roadways as other regional stakeholders.
+However, the interviewee noted locations where undesignated parking tends to occur. Weirton is the major
+urban area between Ohio and Pennsylvania along the Ohio River and traversed by US-22. Industrial
+businesses in the area are prominent which creates truck parking demand and is inhibited by overspill trucks
+in certain undesignated areas.
+
+� Main Street (a primarily industrial and somewhat isolated street) in Weirton was cited as a location where
+     between 30 and 50 trucks park at night.
+
+� Truck traffic stems from Cleveland Cliffs (a steel manufacturer) and oil and gas industry businesses in
+     the area. Trucks congregate on Main Street in Weirton an isolated roadway. Nearly 30-50 trucks park
+     here nightly, with no major facilities to park on US-22 or Route 2. Forum Energy and Bidell Compression
+     (other industrial businesses) want these trucks removed as the area becomes active again with
+     increasing industrial activity.
+
+                                                              West Virginia Department of Transportation
+                                                                                         10
+                                                                                                                                      Truck Parking Profile
+
+Bel-O-Mar Regional Council
+
+The council is just south of Brook-Hancock Jefferson MPC, also sitting between Ohio and Pennsylvania with
+I-70/I-470 crossing the jurisdiction. The major urban area is Wheeling and Bethlehem along the Ohio river.
+The MPO conducted an internal survey by advertising at trucks stops in the area and found that there was
+insufficient truck parking in the region with trucks overflowing onto entry and exit ramps along major
+roadways.
+
+3.3 Truck Parking Workshops
+
+Three truck parking workshops were held in April and May of 2023 with an average of 33 attendants per
+session and a total of 52 unique participants. Participants included representatives from the federal
+government--FHWA and Federal Motor Carrier Safety Administration (FMSCA), WVDOT, MPO and local
+government, peer agencies, and private organizations involved in the transportation industry. The workshops
+consisted of presentations of information in this analysis as well as presentations from peer agencies, trucker
+advocacy organizations, and local experts. Facilitated conversations and live polling were conducted to
+identify truck parking needs and solutions.
+
+While discussion during the workshop was broad, the simplest and most overwhelming comment from
+participants was the lack of truck parking spaces in the State. Safety and funding issues also were discussed
+as well as information and education issues. When discussing solutions, participants seemed most
+interested in seeing added capacity by public entities above other options. For instance, when asked to rank
+potential interventions to truck parking issues, participants answered:
+
+1. Increase spaces at existing facilities.
+2. Develop new public rest areas.
+3. Use nontraditional facilities and locations.
+4. More education
+5. Develop new private facilities.
+6. Enhance design or amenities at existing facilities.
+
+DOT and MPO representatives both noted that a lack of funding were the main challenges for their agency.
+Funding for truck parking issues is often provided through Federal Formula Funding (HSIP, NHPP, STBG,
+etc.) Stakeholders noted that a variety of policy (zoning and design standards) and planning efforts have
+been used to tackle truck parking issues with many MPOs noting they had done internal truck parking
+investigations. Safety for drivers at truck parking locations and information/education issues also were
+discussed. There is an industry-wide issue with newer drivers causing issues, especially drivers from other
+States who are not as familiar with certain local conditions. This highlights the importance of efforts like these
+workshops that bring together peer agencies from different States to discuss problems and strategies.
+
+At the end of the sessions, respondents were asked if the workshop was effective and helpful for their jobs
+and all respondents answered yes. These results are promising and point towards a larger statewide cross-
+jurisdictional effort to improve truck parking conditions.
+
+                                                              West Virginia Department of Transportation
+                                                                                         11
+                                                                                                                                      Truck Parking Profile
+
+4.0 TRUCK PARKING DEMAND AND SAFETY
+
+This section assesses the current supply and demand for truck parking in West Virginia and identify truck
+parking needs. It estimates the demand for parking across the State at designated locations identified in the
+inventory analysis above. To understand the need for truck parking, this section also estimates the gap
+between available capacity and unmet demand. Using truck global positioning system (GPS) data, the
+American Transportation Research Institute (ATRI) estimated the demand for truck parking at 47 of the
+60 sites identified in the inventory section above. Demand for truck parking was estimated at all public sites
+as well as major private sites, but smaller and more isolated private sites that were not frequented by drivers
+based on evidence from Trucker Path were not included in the demand estimates.
+
+4.1 Data Collection and Processing
+
+The ATRI dataset captures GPS coordinates of trucks, generally Federal Highway Administration (FHWA)
+Class8 and higher, across the country. This source provides a highly detailed picture of where trucks are
+stopping within West Virginia and can be manipulated to provide information about stop length, location,
+travel time, and travel direction before and after a stop. While ATRI provides an accurate and rich dataset, it
+is important to note that it is a sample of trucks and does not represent all trucks traveling through West
+Virginia. For that reason, it is necessary to develop an estimate of the percentage of trucks captured by the
+ATRI GPS data for West Virginia.
+
+The percentage of trucks captured is important because it was used to develop an expansion factor for the
+GPS data. Expansion factors are used to scale a sample of observations up to an estimate for the entire
+population. In this case, an expansion factor would be applied to the sample of observations of parked trucks
+so that it is representative of the total population of trucks. For example, if the average percent capture is
+25percent, it indicates an expansion factor of 4 should be applied to the data. In this scenario, if ATRI data
+indicates 20trucks in their database parked at a particular location, it is estimated that approximately
+80trucks, or four times the number of trucks in ATRI's database, likely parked there.
+
+To develop an expansion factor for the ATRI GPS data in West Virginia, classification counts collected by
+WVDOT at 10 permanent classification count stations throughout the State were compared to ATRI GPS
+truck counts at those same locations and during the same time periods. As shown in Table 4.1, in total 16
+candidate expansion factors were developed by varying the subset of selected permanent count stations
+included in the analysis (i.e., all stations, Interstate stations, stations with 1,000 or more daily trucks, or
+outlier stations with very few ATRI observations), the FHWA vehicle classification (i.e., FHWA Class 8+ or
+FHWA Class 9+, and the statistic on which the expansion factor was based (i.e., average or median). The
+final selected expansion factor was the one calculated using the median value for FHWA Class 9+ vehicles
+at selected permanent count stations with 1,000 or more daily trucks.
+
+                                                              West Virginia Department of Transportation
+                                                                                         12
+                                                                                    Truck Parking Profile
+
+Table 4.1 Candidate ATRI Truck GPS Expansion Factor
+
+ Expansion Factor                           FHWA Class 8 or Higher                     FHWA Class 9 or Higher
+
+ All Selected Permanent Count       Expansion Factor from Average Value         Expansion Factor from Average
+ Stations                           versus Expansion Factor from Median         Value versus Expansion Factor from
+                                    Value                                       Median Value
+ Selected Interstate Permanent
+ Count Stations                     Expansion Factor from Average Value         Expansion Factor from Average
+                                    versus Expansion Factor from Median         Value versus Expansion Factor from
+ Selected Permanent Count Stations  Value                                       Median Value
+ with 1,000 or More Daily Trucks
+                                    Expansion Factor from Average Value         Expansion Factor from Average
+ Selected Permanent Count Stations  versus Expansion Factor from Median         Value versus Expansion Factor from
+ with Sparse GPS Observations       Value                                       Median Value
+ Omitted
+                                    Expansion Factor from Average Value         Expansion Factor from Average
+Source: Cambridge Systematics.      versus Expansion Factor from Median         Value versus Expansion Factor from
+                                    Value                                       Median Value
+
+4.2 Truck Parking Demand at Designated Facilities
+
+Parking demand at designated locations estimated for typical peak-hour truck parking (1 a.m.-2 a.m.) is
+shown in Figure 4.1 and Table 4.2 and provides details on parking demand by type of facility (public or
+commercial). The Federal Motor Carrier Safety Administration HOS Regulations require truck drivers to take
+a 10-hour break after 11 hours of driving. This break usually occurs overnight. Drivers fill up commercial
+facilities which are preferred for their amenities starting in the evening and then public facilities when no
+more spots are available. By 1 a.m. most trucks stopping overnight are parked and a reasonable estimate of
+the peak demand can be made. Of the 47 sites with demand data, 34 percent of the locations have
+availability during peak hours, 15 percent are near capacity, and 51 percent are at or over capacity (see
+Table 4.2). Note that "Has Availability" is defined as anything under 70 percent utilization. Over 65 percent of
+the State's public sites are near, at, or over capacity. These results indicate that, in general, demand
+exceeds capacity at the statewide level. This is discussed in greater detail in the following paragraphs.
+
+Table 4.2 Truck Parking Demand by Facility Type
+
+Ownership    Has Availability                  Near Capacity   At or Over Capacity   Total
+Public      (<70% Utilization)                   (70% -89%      (>90% Utilization)  23 (49%)
+Commercial                                       Utilization)           14 (30%)    24 (51%)
+Total                4 (9%)                          5 (11%)                        47 (100%)
+                                                                        10 (21%)
+                   12 (26%)                          2 (4%)
+                                                                        24 (51%)
+                   16 (34%)                          7 (15%)
+
+Source: ATRI; Cambridge Systematics analysis.
+
+                                    West Virginia Department of Transportation
+                                                               13
+                                                                                                                                      Truck Parking Profile
+
+Figure 4.1 Peak-Hour Utilization of Designated Truck Parking Facilities in West Virginia
+
+Source: Truck GPS data from ATRI. Mapping by Cambridge Systematics.
+
+Note:  Facilities built near or after the initial analysis of available parking inventory may not be displayed here. At
+       least one location along I-81 has been noted a Rutter's facility with 18 truck parking stalls.
+
+Statewide, West Virginia seems to have a nearly perfectly balanced truck parking supply and demand with a
+statewide peak utilization of approximately 99 percent, but the distribution is unfortunately uneven. Table 4.3
+shows the truck parking demand by WVDOT district and the characteristics of the truck parking inventory in
+each district was discussed in Section 2.2. Districts 1 and 10, the two districts with the largest truck parking
+supply, are both significantly over capacity. These districts are traversed by many of WV's Interstates and
+provide access to major metropolitan areas. Several other districts are over capacity, including Districts 3, 5,
+and 6 (which has only a single parking facility), with District 5 having the highest peak utilization rate.
+District 5 is traversed by I-81 with most facilities being at or near capacity. Stakeholder interviews revealed
+that undesignated truck parking is a major issue along the I-81 corridor with truckers using Walmart parking
+lots frequently. Districts 2, 4, and 9 have an overabundance of truck parking supply. District 9 is rural to some
+degree, but Districts 2 and 4 have urban areas and major corridors. Possibly, these districts are located
+along the borders of West Virginia so drivers move though the district before needing to stop, but if drivers
+could be encouraged to stop in underutilized regions the overall truck parking supply could become more
+efficient.
+
+       West Virginia Department of Transportation
+                                  14
+                                                                           Truck Parking Profile
+
+Table 4.3 Demand at Designated Locations by WVDOT District
+
+District  Number of Locations  Number of Spaces   Peak-Hour Demand             Peak Utilization
+    1                10                  323                 408           (Peak Demand/Supply)
+    2                  2                   57                 31
+    3                  6                 164                 168                        126%
+    4                  8                 233                 148                          54%
+    5                  5                 100                 147
+    6                  1                 170                 180                        102%
+    7                  7                 218                 197                          64%
+    8                  0                    -                  -
+    9                  4                 195                  95                        147%
+    10                 4                 301                 375                        106%
+                     47
+Total                                  1,761              1,749                           90%
+                                                                                           -
+                                                                                          49%
+                                                                                        125%
+                                                                                          99%
+
+Source: ATRI; Cambridge Systematics analysis.
+
+Table 4.4 shows that demand at designated locations differ only slightly between urban and rural areas.
+Rural areas are overutilized compared to urban ones at the peak hour. Rural private facilities are much
+harder to operate and staff meaning there is simply less spaces available in a largely rural State.
+
+Table 4.4 Demand at Designated Locations by Area
+
+ Area     Number of Locations  Number of Spaces   Peak-Hour Demand          Peak Utilization
+ Rural                   14               562                 613          (Demand/Supply)
+ Urban                   33
+ Total                   47             1,199              1,136                   109%
+                                        1,761              1,749
+Source:                                                                             95%
+
+                                                                                    99%
+
+          ATRI; Cambridge Systematics analysis.
+
+Table 4.5 summarizes the parking information for roadways in West Virginia. Most truck parking is along
+federal Interstates, nearly 86 percent of all supply and 95 percent of peak-hour demand. Of the interstates,
+I-77 (by far the corridor with the highest capacity and demand), I-70, and I-81 are all over utilized, and I-64
+and I-79 are near full utilization at peak hours. I-68 is the only interstate with more capacity than is needed,
+with a 55 percent peak utilization. The non-interstate routes listed (US-19, US-50, and Rt-817) are less than
+half-filled at peak utilization. In general, length is not the distinguishing characteristics for which routes are
+the most utilized. West Virginia has two extremely short segments of I-70 and I-81 that are nonetheless
+important corridors for travel especially I-81. The other intestates within West Virginia intersect at near
+Charleston or Beckley. In general, east-west corridors are less critical in terms of overall supply and
+utilization than north-south routes.
+
+                               West Virginia Department of Transportation
+                                                          15
+                                                                          Truck Parking Profile
+
+Table 4.5 Demand along Major Roadways
+
+ Area    Number of Locations  Number of Spaces  Peak-Hour Demand           Peak Utilization
+ I-64                  8                 210               193            (Demand/Supply)
+ I-77                                    613               796
+ I-79                14                  368               307                     92%
+ I-68                12                    64                35                  130%
+ I-70                                    170               180
+ I-81                  2                   82              146                     83%
+ US-19                 1                 175                 76                    55%
+ US-50                 4                   61                12                  106%
+ Rt-817                2                   18                 4                  178%
+ Total                 3                                                           43%
+                       1              1,761              1,749                     20%
+Source:              47                                                            22%
+                                                                                   99%
+
+         ATRI; Cambridge Systematics analysis.
+
+4.3 Undesignated Truck Parking
+
+Undesignated parking is truck parking outside of a dedicated truck parking facilities often occurring on the
+shoulders of local roads and highways, entrance/exit ramps, vacant and large commercial parking lots at big
+box stores, or on the margins of designated truck parking areas. Undesignated parking introduces safety and
+security risks for drivers and the traveling public. Trucks parked on shoulders and ramps can reduce visibility,
+damage pavement, and result in crashes. Crashes involving a parked truck will be discussed in Section 4.4.
+
+The requirement for drivers to use ELDs, instead of paper logs, also has led to stricter adherence to HOS
+regulations. Drivers previously had a small margin of error in trip planning while reporting drive time in
+15-minute intervals on paper logs. Today, ELDs log the driver's activity continuously. There are exceptions
+for adverse driving conditions or certain personal travel, but generally drivers are now held to a higher
+standard in time management. Drivers must weigh the risks and benefits of stopping before their hours are
+used when seeing an available space, continuing to the next rest area in hopes of reaching an available
+space, or stopping along the roadway on a shoulder or ramp in the event no parking is found in time.
+
+4.4 Safety and Other Truck Parking Challenges
+
+This section presents the results of an analysis of historical crash data involving trucks. The purpose of the
+analysis was to look for possible safety implications related to truck parking. Using data on crashes involving
+parked trucks, the analysis results provide insight into the consequences of undesignated parking and
+indicate areas where it is least safe for undesignated parking.
+
+A FMCSA study found driver fatigue to be an associated risk factor in 13 percent of large truck involved
+crashes between April 2001 and December 2003.1 Subsequent studies determined the risk for crashes or
+safety critical events (i.e., hard stops, evasive maneuvers, etc.) increases with driving time and/or a
+
+1 Federal Motor Carrier Safety Administration. Large Truck Crash Causation Study - Analysis Brief. July 2007. Online at:
+  https://www.fmcsa.dot.gov/safety/research-and-analysis/large-truck-crash-causation-study-analysis-brief.
+
+                              West Virginia Department of Transportation
+                                                         16
+                                                                                                                                      Truck Parking Profile
+
+combination of driving time and work hours, suggesting that fatigue is a factor.2,3 A 2009 study found that
+rest areas are a countermeasure to crashes (both fatigue- and non-fatigue-related) as crash rates were
+observed to decrease immediately downstream of a rest area while increasing further downstream with
+greater distance from the rest area.4 With the increase in truck traffic nationwide and the continued lack of
+truck parking capacity, this issue is still likely a serious concern.
+
+The remainder of this section of the report investigates crashes involving undesignated parked trucks on
+West Virginia roadways. The analysis was conducted using data from WVDOT's crash database for the 2017
+to 2021 period. In the State there were 518 fatal and serious injury crashes involving trucks in the State. For
+this analysis, only those crashes involving undesignated parked trucks are being considered. Trucks are
+considered as parked in an undesignated location if they are on the roadway shoulder, entrance/exit ramp,
+median, or other roadside location. In total, there were 78 crashes involving parked trucks between 2017-
+2021. The results in Figure 4.2 show about 4 percent of these crashes resulted in a fatality, and about half
+resulted in some type of injury.
+
+Figure 4.2 Undesignated Parked Truck-Involved Crashes by Severity, 2017-2021
+
+Property Damage  Injury Crash
+    Only Crash        45%
+         51%
+                               Injury Crash
+                               Fatal Crash
+                               Property Damage Only Crash
+
+                                                             Fatal Crash
+                                                                   4%
+
+Source: WVDOT; Cambridge Systematics analysis.
+
+As shown in Figure 4.3, over half of undesignated parked truck-involved crashes occurred during daylight
+hours. This would imply that dark lighting is not a contributing factor to these crashes. Figure 4.4 summarizes
+the manner of collision for undesignated parked truck-involved crashes. About one-third of crashes were
+reported as single-vehicle crashes. Rear end and sideswipe same direction were the next most prevalent
+collision types accounting for 20 and 16 total crashes, respectively.
+
+2 Jovanis, P. et al. "Hours of Service and Driver Fatigue: Driver Characteristics Research." (2011)
+  https://rosap.ntl.bts.gov/view/dot/70.
+
+3 Blanco, M. et al. "The Impact of Driving, Non-driving Work, and Rest Breaks on Driving Performance in Commercial
+  Vehicle Operations" (2011), https://vtechworks.lib.vt.edu/handle/10919/55114.
+
+4 Banerjee, I., et al. "Rest Areas - Reducing Accidents Involving Driver Fatigue" University of California Berkeley Traffic
+  Safety Center and California Department of Transportation, May 2009. https://dot.ca.gov/-/media/dot-
+  media/programs/research-innovation-system-information/documents/final-reports/ca09-1092-finalreport-a11y.pdf.
+
+                                                              West Virginia Department of Transportation
+                                                                                         17
+                                                                                                  Truck Parking Profile
+
+Figure 4.3 Undesignated Parked Truck-Involved Crashes by Lighting Conditions, 2017-2021
+
+                                                         Dawn
+                                                           3%
+
+Dark - Not Lighted
+          31%
+
+                                                                Daylight                          Daylight
+                                                                  55%                             Dark - Lighted
+                                                                                                  Dark - Not Lighted
+                                                                                                  Dawn
+
+Dark - Lighted
+       11%
+
+Source: WVDOT; Cambridge Systematics analysis.
+
+Figure 4.4 Undesignated Parked Truck-Involved Crashes by Manner of Collision, 2017-2021
+
+                           Manner of Collision
+
+Single Vehicle Crash                                                                                  28
+                                                                                                         30
+                    Rear End                                                                  20
+
+Sideswipe Same Direction                                                              16
+
+                    Head On                              6
+
+                    Right Angle                    3
+
+                    Rear to Side                2
+
+Angle Direction Not Specified                1
+
+Angle (Front to Side) Opposite Direction     1
+
+Angle (Front to Side) Same Direction         1
+
+                                          0           5     10  15                        20      25
+
+                                                                No. of Crashes
+
+Source: WVDOT; Cambridge Systematics analysis.
+
+Figure 4.5 summarizes roadway surface conditions at the time of the crashes. It shows that 59 of the 78 total
+crashes (over 75 percent) occurred when roadway surface conditions were dry. This implies that roadway
+surface condition was generally not a contributing factor to undesignated parked truck-involved crashes.
+
+                                          West Virginia Department of Transportation
+                                                                     18
+                                                                        Truck Parking Profile
+
+Figure 4.5 Undesignated Parked Truck-Involved Crashes by Roadway Surface Conditions, 2017-
+                2021
+
+Roadway Surface Condition
+
+Dry                                                                     59
+
+Wet             14
+
+Snow     3
+
+Slush 1
+
+      0     10      20                          30  40              50  60                  70
+
+                                                No. of Crashes
+
+Source: WVDOT; Cambridge Systematics analysis.
+
+As shown in Figure 4.6, crashes involving undesignated parked trucks generally occurred during typical
+business hours when trucking activity would be highest, 6 a.m. to 7 p.m. About 68 percent of undesignated
+parked truck-involved crashes took place during this timeframe. Interestingly, there are spikes in crashes
+during the 5 a.m. and 10 p.m. hours. The sharp increase in undesignated parked truck-involved crashes
+during the 5 a.m. hour may be a result of commuters beginning to enter the roadway network. It is unclear
+why the spike in crashes during the 10 p.m. hour occurs. This may correspond to a time of day where drivers
+begin to settle for undesignated parking locations if authorized locations are unavailable.
+
+Figure 4.6 Undesignated Parked Truck-Involved Crashes by Time of Day, 2017-2021
+
+ Percent of Crashes
+12.0%
+
+10.0%
+
+  8.0%
+
+  6.0%
+
+  4.0%
+
+  2.0%
+
+  0.0%
+             0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+                                                                                   Hour
+
+Source: WVDOT; Cambridge Systematics analysis.
+
+                        West Virginia Department of Transportation
+                                                   19
+

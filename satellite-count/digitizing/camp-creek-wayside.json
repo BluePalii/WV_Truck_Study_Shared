@@ -1,0 +1,74 @@
+{
+ "site_id": "camp-creek-wayside",
+ "study_id": "A15",
+ "master_name": "Camp Creek Wayside (I-77 SB MM 18 parking area)",
+ "image": "satellite-count/images/camp-creek-wayside.png",
+ "blind_count": {
+  "occupied": 7,
+  "low": 6,
+  "high": 8,
+  "note": "6 tractor-trailers in echelon + 1 short vehicle (bobtail or box truck)"
+ },
+ "field_capacity": {
+  "value": 12,
+  "source": "Field-verified July 2026 (study team): SB only, 12 truck spots"
+ },
+ "lots": [
+  {
+   "lot_id": "all",
+   "note": "SE truck apron NE of the grass island (where trucks are observed parking)",
+   "polygon": [
+    [
+     505,
+     285
+    ],
+    [
+     555,
+     265
+    ],
+    [
+     650,
+     300
+    ],
+    [
+     790,
+     430
+    ],
+    [
+     790,
+     470
+    ],
+    [
+     715,
+     465
+    ],
+    [
+     600,
+     380
+    ],
+    [
+     520,
+     330
+    ]
+   ]
+  }
+ ],
+ "rows": [
+  {
+   "id": "R1",
+   "p0": [
+    735,
+    440
+   ],
+   "p1": [
+    583,
+    300
+   ],
+   "side": -1,
+   "angle_deg": 23,
+   "depth_m": 21,
+   "striped": false,
+   "note": "echelon row along the apron's NE edge, from the SE end of pavement to where the edge turns; unmarked"
+  }
+ ]
+}

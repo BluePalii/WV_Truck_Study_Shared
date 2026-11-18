@@ -1,0 +1,19 @@
+{
+ "site_id": "ta-hurricane", "study_id": "A06",
+ "master_name": "TA Hurricane #149 (Teays Valley)",
+ "image": "satellite-count/images/ta-hurricane.png",
+ "blind_count": {"occupied": 46, "low": 40, "high": 52, "note": "south lot ~41 (central stack ~13, two-deep block 6-8, SW echelon ~8 + 2, east stack ~6, singles ~4); NE corner 4; trucks queued in drive/fuel lanes excluded"},
+ "lots": [
+  {"lot_id": "all", "note": "main truck lot south/southwest of the store (fuel lanes and drive excluded)",
+   "polygon": [[488,522],[900,512],[965,555],[905,700],[895,812],[740,842],[400,842],[400,690],[470,640],[488,600]]},
+  {"lot_id": "all", "note": "NE corner truck pad",
+   "polygon": [[1005,168],[1100,168],[1100,315],[1005,315]]}
+ ],
+ "rows": [
+  {"id": "C", "p0": [606,704], "p1": [702,532], "side": 1, "angle_deg": 61, "depth_m": 21, "striped": false, "note": "central stack, cabs west, trailers east"},
+  {"id": "M", "p0": [563,718], "p1": [563,792], "side": -1, "angle_deg": 90, "depth_m": 27, "striped": false, "note": "block below the central stack (pull-through, partly two-deep)"},
+  {"id": "SW", "p0": [602,566], "p1": [497,722], "side": 1, "angle_deg": 36, "depth_m": 21, "striped": false, "note": "southwest echelon, cabs east"},
+  {"id": "E", "p0": [814,678], "p1": [774,764], "side": -1, "angle_deg": 86, "depth_m": 21, "striped": false, "note": "east stack, cabs NW"},
+  {"id": "NE", "p0": [1040,302], "p1": [1029,212], "side": 1, "angle_deg": 48, "depth_m": 21, "striped": false, "note": "NE corner pad, cabs SW"}
+ ]
+}

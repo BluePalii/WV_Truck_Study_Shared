@@ -1,0 +1,12 @@
+{
+ "site_id": "i64-wc-west", "study_id": "A18",
+ "master_name": "I-64 Welcome Center West",
+ "image": "satellite-count/images/i64-wc-west.png",
+ "blind_count": {"occupied": 1, "low": 1, "high": 1, "note": "one tractor-trailer on the truck apron"},
+ "lots": [{"lot_id": "all", "note": "unmarked truck apron between the median strip and the ramp",
+   "polygon": [[650,530],[700,470],[815,328],[848,345],[822,420],[792,500],[722,562],[660,562]]}],
+ "rows": [
+  {"id": "R1", "p0": [815,345], "p1": [665,520], "side": -1, "angle_deg": 34, "depth_m": 21, "striped": false,
+   "note": "angled parking along the SE side of the median strip (as the one truck present is parked)"}
+ ]
+}

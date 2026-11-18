@@ -1,0 +1,14 @@
+{
+ "site_id": "us19-exit57-pads", "study_id": "A24",
+ "master_name": "US-19 / I-79 Exit 57 gravel pads (candidate)",
+ "image": "satellite-count/images/us19-exit57-pads.png",
+ "blind_count": {"occupied": 1, "low": 0, "high": 1, "note": "one truck/equipment unit on the east pad"},
+ "spot_note": "Two open gravel pads, not a designated parking facility; area-based estimate only (potential capacity if formalized).",
+ "lots": [
+  {"lot_id": "all", "area_estimate": true, "note": "west gravel pad",
+   "polygon": [[95,40],[420,40],[450,150],[420,320],[380,350],[385,500],[330,575],[240,570],[120,480],[95,300]]},
+  {"lot_id": "all", "area_estimate": true, "note": "east gravel pad",
+   "polygon": [[660,200],[700,180],[760,300],[900,400],[1050,500],[1105,560],[1100,640],[860,690],[760,760],[610,780],[600,620],[650,560],[660,350]]}
+ ],
+ "rows": []
+}

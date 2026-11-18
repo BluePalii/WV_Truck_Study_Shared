@@ -1,0 +1,12 @@
+{
+ "site_id": "bluestone-travel-plaza", "study_id": "A16",
+ "master_name": "Bluestone Travel Plaza",
+ "image": "satellite-count/images/bluestone-travel-plaza.png",
+ "blind_count": {"occupied": 15, "low": 12, "high": 17, "note": "west diagonal row ~11, east row ~4; thin cloud haze over the lot"},
+ "lots": [{"lot_id": "all", "note": "truck lot east of the building (thin cloud haze in this image)",
+   "polygon": [[870,430],[1050,440],[1240,690],[1180,800],[1080,850],[1000,760],[880,560]]}],
+ "rows": [
+  {"id": "W", "p0": [905,450], "p1": [1120,758], "side": 1, "angle_deg": 58, "depth_m": 22, "striped": true, "note": "west angled row; baseline along the NE (cab) ends"},
+  {"id": "E", "p0": [1070,488], "p1": [1195,668], "side": 1, "angle_deg": 58, "depth_m": 22, "striped": true, "note": "east angled row; extent beyond the 4 visible trucks obscured by haze"}
+ ]
+}

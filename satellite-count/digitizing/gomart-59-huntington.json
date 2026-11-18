@@ -1,0 +1,12 @@
+{
+ "site_id": "gomart-59-huntington", "study_id": "A02",
+ "master_name": "Go-Mart #59 Huntington",
+ "image": "satellite-count/images/gomart-59-huntington.png",
+ "blind_count": {"occupied": 21, "low": 19, "high": 23, "note": "north row ~11, south row ~10; 3 trailers by the west building not counted (not a truck-parking area)"},
+ "lots": [{"lot_id": "all", "note": "two perpendicular truck rows east of the store",
+   "polygon": [[540,238],[732,232],[736,548],[540,548]]}],
+ "rows": [
+  {"id": "N", "p0": [548,335], "p1": [724,335], "side": -1, "angle_deg": 90, "depth_m": 23, "striped": false, "note": "perpendicular row, cabs face south"},
+  {"id": "S", "p0": [548,428], "p1": [726,428], "side": 1, "angle_deg": 90, "depth_m": 23, "striped": false, "note": "perpendicular row, cabs face north"}
+ ]
+}

@@ -1,0 +1,10 @@
+{
+ "site_id": "gomart-51-mount-nebo", "study_id": "A20",
+ "master_name": "Go-Mart #51 Mount Nebo",
+ "image": "satellite-count/images/gomart-51-mount-nebo.png",
+ "blind_count": {"occupied": 1, "low": 0, "high": 1, "note": "one red tractor (possibly bobtail) on the north gravel apron; vehicles south of the store are cars"},
+ "spot_note": "Unmarked open gravel apron north of the store with no rows to follow; area-based estimate only. The apron continues past the top edge of the image, so the estimate is a lower bound.",
+ "lots": [{"lot_id": "all", "area_estimate": true, "note": "open gravel apron north of the store (continues beyond image top)",
+   "polygon": [[548,255],[598,40],[650,2],[855,2],[862,55],[790,210],[705,328],[600,325]]}],
+ "rows": []
+}

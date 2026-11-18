@@ -1,0 +1,12 @@
+{
+ "site_id": "gomart-31-charleston", "study_id": "A08",
+ "master_name": "GoMart #31 Charleston (W.U.T.S.)",
+ "image": "satellite-count/images/gomart-31-charleston.png",
+ "blind_count": {"occupied": 17, "low": 15, "high": 19, "note": "central stacks ~4 + ~5 + 1, river-edge angled row ~4, south end ~3"},
+ "lots": [{"lot_id": "all", "note": "truck lot east of the store, to the river edge",
+   "polygon": [[595,340],[760,328],[814,350],[818,600],[792,662],[690,662],[595,642]]}],
+ "rows": [
+  {"id": "W", "p0": [603,362], "p1": [603,628], "side": -1, "angle_deg": 90, "depth_m": 22, "striped": false, "note": "central pull-through block, cabs west"},
+  {"id": "E", "p0": [806,578], "p1": [808,368], "side": -1, "angle_deg": 37, "depth_m": 21, "striped": false, "note": "angled row along the river edge, cabs SE"}
+ ]
+}

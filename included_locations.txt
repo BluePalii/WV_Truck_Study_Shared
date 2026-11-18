@@ -1,0 +1,26 @@
+A01	I-64 Welcome Center East	Welcome Center	8	I64	East
+A02	Go-Mart #59 Huntington	Private Truck Stop	15	I64	
+A03	Hurricane Rest Area West	Rest Area	35	I64	West
+A04	Hurricane Rest Area East	Rest Area	35	I64	East
+A05	Go-Mart #43 Teays Valley	Private Truck Stop	39	I64	
+A06	TA Hurricane #149 (Teays Valley)	Private Truck Stop	39	I64	
+A07	Pilot Travel Center #243 Nitro	Private Truck Stop	45	I64	
+A08	Go-Mart #31 Charleston	Private Truck Stop	95	I64/77	
+A09	Sheetz Marmet exit 89	Private Truck Stop	89	I64/77	
+A10	Exxon Marmet exit 89	Private Truck Stop	89	I64/77	
+A12	Burnwell Rest Area MM69	Rest Area	69	I64/77	South
+A13	Beckley Travel Plaza	Plaza	45	I64/77	
+A14	Go-Mart Truck Stop Beckley (Harper Rd)	Private Truck Stop	44	I64/77	
+A15	Camp Creek Wayside (mark 18)	Rest Area	18	I64/77	South
+A16	Bluestone Travel Plaza	Plaza		I64/77	North
+A17	Alta Truck Plaza/ Mobil	Gas station		I64	
+A18	I-64 Welcome Center West	Welcome Center		I64	West
+A19	U-Save Travel Plaza Mt Nebo	Plaza		US19	
+A20	Go-Mart #51 Mt Nebo	Private Truck Stop		US19	
+A21	Birch River Scenic Overlook	Overlook		US19	North
+A22	DTE Repair & Towing	Truck Parking Club		US19	
+A23	Brag Brake Check area Ex. 133	Brake check	133	I64	East
+A24	US-19/I-79	Not a Lot		US19	
+A39	Boy Scouts of America	Free Private Lot		US19	
+A41	Weigh station EB	Weigh Station		I64 	East
+A42	Weigh station WB	Weigh Station		I64	West

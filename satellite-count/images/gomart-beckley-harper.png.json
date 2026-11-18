@@ -1,0 +1,27 @@
+{
+  "center": [
+    37.7964,
+    -81.2186
+  ],
+  "bbox_3857": [
+    -9041415.740263132,
+    4550551.891342314,
+    -9041010.649622003,
+    4550855.614409704
+  ],
+  "size_px": [
+    1067,
+    800
+  ],
+  "gsd_m": 0.3,
+  "width_m": 320.09999999999997,
+  "height_m": 240.0,
+  "imagery": {
+    "capture_date": "2023-02-18",
+    "native_res_m": 0.5,
+    "accuracy_m": 8.47,
+    "sensor": "WV02",
+    "source": "Vantor / Vivid",
+    "release": "Raster Basemaps 2026.R02"
+  }
+}

@@ -1,0 +1,10 @@
+{
+ "site_id": "dte-oak-hill", "study_id": "A22",
+ "master_name": "DTE Repair & Towing lot Oak Hill (Truck Parking Club)",
+ "image": "satellite-count/images/dte-oak-hill.png",
+ "blind_count": {"occupied": 8, "low": 6, "high": 10, "note": "mixed repair-yard vehicles: box trailers, 1 tractor-trailer, car carrier, misc trucks"},
+ "spot_note": "Unmarked gravel repair/towing yard; area-based estimate only. Part of the yard holds repair stock, so usable overnight parking is lower than the area figure.",
+ "lots": [{"lot_id": "all", "area_estimate": true, "note": "gravel yard south of the office (buildings excluded)",
+   "polygon": [[450,330],[640,300],[660,400],[700,500],[760,650],[800,800],[560,800],[480,760],[470,620],[460,480]]}],
+ "rows": []
+}
